@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
 
-namespace Starbounder.Project
+namespace Starbounder.FileTypes
 {
 	class ModInfo
 	{

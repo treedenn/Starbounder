@@ -54,8 +54,13 @@ namespace Starbounder.Project
 
 		private static void FreshProject( string path )
 		{
-			Create.ICreate.Folder( path );
-			Project.ModInfo.Create( path, new ModInfo() );
+			// Create Folder
+			if ( !Directory.Exists( path ) )
+			{
+				Directory.CreateDirectory( path );
+			}
+
+			FileTypes.ModInfo.Create( path, new FileTypes.ModInfo() );
 		}
 
 		#region TreeView

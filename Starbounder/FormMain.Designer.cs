@@ -30,16 +30,17 @@
         {
 			this.components = new System.ComponentModel.Container();
 			this.treeViewFolder = new System.Windows.Forms.TreeView();
+			this.contextMenuStripTreeView = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.folderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStripMain = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.loadProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitterTreeView = new System.Windows.Forms.Splitter();
-			this.contextMenuStripTreeView = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.folderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.menuStripMain.SuspendLayout();
+			this.unpackStarboundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStripTreeView.SuspendLayout();
+			this.menuStripMain.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// treeViewFolder
@@ -52,6 +53,19 @@
 			this.treeViewFolder.Size = new System.Drawing.Size(200, 572);
 			this.treeViewFolder.TabIndex = 0;
 			this.treeViewFolder.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewFolder_NodeMouseDoubleClick);
+			// 
+			// contextMenuStripTreeView
+			// 
+			this.contextMenuStripTreeView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.folderToolStripMenuItem});
+			this.contextMenuStripTreeView.Name = "contextMenuStripTreeView";
+			this.contextMenuStripTreeView.Size = new System.Drawing.Size(108, 26);
+			// 
+			// folderToolStripMenuItem
+			// 
+			this.folderToolStripMenuItem.Name = "folderToolStripMenuItem";
+			this.folderToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+			this.folderToolStripMenuItem.Text = "Folder";
 			// 
 			// menuStripMain
 			// 
@@ -68,7 +82,8 @@
 			// 
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newProjectToolStripMenuItem,
-            this.loadProjectToolStripMenuItem});
+            this.loadProjectToolStripMenuItem,
+            this.unpackStarboundToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
 			this.fileToolStripMenuItem.Text = "File";
@@ -76,14 +91,14 @@
 			// newProjectToolStripMenuItem
 			// 
 			this.newProjectToolStripMenuItem.Name = "newProjectToolStripMenuItem";
-			this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
 			this.newProjectToolStripMenuItem.Text = "New Project";
 			this.newProjectToolStripMenuItem.Click += new System.EventHandler(this.newProjectToolStripMenuItem_Click);
 			// 
 			// loadProjectToolStripMenuItem
 			// 
 			this.loadProjectToolStripMenuItem.Name = "loadProjectToolStripMenuItem";
-			this.loadProjectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.loadProjectToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
 			this.loadProjectToolStripMenuItem.Text = "Load Project";
 			this.loadProjectToolStripMenuItem.Click += new System.EventHandler(this.loadProjectToolStripMenuItem_Click);
 			// 
@@ -101,18 +116,11 @@
 			this.splitterTreeView.TabIndex = 2;
 			this.splitterTreeView.TabStop = false;
 			// 
-			// contextMenuStripTreeView
+			// unpackStarboundToolStripMenuItem
 			// 
-			this.contextMenuStripTreeView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.folderToolStripMenuItem});
-			this.contextMenuStripTreeView.Name = "contextMenuStripTreeView";
-			this.contextMenuStripTreeView.Size = new System.Drawing.Size(108, 26);
-			// 
-			// folderToolStripMenuItem
-			// 
-			this.folderToolStripMenuItem.Name = "folderToolStripMenuItem";
-			this.folderToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-			this.folderToolStripMenuItem.Text = "Folder";
+			this.unpackStarboundToolStripMenuItem.Name = "unpackStarboundToolStripMenuItem";
+			this.unpackStarboundToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+			this.unpackStarboundToolStripMenuItem.Text = "Unpack Starbound";
 			// 
 			// FormMain
 			// 
@@ -126,9 +134,9 @@
 			this.Name = "FormMain";
 			this.Text = "FormMain";
 			this.Load += new System.EventHandler(this.FormMain_Load);
+			this.contextMenuStripTreeView.ResumeLayout(false);
 			this.menuStripMain.ResumeLayout(false);
 			this.menuStripMain.PerformLayout();
-			this.contextMenuStripTreeView.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -145,5 +153,6 @@
 		private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStripTreeView;
 		private System.Windows.Forms.ToolStripMenuItem folderToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem unpackStarboundToolStripMenuItem;
 	}
 }

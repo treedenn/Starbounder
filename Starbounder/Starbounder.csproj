@@ -50,7 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Create\ICreate.cs" />
+    <Compile Include="FileTypes\Armor.cs" />
+    <Compile Include="FileTypes\Armors\ArmorChest.cs" />
+    <Compile Include="FileTypes\Armors\ArmorHead.cs" />
+    <Compile Include="FileTypes\Armors\ArmorLegs.cs" />
+    <Compile Include="FileTypes\Enums\Rarity.cs" />
     <Compile Include="FormConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,7 +68,7 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Project\Dialogs.cs" />
-    <Compile Include="Project\ModInfo.cs" />
+    <Compile Include="FileTypes\ModInfo.cs" />
     <Compile Include="Project\IProject.cs" />
     <Compile Include="Functions\Steam.cs" />
     <Compile Include="Program.cs" />
