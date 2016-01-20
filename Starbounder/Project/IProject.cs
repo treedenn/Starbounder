@@ -11,7 +11,7 @@ namespace Starbounder.Project
 {
 	class IProject
 	{
-		public string pName { get; set; }
+		public static string pName { get; set; }
 		public static string pPath { get; set; }
 
 		public IProject()
@@ -19,32 +19,43 @@ namespace Starbounder.Project
 
 		}
 
+		public IProject(string path)
+		{
+			pPath = path;
+			pName = Path.GetFileName(path);
+		}
+
 		public static void CreateProject()
 		{
-			var project = new SaveFileDialog();
+			var folder = Project.Dialogs.SaveFileDialog("Create a new Starbound Project");
 
-			project.Title = "Create a new Starbound Project";
-			project.ShowDialog();
-
-			if (project.FileName != string.Empty)
+			if ( folder.FileName != string.Empty)
 			{
-				FreshProject( project.FileName );
+				FreshProject( folder.FileName );
 			}
 
 			//MessageBox.Show( project.InitialDirectory );
 		}
 
-		public static void LoadProject()
+		public static bool LoadProject()
 		{
+			var folder = Project.Dialogs.FolderBrowserDialog("Load Starbound Mod Folder");
 
+			if (folder.SelectedPath != string.Empty)
+			{
+				pPath = folder.SelectedPath;
+				pName = Path.GetFileName( folder.SelectedPath );
 
-			//ModInfo mi = new ModInfo().Load( @"C:\Users\Denni\Desktop\sbmod\sbmod.modinfo" );
+				return true;
+			}
+
+			return false;
 		}
 
-		private static void FreshProject(string path)
+		private static void FreshProject( string path )
 		{
-			Create.Create.Folder( path );
-			Project.ModInfo.Create(path, new ModInfo());
+			Create.ICreate.Folder( path );
+			Project.ModInfo.Create( path, new ModInfo() );
 		}
 
 		#region TreeView

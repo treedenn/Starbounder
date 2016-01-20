@@ -40,8 +40,23 @@ namespace Starbounder
 			this.Hide();
 			var mf = new FormMain();
 			Project.IProject.pPath = textBoxConfigWork.Text;
+			Project.IProject.pName = Path.GetFileName(textBoxConfigWork.Text);
 			mf.FormClosed += ( s, args ) => this.Close();
 			mf.Show();
+		}
+
+		private void buttonConfigBrowseSB_Click( object sender, EventArgs e )
+		{
+			var folder = Project.Dialogs.FolderBrowserDialog("Browse Starbound Folder");
+
+			textBoxConfigSB.Text = ( folder.SelectedPath != string.Empty ) ? folder.SelectedPath : textBoxConfigSB.Text;
+		}
+
+		private void buttonConfigBrowseWork_Click( object sender, EventArgs e )
+		{
+			var folder = Project.Dialogs.FolderBrowserDialog("Browse Starbound Working Folder");
+
+			textBoxConfigWork.Text = ( folder.SelectedPath != string.Empty ) ? folder.SelectedPath : textBoxConfigWork.Text;
 		}
 	}
 }

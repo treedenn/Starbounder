@@ -7,7 +7,7 @@ using System.IO;
 
 namespace Starbounder.Create
 {
-	class Create
+	class ICreate
 	{
 		public static void Folder(string path)
 		{

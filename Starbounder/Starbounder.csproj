@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Create\Create.cs" />
+    <Compile Include="Create\ICreate.cs" />
     <Compile Include="FormConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +63,7 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Project\Dialogs.cs" />
     <Compile Include="Project\ModInfo.cs" />
     <Compile Include="Project\IProject.cs" />
     <Compile Include="Functions\Steam.cs" />

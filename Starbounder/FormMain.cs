@@ -39,7 +39,14 @@ namespace Starbounder
 
 		private void loadProjectToolStripMenuItem_Click( object sender, EventArgs e )
 		{
-			Project.IProject.LoadProject();
+			if (Project.IProject.LoadProject())
+			{
+				var nodes = Project.IProject.TreeViewPopulate();
+
+				treeViewFolder.Nodes.Clear();
+				treeViewFolder.Nodes.AddRange( nodes );
+				treeViewFolder.ExpandAll();
+			}
 		}
 
 		

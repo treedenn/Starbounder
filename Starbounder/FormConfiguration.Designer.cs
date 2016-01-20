@@ -97,6 +97,7 @@
 			this.buttonConfigBrowseSB.TabIndex = 3;
 			this.buttonConfigBrowseSB.Text = "Browse";
 			this.buttonConfigBrowseSB.UseVisualStyleBackColor = true;
+			this.buttonConfigBrowseSB.Click += new System.EventHandler(this.buttonConfigBrowseSB_Click);
 			// 
 			// buttonConfigBrowseWork
 			// 
@@ -106,6 +107,7 @@
 			this.buttonConfigBrowseWork.TabIndex = 6;
 			this.buttonConfigBrowseWork.Text = "Browse";
 			this.buttonConfigBrowseWork.UseVisualStyleBackColor = true;
+			this.buttonConfigBrowseWork.Click += new System.EventHandler(this.buttonConfigBrowseWork_Click);
 			// 
 			// textBoxConfigWork
 			// 

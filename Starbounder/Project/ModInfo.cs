@@ -10,7 +10,7 @@ namespace Starbounder.Project
 {
 	class ModInfo
 	{
-		public string name { get; set; }
+		public string name { get; set; } = "Untitled";
 		public string version { get; set; } = "Starbound Version";
 		public string path { get; set; } = ".";
 		public List<object> dependencies { get; set; } = new List<object>();
