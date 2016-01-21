@@ -32,6 +32,10 @@
 			this.treeViewFolder = new System.Windows.Forms.TreeView();
 			this.contextMenuStripTreeView = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.folderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.armorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.headToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.chestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.legsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStripMain = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,10 +43,7 @@
 			this.unpackStarboundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitterTreeView = new System.Windows.Forms.Splitter();
-			this.armorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.headToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.chestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.legsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStripTreeView.SuspendLayout();
 			this.menuStripMain.SuspendLayout();
 			this.SuspendLayout();
@@ -64,13 +65,45 @@
             this.folderToolStripMenuItem,
             this.armorToolStripMenuItem});
 			this.contextMenuStripTreeView.Name = "contextMenuStripTreeView";
-			this.contextMenuStripTreeView.Size = new System.Drawing.Size(109, 48);
+			this.contextMenuStripTreeView.Size = new System.Drawing.Size(153, 70);
 			// 
 			// folderToolStripMenuItem
 			// 
 			this.folderToolStripMenuItem.Name = "folderToolStripMenuItem";
-			this.folderToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+			this.folderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.folderToolStripMenuItem.Text = "Folder";
+			// 
+			// armorToolStripMenuItem
+			// 
+			this.armorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.headToolStripMenuItem,
+            this.chestToolStripMenuItem,
+            this.legsToolStripMenuItem,
+            this.backToolStripMenuItem});
+			this.armorToolStripMenuItem.Name = "armorToolStripMenuItem";
+			this.armorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.armorToolStripMenuItem.Text = "Armor";
+			// 
+			// headToolStripMenuItem
+			// 
+			this.headToolStripMenuItem.Name = "headToolStripMenuItem";
+			this.headToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.headToolStripMenuItem.Text = "Head";
+			this.headToolStripMenuItem.Click += new System.EventHandler(this.headToolStripMenuItem_Click);
+			// 
+			// chestToolStripMenuItem
+			// 
+			this.chestToolStripMenuItem.Name = "chestToolStripMenuItem";
+			this.chestToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.chestToolStripMenuItem.Text = "Chest";
+			this.chestToolStripMenuItem.Click += new System.EventHandler(this.chestToolStripMenuItem_Click);
+			// 
+			// legsToolStripMenuItem
+			// 
+			this.legsToolStripMenuItem.Name = "legsToolStripMenuItem";
+			this.legsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.legsToolStripMenuItem.Text = "Legs";
+			this.legsToolStripMenuItem.Click += new System.EventHandler(this.legsToolStripMenuItem_Click);
 			// 
 			// menuStripMain
 			// 
@@ -127,33 +160,12 @@
 			this.splitterTreeView.TabIndex = 2;
 			this.splitterTreeView.TabStop = false;
 			// 
-			// armorToolStripMenuItem
+			// backToolStripMenuItem
 			// 
-			this.armorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.headToolStripMenuItem,
-            this.chestToolStripMenuItem,
-            this.legsToolStripMenuItem});
-			this.armorToolStripMenuItem.Name = "armorToolStripMenuItem";
-			this.armorToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
-			this.armorToolStripMenuItem.Text = "Armor";
-			// 
-			// headToolStripMenuItem
-			// 
-			this.headToolStripMenuItem.Name = "headToolStripMenuItem";
-			this.headToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.headToolStripMenuItem.Text = "Head";
-			// 
-			// chestToolStripMenuItem
-			// 
-			this.chestToolStripMenuItem.Name = "chestToolStripMenuItem";
-			this.chestToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.chestToolStripMenuItem.Text = "Chest";
-			// 
-			// legsToolStripMenuItem
-			// 
-			this.legsToolStripMenuItem.Name = "legsToolStripMenuItem";
-			this.legsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.legsToolStripMenuItem.Text = "Legs";
+			this.backToolStripMenuItem.Name = "backToolStripMenuItem";
+			this.backToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.backToolStripMenuItem.Text = "Back";
+			this.backToolStripMenuItem.Click += new System.EventHandler(this.backToolStripMenuItem_Click);
 			// 
 			// FormMain
 			// 
@@ -191,5 +203,6 @@
 		private System.Windows.Forms.ToolStripMenuItem headToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem chestToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem legsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
 	}
 }

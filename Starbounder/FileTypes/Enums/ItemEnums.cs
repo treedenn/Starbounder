@@ -16,5 +16,7 @@ namespace Starbounder.FileTypes.Enums
 			Legendary = 3
 		}
 
+
+
 	}
 }

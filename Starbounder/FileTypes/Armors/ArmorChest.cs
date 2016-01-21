@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Starbounder.FileTypes.Armors
 {
-	class ArmorChest
+	class ArmorChest : Armor
 	{
 		public string itemName { get; set; }                      = "Untitled Chest";
 		public int price { get; set; }                            = 0;
-		public string inventoryIcon { get; set; }                 = "untitle.png";
+		public string inventoryIcon { get; set; }                 = "untitled.png";
 		public int maxStack { get; set; }                         = 1;
 		public string rarity { get; set; }                        = FileTypes.Enums.ItemEnums.Rarity.Common.ToString("f").ToLower();
 		public string description { get; set; }                   = "A piece of equipment to protect your chest.";
