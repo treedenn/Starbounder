@@ -23,8 +23,6 @@ namespace Starbounder
 
 			treeViewFolder.Nodes.AddRange(nodes);
 			treeViewFolder.ExpandAll();
-
-			
 		}
 
 		private void treeViewFolder_NodeMouseDoubleClick( object sender, TreeNodeMouseClickEventArgs e )

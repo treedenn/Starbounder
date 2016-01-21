@@ -50,11 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileTypes\Armor.cs" />
+    <Compile Include="FileTypes\Armors\ArmorBack.cs" />
     <Compile Include="FileTypes\Armors\ArmorChest.cs" />
     <Compile Include="FileTypes\Armors\ArmorHead.cs" />
     <Compile Include="FileTypes\Armors\ArmorLegs.cs" />
-    <Compile Include="FileTypes\Enums\Rarity.cs" />
+    <Compile Include="FileTypes\Enums\ItemEnums.cs" />
     <Compile Include="FormConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>

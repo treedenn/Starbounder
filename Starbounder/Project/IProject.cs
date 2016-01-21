@@ -74,16 +74,19 @@ namespace Starbounder.Project
 
 			List<TreeNode> nodes = new List<TreeNode>();
 
-			foreach ( var folder in info.GetDirectories() )
+			if ( info.Exists )
 			{
-				nodes.Add( CreateDirectoryNodes( folder ) );
-			}
+				foreach ( var folder in info.GetDirectories() )
+				{
+					nodes.Add( CreateDirectoryNodes( folder ) );
+				}
 
-			foreach ( var file in info.GetFiles() )
-			{
-				TreeNode newNode = new TreeNode(file.Name);
-				newNode.Tag = file.FullName;
-				nodes.Add( newNode );
+				foreach ( var file in info.GetFiles() )
+				{
+					TreeNode newNode = new TreeNode(file.Name);
+					newNode.Tag = file.FullName;
+					nodes.Add( newNode );
+				}
 			}
 
 			return nodes.ToArray();

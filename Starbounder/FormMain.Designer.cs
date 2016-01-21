@@ -36,9 +36,13 @@
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.loadProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.unpackStarboundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitterTreeView = new System.Windows.Forms.Splitter();
-			this.unpackStarboundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.armorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.headToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.chestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.legsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStripTreeView.SuspendLayout();
 			this.menuStripMain.SuspendLayout();
 			this.SuspendLayout();
@@ -57,14 +61,15 @@
 			// contextMenuStripTreeView
 			// 
 			this.contextMenuStripTreeView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.folderToolStripMenuItem});
+            this.folderToolStripMenuItem,
+            this.armorToolStripMenuItem});
 			this.contextMenuStripTreeView.Name = "contextMenuStripTreeView";
-			this.contextMenuStripTreeView.Size = new System.Drawing.Size(108, 26);
+			this.contextMenuStripTreeView.Size = new System.Drawing.Size(109, 48);
 			// 
 			// folderToolStripMenuItem
 			// 
 			this.folderToolStripMenuItem.Name = "folderToolStripMenuItem";
-			this.folderToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+			this.folderToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
 			this.folderToolStripMenuItem.Text = "Folder";
 			// 
 			// menuStripMain
@@ -102,6 +107,12 @@
 			this.loadProjectToolStripMenuItem.Text = "Load Project";
 			this.loadProjectToolStripMenuItem.Click += new System.EventHandler(this.loadProjectToolStripMenuItem_Click);
 			// 
+			// unpackStarboundToolStripMenuItem
+			// 
+			this.unpackStarboundToolStripMenuItem.Name = "unpackStarboundToolStripMenuItem";
+			this.unpackStarboundToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+			this.unpackStarboundToolStripMenuItem.Text = "Unpack Starbound";
+			// 
 			// settingsToolStripMenuItem
 			// 
 			this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
@@ -116,11 +127,33 @@
 			this.splitterTreeView.TabIndex = 2;
 			this.splitterTreeView.TabStop = false;
 			// 
-			// unpackStarboundToolStripMenuItem
+			// armorToolStripMenuItem
 			// 
-			this.unpackStarboundToolStripMenuItem.Name = "unpackStarboundToolStripMenuItem";
-			this.unpackStarboundToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-			this.unpackStarboundToolStripMenuItem.Text = "Unpack Starbound";
+			this.armorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.headToolStripMenuItem,
+            this.chestToolStripMenuItem,
+            this.legsToolStripMenuItem});
+			this.armorToolStripMenuItem.Name = "armorToolStripMenuItem";
+			this.armorToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+			this.armorToolStripMenuItem.Text = "Armor";
+			// 
+			// headToolStripMenuItem
+			// 
+			this.headToolStripMenuItem.Name = "headToolStripMenuItem";
+			this.headToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.headToolStripMenuItem.Text = "Head";
+			// 
+			// chestToolStripMenuItem
+			// 
+			this.chestToolStripMenuItem.Name = "chestToolStripMenuItem";
+			this.chestToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.chestToolStripMenuItem.Text = "Chest";
+			// 
+			// legsToolStripMenuItem
+			// 
+			this.legsToolStripMenuItem.Name = "legsToolStripMenuItem";
+			this.legsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.legsToolStripMenuItem.Text = "Legs";
 			// 
 			// FormMain
 			// 
@@ -154,5 +187,9 @@
 		private System.Windows.Forms.ContextMenuStrip contextMenuStripTreeView;
 		private System.Windows.Forms.ToolStripMenuItem folderToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem unpackStarboundToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem armorToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem headToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem chestToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem legsToolStripMenuItem;
 	}
 }
