@@ -58,5 +58,10 @@ namespace Starbounder
 
 			textBoxConfigWork.Text = ( folder.SelectedPath != string.Empty ) ? folder.SelectedPath : textBoxConfigWork.Text;
 		}
+
+		private void buttonConfigExpand_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

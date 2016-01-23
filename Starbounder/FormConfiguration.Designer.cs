@@ -39,6 +39,7 @@
 			this.textBoxConfigWork = new System.Windows.Forms.TextBox();
 			this.labelConfigWork = new System.Windows.Forms.Label();
 			this.buttonConfigContinue = new System.Windows.Forms.Button();
+			this.buttonConfigExpand = new System.Windows.Forms.Button();
 			this.panelSystem.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -62,7 +63,7 @@
 			// 
 			this.panelSystem.Controls.Add(this.radioButtonConfigWin32);
 			this.panelSystem.Controls.Add(this.radioButtonConfigWin64);
-			this.panelSystem.Location = new System.Drawing.Point(15, 90);
+			this.panelSystem.Location = new System.Drawing.Point(209, 96);
 			this.panelSystem.Name = "panelSystem";
 			this.panelSystem.Size = new System.Drawing.Size(182, 23);
 			this.panelSystem.TabIndex = 2;
@@ -128,7 +129,7 @@
 			// 
 			// buttonConfigContinue
 			// 
-			this.buttonConfigContinue.Location = new System.Drawing.Point(397, 90);
+			this.buttonConfigContinue.Location = new System.Drawing.Point(397, 96);
 			this.buttonConfigContinue.Name = "buttonConfigContinue";
 			this.buttonConfigContinue.Size = new System.Drawing.Size(75, 23);
 			this.buttonConfigContinue.TabIndex = 7;
@@ -136,11 +137,22 @@
 			this.buttonConfigContinue.UseVisualStyleBackColor = true;
 			this.buttonConfigContinue.Click += new System.EventHandler(this.buttonConfigContinue_Click);
 			// 
+			// buttonConfigExpand
+			// 
+			this.buttonConfigExpand.Location = new System.Drawing.Point(15, 96);
+			this.buttonConfigExpand.Name = "buttonConfigExpand";
+			this.buttonConfigExpand.Size = new System.Drawing.Size(23, 23);
+			this.buttonConfigExpand.TabIndex = 8;
+			this.buttonConfigExpand.Text = "▼";
+			this.buttonConfigExpand.UseVisualStyleBackColor = true;
+			this.buttonConfigExpand.Click += new System.EventHandler(this.buttonConfigExpand_Click);
+			// 
 			// FormConfiguration
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(484, 124);
+			this.ClientSize = new System.Drawing.Size(484, 131);
+			this.Controls.Add(this.buttonConfigExpand);
 			this.Controls.Add(this.buttonConfigContinue);
 			this.Controls.Add(this.buttonConfigBrowseWork);
 			this.Controls.Add(this.textBoxConfigWork);
@@ -175,6 +187,7 @@
         private System.Windows.Forms.TextBox textBoxConfigWork;
         private System.Windows.Forms.Label labelConfigWork;
 		private System.Windows.Forms.Button buttonConfigContinue;
+		private System.Windows.Forms.Button buttonConfigExpand;
 	}
 }
 

@@ -14,11 +14,6 @@ namespace Starbounder.Project
 		public static string pName { get; set; }
 		public static string pPath { get; set; }
 
-		public IProject()
-		{
-
-		}
-
 		public IProject(string path)
 		{
 			pPath = path;
@@ -29,9 +24,9 @@ namespace Starbounder.Project
 		{
 			var folder = Project.Dialogs.SaveFileDialog("Create a new Starbound Project");
 
-			if ( folder.FileName != string.Empty)
+			if (folder.FileName != string.Empty)
 			{
-				FreshProject( folder.FileName );
+				FreshProject(folder.FileName);
 			}
 
 			//MessageBox.Show( project.InitialDirectory );
@@ -44,7 +39,7 @@ namespace Starbounder.Project
 			if (folder.SelectedPath != string.Empty)
 			{
 				pPath = folder.SelectedPath;
-				pName = Path.GetFileName( folder.SelectedPath );
+				pName = Path.GetFileName(folder.SelectedPath);
 
 				return true;
 			}
@@ -52,15 +47,15 @@ namespace Starbounder.Project
 			return false;
 		}
 
-		private static void FreshProject( string path )
+		private static void FreshProject(string path)
 		{
 			// Create Folder
-			if ( !Directory.Exists( path ) )
+			if (!Directory.Exists(path))
 			{
-				Directory.CreateDirectory( path );
+				Directory.CreateDirectory(path);
 			}
 
-			FileTypes.ModInfo.Create( path, new FileTypes.ModInfo() );
+			Project.ModInfo.Create(path, new Project.ModInfo());
 		}
 
 		#region TreeView
@@ -74,18 +69,18 @@ namespace Starbounder.Project
 
 			List<TreeNode> nodes = new List<TreeNode>();
 
-			if ( info.Exists )
+			if (info.Exists)
 			{
-				foreach ( var folder in info.GetDirectories() )
+				foreach (var folder in info.GetDirectories())
 				{
-					nodes.Add( CreateDirectoryNodes( folder ) );
+					nodes.Add(CreateDirectoryNodes(folder));
 				}
 
-				foreach ( var file in info.GetFiles() )
+				foreach (var file in info.GetFiles())
 				{
 					TreeNode newNode = new TreeNode(file.Name);
 					newNode.Tag = file.FullName;
-					nodes.Add( newNode );
+					nodes.Add(newNode);
 				}
 			}
 
@@ -97,22 +92,22 @@ namespace Starbounder.Project
 		/// </summary>
 		/// <param name="info"></param>
 		/// <returns></returns>
-		private static TreeNode CreateDirectoryNodes( DirectoryInfo info )
+		private static TreeNode CreateDirectoryNodes(DirectoryInfo info)
 		{
 			TreeNode directoryNode = new TreeNode(info.Name);
 			directoryNode.Tag = info.FullName;
 
-			foreach ( var folder in info.GetDirectories() )
+			foreach (var folder in info.GetDirectories())
 			{
 				directoryNode.Tag = folder.FullName;
-				directoryNode.Nodes.Add( CreateDirectoryNodes( folder ) );
+				directoryNode.Nodes.Add(CreateDirectoryNodes(folder));
 			}
 
-			foreach ( var file in info.GetFiles() )
+			foreach (var file in info.GetFiles())
 			{
 				TreeNode newNode = new TreeNode(file.Name);
 				newNode.Tag = file.FullName;
-				directoryNode.Nodes.Add( newNode );
+				directoryNode.Nodes.Add(newNode);
 			}
 
 			return directoryNode;

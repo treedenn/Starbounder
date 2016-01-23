@@ -50,12 +50,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileTypes\Armor.cs" />
     <Compile Include="FileTypes\Armors\ArmorBack.cs" />
     <Compile Include="FileTypes\Armors\ArmorChest.cs" />
     <Compile Include="FileTypes\Armors\ArmorHelm.cs" />
     <Compile Include="FileTypes\Armors\ArmorLegs.cs" />
+    <Compile Include="FileTypes\Enums\FileTypeEnums.cs" />
     <Compile Include="FileTypes\Enums\ItemEnums.cs" />
+    <Compile Include="FileTypes\FileTypes.cs" />
+    <Compile Include="FileTypes\Items\ItemItem.cs" />
+    <Compile Include="FileTypes\Items\ItemLiquid.cs" />
+    <Compile Include="FileTypes\Items\ItemMaterial.cs" />
+    <Compile Include="FileTypes\Others\Consumable.cs" />
+    <Compile Include="FileTypes\Tools\ToolHarvesting.cs" />
+    <Compile Include="FileTypes\Tools\ToolMining.cs" />
+    <Compile Include="FileTypes\Tools\ToolBeamaxe.cs" />
+    <Compile Include="FileTypes\Weapons\WeaponGun.cs" />
+    <Compile Include="FileTypes\Weapons\WeaponStaff.cs" />
+    <Compile Include="FileTypes\Weapons\WeaponSword.cs" />
+    <Compile Include="FileTypes\Weapons\WeaponThrown.cs" />
     <Compile Include="FormConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,8 +80,9 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Json\JsonWriter.cs" />
     <Compile Include="Project\Dialogs.cs" />
-    <Compile Include="FileTypes\ModInfo.cs" />
+    <Compile Include="Project\ModInfo.cs" />
     <Compile Include="Project\IProject.cs" />
     <Compile Include="Functions\Steam.cs" />
     <Compile Include="Program.cs" />
