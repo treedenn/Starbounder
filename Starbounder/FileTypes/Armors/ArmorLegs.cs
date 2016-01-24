@@ -29,7 +29,7 @@ namespace Starbounder.FileTypes.Armors
 			public int? amount { get; set; }
 		}
 
-		public ArmorLegs setDefault()
+		public ArmorLegs SetDefault()
 		{
 			this.itemName                = "Untitled Leggings";
 			this.price                   = 0;

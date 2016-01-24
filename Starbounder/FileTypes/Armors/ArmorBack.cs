@@ -20,7 +20,7 @@ namespace Starbounder.FileTypes.Armors
 		public string femaleFrames { get; set; }
 		public List<object> colorOptions { get; set; }
 
-		public ArmorBack setDefault()
+		public ArmorBack SetDefault()
 		{
 			this.itemName         = "Untitled Chest";
 			this.price            = 0;

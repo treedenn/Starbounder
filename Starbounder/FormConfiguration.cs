@@ -22,19 +22,7 @@ namespace Starbounder
 
 		private void FormConfiguration_Load(object sender, EventArgs e)
 		{
-			string steamLocation = Functions.Steam.GetSteamFolder();
-
-			textBoxConfigSB.Text = Functions.Steam.GetStarboundFolder(steamLocation);
-
-			if (textBoxConfigSB.Text == string.Empty)
-			{
-				string[] locations = Functions.Steam.GetSteamLocations();
-
-				foreach (string location in locations)
-				{
-					textBoxConfigSB.Text = Functions.Steam.GetStarboundFolder(location);
-				}
-			}
+			Functions.Steam.SearchForStarboundFolder(textBoxConfigSB);
 		}
 
 		private void buttonConfigContinue_Click(object sender, EventArgs e)

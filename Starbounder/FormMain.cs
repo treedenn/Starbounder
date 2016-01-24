@@ -87,6 +87,15 @@ namespace Starbounder
 			var cmd = Functions.Processes.UnpackStarbound(true);
 			if (cmd) MessageBox.Show("Unpacking Assets might be complete.\nIf the process took less than a second, an error occured.", "Unpacking Assets", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
+		// Settings
+		private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			var mf = new FormConfiguration();
+
+			mf.FormClosed += (s, args) => this.Close();
+			mf.Show();
+		}
 		// Refresh
 		private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -99,83 +108,84 @@ namespace Starbounder
 		#region Item
 		private void itemToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.Create(GetNodePath(), new FileTypes.Items.ItemItem(), ".item");
+			FileTypes.FileTypes.CreateEverything(GetNodePath(), new FileTypes.Items.ItemItem(), ".item", 16, 16);
 			RefreshTreeView();
 		}
 		private void materialItemToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.Create(GetNodePath(), new FileTypes.Items.ItemMaterial(), ".matitem");
+			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Items.ItemMaterial(), ".matitem");
 			RefreshTreeView();
 		}
 		private void liquidItemToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.Create(GetNodePath(), new FileTypes.Items.ItemMaterial(), ".liqitem");
+			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Items.ItemMaterial(), ".liqitem");
 			RefreshTreeView();
 		}
 		#endregion
 		#region Weapon
 		private void swordToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.Create(GetNodePath(), new FileTypes.Weapons.WeaponSword(), ".sword");
+			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Weapons.WeaponSword(), ".sword");
 			RefreshTreeView();
 		}
 
 		private void staffToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.Create(GetNodePath(), new FileTypes.Weapons.WeaponStaff(), ".staff");
+			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Weapons.WeaponStaff(), ".staff");
 			RefreshTreeView();
 		}
 
 		private void gunToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.Create(GetNodePath(), new FileTypes.Weapons.WeaponGun(), ".gun");
+			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Weapons.WeaponGun(), ".gun");
 			RefreshTreeView();
 		}
 
 		private void thrownToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.Create(GetNodePath(), new FileTypes.Weapons.WeaponThrown(), ".thrown");
+			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Weapons.WeaponThrown(), ".thrown");
 			RefreshTreeView();
 		}
 		#endregion
 		#region Tool
 		private void miningToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.Create(GetNodePath(), new FileTypes.Tools.ToolMining(), ".miningtool");
+			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Tools.ToolMining(), ".miningtool");
 			RefreshTreeView();
 		}
 		private void beamaxeToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.Create(GetNodePath(), new FileTypes.Tools.ToolBeamaxe(), ".beamaxe");
+			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Tools.ToolBeamaxe(), ".beamaxe");
 			RefreshTreeView();
 		}
 		private void harvestingToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.Create(GetNodePath(), new FileTypes.Tools.ToolMining(), ".harvestingtool");
+			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Tools.ToolMining(), ".harvestingtool");
 			RefreshTreeView();
 		}
 		#endregion
 		#region Armor
 		private void headToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.Create(GetNodePath(), new FileTypes.Armors.ArmorHead(), ".head");
+			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Armors.ArmorHead(), ".head");
 			RefreshTreeView();
 		}
 		private void chestToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.Create(GetNodePath(), new FileTypes.Armors.ArmorChest(), ".chest");
+			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Armors.ArmorChest(), ".chest");
 			RefreshTreeView();
 		}
 		private void legsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.Create(GetNodePath(), new FileTypes.Armors.ArmorLegs(), ".legs");
+			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Armors.ArmorLegs(), ".legs");
 			RefreshTreeView();
 		}
 		private void backToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.Create(GetNodePath(), new FileTypes.Armors.ArmorBack(), ".back");
+			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Armors.ArmorBack(), ".back");
 			RefreshTreeView();
 		}
+
 
 
 

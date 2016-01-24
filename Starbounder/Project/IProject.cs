@@ -69,22 +69,25 @@ namespace Starbounder.Project
 		/// <returns></returns>
 		public static TreeNode[] TreeViewPopulate()
 		{
-			DirectoryInfo info = new DirectoryInfo(path);
-
 			List<TreeNode> nodes = new List<TreeNode>();
 
-			if (info.Exists)
+			if (Directory.Exists(path))
 			{
-				foreach (var folder in info.GetDirectories())
-				{
-					nodes.Add(CreateDirectoryNodes(folder));
-				}
+				DirectoryInfo info = new DirectoryInfo(path);
 
-				foreach (var file in info.GetFiles())
+				if (info.Exists)
 				{
-					TreeNode newNode = new TreeNode(file.Name);
-					newNode.Tag = file.FullName;
-					nodes.Add(newNode);
+					foreach (var folder in info.GetDirectories())
+					{
+						nodes.Add(CreateDirectoryNodes(folder));
+					}
+
+					foreach (var file in info.GetFiles())
+					{
+						TreeNode newNode = new TreeNode(file.Name);
+						newNode.Tag = file.FullName;
+						nodes.Add(newNode);
+					}
 				}
 			}
 

@@ -10,6 +10,25 @@ namespace Starbounder.Functions
 {
     class Steam
     {
+		/// <summary>
+		/// Searches for Starbound Folder.
+		/// </summary>
+		public static void SearchForStarboundFolder(System.Windows.Forms.TextBox tbOutput)
+		{
+			string steamLocation = Functions.Steam.GetSteamFolder();
+
+			tbOutput.Text = Functions.Steam.GetStarboundFolder(steamLocation);
+
+			if (tbOutput.Text == string.Empty)
+			{
+				string[] locations = Functions.Steam.GetSteamLocations();
+
+				foreach (string location in locations)
+				{
+					tbOutput.Text = Functions.Steam.GetStarboundFolder(location);
+				}
+			}
+		}
 
 		/// <summary>
 		/// Gets the steam path, if steam is installed & has registry.

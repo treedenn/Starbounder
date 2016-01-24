@@ -54,9 +54,8 @@
     <Compile Include="FileTypes\Armors\ArmorChest.cs" />
     <Compile Include="FileTypes\Armors\ArmorHelm.cs" />
     <Compile Include="FileTypes\Armors\ArmorLegs.cs" />
-    <Compile Include="FileTypes\Enums\FileTypeEnums.cs" />
-    <Compile Include="FileTypes\Enums\ItemEnums.cs" />
     <Compile Include="FileTypes\FileTypes.cs" />
+    <Compile Include="FileTypes\Frames.cs" />
     <Compile Include="FileTypes\Items\ItemItem.cs" />
     <Compile Include="FileTypes\Items\ItemLiquid.cs" />
     <Compile Include="FileTypes\Items\ItemMaterial.cs" />

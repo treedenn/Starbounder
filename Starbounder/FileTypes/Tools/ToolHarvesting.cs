@@ -27,5 +27,12 @@ namespace Starbounder.FileTypes.Tools
 		public bool twoHanded { get; set; }
 		public string idleSound { get; set; }
 		public List<string> strikeSounds { get; set; }
+
+		public ToolHarvesting SetDefault()
+		{
+
+
+			return this;
+		}
 	}
 }

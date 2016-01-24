@@ -17,5 +17,20 @@ namespace Starbounder.FileTypes.Items
 		public string glitchdescription { get; set; }
 		public string florandescription { get; set; }
 		public int materialId { get; set; }
+
+		public ItemMaterial SetDefault()
+		{
+			this.itemName          = "Unique Name";
+			this.price             = 0;
+			this.rarity            = "common";
+			this.inventoryIcon     = "inventoryIcon.png";
+			this.description       = "Description of the item";
+			this.shortdescription  = "Name of the item";
+			this.glitchdescription = "Explains itself.";
+			this.florandescription = "Explains itself.";
+			this.materialId        = 0;
+
+			return this;
+		}
 	}
 }

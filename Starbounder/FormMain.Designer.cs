@@ -49,7 +49,6 @@
 			this.chestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.legsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.consumableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStripMain = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,6 +60,9 @@
 			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitterTreeView = new System.Windows.Forms.Splitter();
+			this.otherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.consumableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.liquidToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStripTreeView.SuspendLayout();
 			this.menuStripMain.SuspendLayout();
 			this.SuspendLayout();
@@ -71,7 +73,7 @@
 			this.treeViewFolder.Dock = System.Windows.Forms.DockStyle.Left;
 			this.treeViewFolder.Location = new System.Drawing.Point(0, 24);
 			this.treeViewFolder.Name = "treeViewFolder";
-			this.treeViewFolder.Size = new System.Drawing.Size(200, 572);
+			this.treeViewFolder.Size = new System.Drawing.Size(211, 437);
 			this.treeViewFolder.TabIndex = 0;
 			this.treeViewFolder.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewFolder_NodeMouseClick);
 			this.treeViewFolder.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewFolder_NodeMouseDoubleClick);
@@ -83,10 +85,10 @@
             this.weaponsToolStripMenuItem,
             this.toolsToolStripMenuItem,
             this.armorsToolStripMenuItem,
-            this.consumableToolStripMenuItem});
+            this.otherToolStripMenuItem});
 			this.contextMenuStripTreeView.Name = "contextMenuStripTreeView";
 			this.contextMenuStripTreeView.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-			this.contextMenuStripTreeView.Size = new System.Drawing.Size(142, 114);
+			this.contextMenuStripTreeView.Size = new System.Drawing.Size(153, 136);
 			// 
 			// itemsToolStripMenuItem
 			// 
@@ -228,12 +230,6 @@
 			this.backToolStripMenuItem.Text = "Back";
 			this.backToolStripMenuItem.Click += new System.EventHandler(this.backToolStripMenuItem_Click);
 			// 
-			// consumableToolStripMenuItem
-			// 
-			this.consumableToolStripMenuItem.Name = "consumableToolStripMenuItem";
-			this.consumableToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-			this.consumableToolStripMenuItem.Text = "Consumable";
-			// 
 			// menuStripMain
 			// 
 			this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -242,7 +238,7 @@
             this.refreshToolStripMenuItem});
 			this.menuStripMain.Location = new System.Drawing.Point(0, 0);
 			this.menuStripMain.Name = "menuStripMain";
-			this.menuStripMain.Size = new System.Drawing.Size(974, 24);
+			this.menuStripMain.Size = new System.Drawing.Size(684, 24);
 			this.menuStripMain.TabIndex = 1;
 			this.menuStripMain.Text = "menuStrip1";
 			// 
@@ -306,6 +302,7 @@
 			this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
 			this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
 			this.settingsToolStripMenuItem.Text = "Settings";
+			this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
 			// 
 			// refreshToolStripMenuItem
 			// 
@@ -316,17 +313,38 @@
 			// 
 			// splitterTreeView
 			// 
-			this.splitterTreeView.Location = new System.Drawing.Point(200, 24);
+			this.splitterTreeView.Location = new System.Drawing.Point(211, 24);
 			this.splitterTreeView.Name = "splitterTreeView";
-			this.splitterTreeView.Size = new System.Drawing.Size(3, 572);
+			this.splitterTreeView.Size = new System.Drawing.Size(3, 437);
 			this.splitterTreeView.TabIndex = 2;
 			this.splitterTreeView.TabStop = false;
+			// 
+			// otherToolStripMenuItem
+			// 
+			this.otherToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.consumableToolStripMenuItem,
+            this.liquidToolStripMenuItem});
+			this.otherToolStripMenuItem.Name = "otherToolStripMenuItem";
+			this.otherToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.otherToolStripMenuItem.Text = "Other";
+			// 
+			// consumableToolStripMenuItem
+			// 
+			this.consumableToolStripMenuItem.Name = "consumableToolStripMenuItem";
+			this.consumableToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.consumableToolStripMenuItem.Text = "Consumable";
+			// 
+			// liquidToolStripMenuItem
+			// 
+			this.liquidToolStripMenuItem.Name = "liquidToolStripMenuItem";
+			this.liquidToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.liquidToolStripMenuItem.Text = "Liquid";
 			// 
 			// FormMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(974, 596);
+			this.ClientSize = new System.Drawing.Size(684, 461);
 			this.Controls.Add(this.splitterTreeView);
 			this.Controls.Add(this.treeViewFolder);
 			this.Controls.Add(this.menuStripMain);
@@ -371,11 +389,13 @@
 		private System.Windows.Forms.ToolStripMenuItem miningToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem beamaxeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem harvestingToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem consumableToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem staffToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem starboundToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem playToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem fileExplorerToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem unpackAssetsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem otherToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem consumableToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem liquidToolStripMenuItem;
 	}
 }

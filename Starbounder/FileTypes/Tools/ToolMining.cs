@@ -36,5 +36,39 @@ namespace Starbounder.FileTypes.Tools
 		public double tileDamage { get; set; }
 		public int harvestLevel { get; set; }
 		public double tileDamageBlunted { get; set; }
+
+		public ToolMining SetDefault()
+		{
+			this.itemName          = "Unique Name";
+			this.price             = 0;
+			this.inventoryIcon     = "inventoryIcon.png";
+			this.maxStack          = 0;
+			this.rarity            = "common";
+			this.tooltipKind       = "tool";
+			this.description       = "Description of the tool.";
+			this.shortdescription  = "Name of the tool";
+			this.largeImage        = "largeimage.png";
+			this.image             = "image.png";
+			this.frames            = 0;
+			this.animationCycle    = 1;
+			this.handPosition      = new List<int>() { -3, -4 };
+			this.pointable         = true;
+			this.swingStart        = -40;
+			this.swingFinish       = 60;
+			this.fireTime          = 0.5;
+			this.blockRadius       = 3;
+			this.altBlockRadius    = 1;
+			this.twoHanded         = false;
+			this.idleSound         = "";
+			this.strikeSounds      = new List<string>() { "/sfx/tools/pickaxe_hit.ogg" };
+			this.breakSound        = "/sfx/tools/pickaxe_break.ogg";
+			this.durability        = 1000;
+			this.durabilityPerUse  = 1;
+			this.tileDamage        = 1;
+			this.harvestLevel      = 3;
+			this.tileDamageBlunted = 5.0;
+
+			return this;
+		}
 	}
 }

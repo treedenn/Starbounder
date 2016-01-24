@@ -30,7 +30,7 @@ namespace Starbounder.FileTypes.Armors
 			public int? amount { get; set; }
 		}
 
-		public ArmorHead setDefault()
+		public ArmorHead SetDefault()
 		{
 			this.itemName                = "Untitled Helmet";
 			this.price                   = 0;

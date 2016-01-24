@@ -43,7 +43,7 @@ namespace Starbounder.FileTypes.Armors
 			public int? amount { get; set; }
 		}
 
-		public ArmorChest setDefault()
+		public ArmorChest SetDefault()
 		{
 			this.itemName                = "Untitled Chest";
 			this.price                   = 0;
