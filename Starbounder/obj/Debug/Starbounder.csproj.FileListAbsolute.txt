@@ -1,18 +1,4 @@
-C:\Users\Dennis\Documents\Visual Studio 2015\Projects\Starbounder\Starbounder\bin\Debug\Starbounder.exe.config
-C:\Users\Dennis\Documents\Visual Studio 2015\Projects\Starbounder\Starbounder\bin\Debug\Starbounder.exe
-C:\Users\Dennis\Documents\Visual Studio 2015\Projects\Starbounder\Starbounder\bin\Debug\Starbounder.pdb
-C:\Users\Dennis\Documents\Visual Studio 2015\Projects\Starbounder\Starbounder\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Dennis\Documents\Visual Studio 2015\Projects\Starbounder\Starbounder\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Dennis\Documents\Visual Studio 2015\Projects\Starbounder\Starbounder\obj\Debug\Starbounder.csprojResolveAssemblyReference.cache
-C:\Users\Dennis\Documents\Visual Studio 2015\Projects\Starbounder\Starbounder\obj\Debug\Starbounder.FormConfiguration.resources
-C:\Users\Dennis\Documents\Visual Studio 2015\Projects\Starbounder\Starbounder\obj\Debug\Starbounder.FormMain.resources
-C:\Users\Dennis\Documents\Visual Studio 2015\Projects\Starbounder\Starbounder\obj\Debug\Starbounder.Properties.Resources.resources
-C:\Users\Dennis\Documents\Visual Studio 2015\Projects\Starbounder\Starbounder\obj\Debug\Starbounder.csproj.GenerateResource.Cache
-C:\Users\Dennis\Documents\Visual Studio 2015\Projects\Starbounder\Starbounder\obj\Debug\Starbounder.exe
-C:\Users\Dennis\Documents\Visual Studio 2015\Projects\Starbounder\Starbounder\obj\Debug\Starbounder.pdb
 C:\Users\Denni\documents\visual studio 2015\Projects\Starbounder\Starbounder\bin\Debug\Starbounder.exe.config
-C:\Users\Denni\documents\visual studio 2015\Projects\Starbounder\Starbounder\obj\Debug\Starbounder.exe
-C:\Users\Denni\documents\visual studio 2015\Projects\Starbounder\Starbounder\obj\Debug\Starbounder.pdb
 C:\Users\Denni\documents\visual studio 2015\Projects\Starbounder\Starbounder\bin\Debug\Starbounder.exe
 C:\Users\Denni\documents\visual studio 2015\Projects\Starbounder\Starbounder\bin\Debug\Starbounder.pdb
 C:\Users\Denni\documents\visual studio 2015\Projects\Starbounder\Starbounder\bin\Debug\Newtonsoft.Json.dll
@@ -22,3 +8,5 @@ C:\Users\Denni\documents\visual studio 2015\Projects\Starbounder\Starbounder\obj
 C:\Users\Denni\documents\visual studio 2015\Projects\Starbounder\Starbounder\obj\Debug\Starbounder.FormMain.resources
 C:\Users\Denni\documents\visual studio 2015\Projects\Starbounder\Starbounder\obj\Debug\Starbounder.Properties.Resources.resources
 C:\Users\Denni\documents\visual studio 2015\Projects\Starbounder\Starbounder\obj\Debug\Starbounder.csproj.GenerateResource.Cache
+C:\Users\Denni\documents\visual studio 2015\Projects\Starbounder\Starbounder\obj\Debug\Starbounder.exe
+C:\Users\Denni\documents\visual studio 2015\Projects\Starbounder\Starbounder\obj\Debug\Starbounder.pdb

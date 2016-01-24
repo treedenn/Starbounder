@@ -11,57 +11,72 @@ using System.IO;
 
 namespace Starbounder
 {
-    public partial class FormConfiguration : Form
-    {
-        public FormConfiguration()
-        {
-            InitializeComponent();
-        }
+	public partial class FormConfiguration : Form
+	{
+		private bool isExpanded = false;
 
-        private void FormConfiguration_Load(object sender, EventArgs e)
-        {
+		public FormConfiguration()
+		{
+			InitializeComponent();
+		}
+
+		private void FormConfiguration_Load(object sender, EventArgs e)
+		{
 			string steamLocation = Functions.Steam.GetSteamFolder();
 
-			textBoxConfigSB.Text = Functions.Steam.GetStarboundFolder( steamLocation );
+			textBoxConfigSB.Text = Functions.Steam.GetStarboundFolder(steamLocation);
 
-			if ( textBoxConfigSB.Text == string.Empty )
+			if (textBoxConfigSB.Text == string.Empty)
 			{
 				string[] locations = Functions.Steam.GetSteamLocations();
 
-				foreach ( string location in locations )
+				foreach (string location in locations)
 				{
-					textBoxConfigSB.Text = Functions.Steam.GetStarboundFolder( location );
+					textBoxConfigSB.Text = Functions.Steam.GetStarboundFolder(location);
 				}
 			}
 		}
 
-		private void buttonConfigContinue_Click( object sender, EventArgs e )
+		private void buttonConfigContinue_Click(object sender, EventArgs e)
 		{
 			this.Hide();
 			var mf = new FormMain();
-			Project.IProject.pPath = textBoxConfigWork.Text;
-			Project.IProject.pName = Path.GetFileName(textBoxConfigWork.Text);
-			mf.FormClosed += ( s, args ) => this.Close();
+
+			Project.IProject.name = Path.GetFileName(textBoxConfigWork.Text);
+			Project.IProject.path = textBoxConfigWork.Text;
+			Project.IProject.sbPath = textBoxConfigSB.Text;
+
+			mf.FormClosed += (s, args) => this.Close();
 			mf.Show();
 		}
 
-		private void buttonConfigBrowseSB_Click( object sender, EventArgs e )
+		private void buttonConfigBrowseSB_Click(object sender, EventArgs e)
 		{
-			var folder = Project.Dialogs.FolderBrowserDialog("Browse Starbound Folder");
+			var folder = Functions.Dialogs.FolderBrowserDialog("Browse Starbound Folder");
 
 			textBoxConfigSB.Text = ( folder.SelectedPath != string.Empty ) ? folder.SelectedPath : textBoxConfigSB.Text;
 		}
 
-		private void buttonConfigBrowseWork_Click( object sender, EventArgs e )
+		private void buttonConfigBrowseWork_Click(object sender, EventArgs e)
 		{
-			var folder = Project.Dialogs.FolderBrowserDialog("Browse Starbound Working Folder");
+			var folder = Functions.Dialogs.FolderBrowserDialog("Browse Starbound Working Folder");
 
 			textBoxConfigWork.Text = ( folder.SelectedPath != string.Empty ) ? folder.SelectedPath : textBoxConfigWork.Text;
 		}
 
 		private void buttonConfigExpand_Click(object sender, EventArgs e)
 		{
+			isExpanded = ( isExpanded ) ? isExpanded = false : isExpanded = true;
 
+			switch (isExpanded)
+			{
+				case true:
+					this.Size = new Size(500, 220);
+					break;
+				case false:
+					this.Size = new Size(500, 170);
+					break;
+			}
 		}
 	}
 }

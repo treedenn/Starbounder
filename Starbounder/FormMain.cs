@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Starbounder.FileTypes;
@@ -33,6 +35,8 @@ namespace Starbounder
 
 		private void FormMain_Load(object sender, EventArgs e)
 		{
+			
+
 			RefreshTreeView();
 		}
 		private void treeViewFolder_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -51,6 +55,9 @@ namespace Starbounder
 		{
 			MessageBox.Show(treeViewFolder.SelectedNode.Tag.ToString());
 		}
+
+		#region MenuStripMain
+		// File
 		private void newProjectToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Project.IProject.CreateProject();
@@ -66,6 +73,26 @@ namespace Starbounder
 				treeViewFolder.ExpandAll();
 			}
 		}
+		// File -> Starbound
+		private void playToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Functions.Processes.LaunchStarbound(true, true);
+		}
+		private void fileExplorerToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Functions.Processes.OpenFolder(Project.IProject.sbPath);
+		}
+		private void unpackAssetsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var cmd = Functions.Processes.UnpackStarbound(true);
+			if (cmd) MessageBox.Show("Unpacking Assets might be complete.\nIf the process took less than a second, an error occured.", "Unpacking Assets", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+		// Refresh
+		private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			RefreshTreeView();
+		}
+		#endregion
 
 		#region ContextMenuStrip
 
@@ -149,12 +176,17 @@ namespace Starbounder
 			FileTypes.FileTypes.Create(GetNodePath(), new FileTypes.Armors.ArmorBack(), ".back");
 			RefreshTreeView();
 		}
+
+
+
 		#endregion
+
 		#region Others
+
+		#endregion
+
+		#endregion
+
 		
-		#endregion
-
-		#endregion
-
 	}
 }

@@ -54,7 +54,10 @@
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.loadProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.unpackStarboundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.starboundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.playToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.fileExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.unpackAssetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitterTreeView = new System.Windows.Forms.Splitter();
@@ -83,7 +86,7 @@
             this.consumableToolStripMenuItem});
 			this.contextMenuStripTreeView.Name = "contextMenuStripTreeView";
 			this.contextMenuStripTreeView.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-			this.contextMenuStripTreeView.Size = new System.Drawing.Size(153, 136);
+			this.contextMenuStripTreeView.Size = new System.Drawing.Size(142, 114);
 			// 
 			// itemsToolStripMenuItem
 			// 
@@ -92,7 +95,7 @@
             this.materialItemToolStripMenuItem,
             this.liquidItemToolStripMenuItem});
 			this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
-			this.itemsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.itemsToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
 			this.itemsToolStripMenuItem.Text = "Items";
 			// 
 			// itemToolStripMenuItem
@@ -124,7 +127,7 @@
             this.gunToolStripMenuItem,
             this.thrownToolStripMenuItem});
 			this.weaponsToolStripMenuItem.Name = "weaponsToolStripMenuItem";
-			this.weaponsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.weaponsToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
 			this.weaponsToolStripMenuItem.Text = "Weapons";
 			// 
 			// swordToolStripMenuItem
@@ -162,27 +165,27 @@
             this.beamaxeToolStripMenuItem,
             this.harvestingToolStripMenuItem});
 			this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-			this.toolsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.toolsToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
 			this.toolsToolStripMenuItem.Text = "Tools";
 			// 
 			// miningToolStripMenuItem
 			// 
 			this.miningToolStripMenuItem.Name = "miningToolStripMenuItem";
-			this.miningToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.miningToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
 			this.miningToolStripMenuItem.Text = "Mining";
 			this.miningToolStripMenuItem.Click += new System.EventHandler(this.miningToolStripMenuItem_Click);
 			// 
 			// beamaxeToolStripMenuItem
 			// 
 			this.beamaxeToolStripMenuItem.Name = "beamaxeToolStripMenuItem";
-			this.beamaxeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.beamaxeToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
 			this.beamaxeToolStripMenuItem.Text = "Beamaxe";
 			this.beamaxeToolStripMenuItem.Click += new System.EventHandler(this.beamaxeToolStripMenuItem_Click);
 			// 
 			// harvestingToolStripMenuItem
 			// 
 			this.harvestingToolStripMenuItem.Name = "harvestingToolStripMenuItem";
-			this.harvestingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.harvestingToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
 			this.harvestingToolStripMenuItem.Text = "Harvesting";
 			this.harvestingToolStripMenuItem.Click += new System.EventHandler(this.harvestingToolStripMenuItem_Click);
 			// 
@@ -194,7 +197,7 @@
             this.legsToolStripMenuItem,
             this.backToolStripMenuItem});
 			this.armorsToolStripMenuItem.Name = "armorsToolStripMenuItem";
-			this.armorsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.armorsToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
 			this.armorsToolStripMenuItem.Text = "Armors";
 			// 
 			// headToolStripMenuItem
@@ -228,7 +231,7 @@
 			// consumableToolStripMenuItem
 			// 
 			this.consumableToolStripMenuItem.Name = "consumableToolStripMenuItem";
-			this.consumableToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.consumableToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
 			this.consumableToolStripMenuItem.Text = "Consumable";
 			// 
 			// menuStripMain
@@ -248,7 +251,7 @@
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newProjectToolStripMenuItem,
             this.loadProjectToolStripMenuItem,
-            this.unpackStarboundToolStripMenuItem});
+            this.starboundToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
 			this.fileToolStripMenuItem.Text = "File";
@@ -256,22 +259,47 @@
 			// newProjectToolStripMenuItem
 			// 
 			this.newProjectToolStripMenuItem.Name = "newProjectToolStripMenuItem";
-			this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+			this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.newProjectToolStripMenuItem.Text = "New Project";
 			this.newProjectToolStripMenuItem.Click += new System.EventHandler(this.newProjectToolStripMenuItem_Click);
 			// 
 			// loadProjectToolStripMenuItem
 			// 
 			this.loadProjectToolStripMenuItem.Name = "loadProjectToolStripMenuItem";
-			this.loadProjectToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+			this.loadProjectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.loadProjectToolStripMenuItem.Text = "Load Project";
 			this.loadProjectToolStripMenuItem.Click += new System.EventHandler(this.loadProjectToolStripMenuItem_Click);
 			// 
-			// unpackStarboundToolStripMenuItem
+			// starboundToolStripMenuItem
 			// 
-			this.unpackStarboundToolStripMenuItem.Name = "unpackStarboundToolStripMenuItem";
-			this.unpackStarboundToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-			this.unpackStarboundToolStripMenuItem.Text = "Unpack Starbound";
+			this.starboundToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.playToolStripMenuItem,
+            this.fileExplorerToolStripMenuItem,
+            this.unpackAssetsToolStripMenuItem});
+			this.starboundToolStripMenuItem.Name = "starboundToolStripMenuItem";
+			this.starboundToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.starboundToolStripMenuItem.Text = "Starbound";
+			// 
+			// playToolStripMenuItem
+			// 
+			this.playToolStripMenuItem.Name = "playToolStripMenuItem";
+			this.playToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+			this.playToolStripMenuItem.Text = "Play";
+			this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
+			// 
+			// fileExplorerToolStripMenuItem
+			// 
+			this.fileExplorerToolStripMenuItem.Name = "fileExplorerToolStripMenuItem";
+			this.fileExplorerToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+			this.fileExplorerToolStripMenuItem.Text = "File Explorer";
+			this.fileExplorerToolStripMenuItem.Click += new System.EventHandler(this.fileExplorerToolStripMenuItem_Click);
+			// 
+			// unpackAssetsToolStripMenuItem
+			// 
+			this.unpackAssetsToolStripMenuItem.Name = "unpackAssetsToolStripMenuItem";
+			this.unpackAssetsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+			this.unpackAssetsToolStripMenuItem.Text = "Unpack Assets";
+			this.unpackAssetsToolStripMenuItem.Click += new System.EventHandler(this.unpackAssetsToolStripMenuItem_Click);
 			// 
 			// settingsToolStripMenuItem
 			// 
@@ -284,6 +312,7 @@
 			this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
 			this.refreshToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
 			this.refreshToolStripMenuItem.Text = "Refresh";
+			this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
 			// 
 			// splitterTreeView
 			// 
@@ -324,7 +353,6 @@
 		private System.Windows.Forms.Splitter splitterTreeView;
 		private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStripTreeView;
-		private System.Windows.Forms.ToolStripMenuItem unpackStarboundToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem armorsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem headToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem chestToolStripMenuItem;
@@ -345,5 +373,9 @@
 		private System.Windows.Forms.ToolStripMenuItem harvestingToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem consumableToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem staffToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem starboundToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem playToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem fileExplorerToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem unpackAssetsToolStripMenuItem;
 	}
 }

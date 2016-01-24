@@ -40,6 +40,10 @@
 			this.labelConfigWork = new System.Windows.Forms.Label();
 			this.buttonConfigContinue = new System.Windows.Forms.Button();
 			this.buttonConfigExpand = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
 			this.panelSystem.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -147,11 +151,47 @@
 			this.buttonConfigExpand.UseVisualStyleBackColor = true;
 			this.buttonConfigExpand.Click += new System.EventHandler(this.buttonConfigExpand_Click);
 			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(248, 133);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(97, 13);
+			this.label1.TabIndex = 9;
+			this.label1.Text = "Starbound Version:";
+			// 
+			// textBox1
+			// 
+			this.textBox1.Location = new System.Drawing.Point(251, 149);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(221, 20);
+			this.textBox1.TabIndex = 10;
+			// 
+			// textBox2
+			// 
+			this.textBox2.Location = new System.Drawing.Point(15, 149);
+			this.textBox2.Name = "textBox2";
+			this.textBox2.Size = new System.Drawing.Size(221, 20);
+			this.textBox2.TabIndex = 12;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(12, 133);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(41, 13);
+			this.label2.TabIndex = 11;
+			this.label2.Text = "Author:";
+			// 
 			// FormConfiguration
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(484, 131);
+			this.Controls.Add(this.textBox2);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.label1);
 			this.Controls.Add(this.buttonConfigExpand);
 			this.Controls.Add(this.buttonConfigContinue);
 			this.Controls.Add(this.buttonConfigBrowseWork);
@@ -188,6 +228,10 @@
         private System.Windows.Forms.Label labelConfigWork;
 		private System.Windows.Forms.Button buttonConfigContinue;
 		private System.Windows.Forms.Button buttonConfigExpand;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.Label label2;
 	}
 }
 

@@ -81,7 +81,8 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Json\JsonWriter.cs" />
-    <Compile Include="Project\Dialogs.cs" />
+    <Compile Include="Functions\Dialogs.cs" />
+    <Compile Include="Functions\Processes.cs" />
     <Compile Include="Project\ModInfo.cs" />
     <Compile Include="Project\IProject.cs" />
     <Compile Include="Functions\Steam.cs" />

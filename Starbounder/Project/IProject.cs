@@ -11,35 +11,34 @@ namespace Starbounder.Project
 {
 	class IProject
 	{
-		public static string pName { get; set; }
-		public static string pPath { get; set; }
+		public static string name { get; set; }
+		public static string path { get; set; }
+		public static string sbPath { get; set; }
 
 		public IProject(string path)
 		{
-			pPath = path;
-			pName = Path.GetFileName(path);
+			IProject.path = path;
+			name = Path.GetFileName(path);
 		}
 
 		public static void CreateProject()
 		{
-			var folder = Project.Dialogs.SaveFileDialog("Create a new Starbound Project");
+			var folder = Functions.Dialogs.SaveFileDialog("Create a new Starbound Project");
 
 			if (folder.FileName != string.Empty)
 			{
 				FreshProject(folder.FileName);
 			}
-
-			//MessageBox.Show( project.InitialDirectory );
 		}
 
 		public static bool LoadProject()
 		{
-			var folder = Project.Dialogs.FolderBrowserDialog("Load Starbound Mod Folder");
+			var folder = Functions.Dialogs.FolderBrowserDialog("Load Starbound Mod Folder");
 
 			if (folder.SelectedPath != string.Empty)
 			{
-				pPath = folder.SelectedPath;
-				pName = Path.GetFileName(folder.SelectedPath);
+				path = folder.SelectedPath;
+				name = Path.GetFileName(folder.SelectedPath);
 
 				return true;
 			}
@@ -47,15 +46,20 @@ namespace Starbounder.Project
 			return false;
 		}
 
+		// Child functions
+
 		private static void FreshProject(string path)
 		{
-			// Create Folder
+			CreateFolder(path);
+			Project.ModInfo.Create(path, new Project.ModInfo().setDefault());
+		}
+
+		private static void CreateFolder(string path)
+		{
 			if (!Directory.Exists(path))
 			{
 				Directory.CreateDirectory(path);
 			}
-
-			Project.ModInfo.Create(path, new Project.ModInfo());
 		}
 
 		#region TreeView
@@ -65,7 +69,7 @@ namespace Starbounder.Project
 		/// <returns></returns>
 		public static TreeNode[] TreeViewPopulate()
 		{
-			DirectoryInfo info = new DirectoryInfo(pPath);
+			DirectoryInfo info = new DirectoryInfo(path);
 
 			List<TreeNode> nodes = new List<TreeNode>();
 
@@ -113,5 +117,6 @@ namespace Starbounder.Project
 			return directoryNode;
 		}
 		#endregion
+
 	}
 }

@@ -14,7 +14,6 @@ namespace Starbounder.Functions
 		/// <summary>
 		/// Gets the steam path, if steam is installed & has registry.
 		/// </summary>
-		/// <returns></returns>
         public static string GetSteamFolder()
         {
             RegistryKey rk = Registry.CurrentUser;
@@ -28,7 +27,6 @@ namespace Starbounder.Functions
 		/// <summary>
 		/// This reads the steam config and looks for new steam locations/paths.
 		/// </summary>
-		/// <returns></returns>
 		public static string[] GetSteamLocations()
 		{
 			List<string> configs = new List<string>();
@@ -54,7 +52,6 @@ namespace Starbounder.Functions
 		/// <summary>
 		/// Searches for starbound folder from a steam location (not steamapps).
 		/// </summary>
-		/// <returns>Returns nothing, if Starbound is installed in a different location.</returns>
 		public static string GetStarboundFolder(string pathSteam)
 		{
 			string starboundPath = pathSteam + @"\steamapps\common\starbound";
