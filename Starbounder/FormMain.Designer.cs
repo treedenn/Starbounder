@@ -49,6 +49,9 @@
 			this.chestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.legsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.otherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.consumableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.liquidToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStripMain = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,9 +63,10 @@
 			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitterTreeView = new System.Windows.Forms.Splitter();
-			this.otherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.consumableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.liquidToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.newFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStripTreeView.SuspendLayout();
 			this.menuStripMain.SuspendLayout();
 			this.SuspendLayout();
@@ -85,10 +89,11 @@
             this.weaponsToolStripMenuItem,
             this.toolsToolStripMenuItem,
             this.armorsToolStripMenuItem,
-            this.otherToolStripMenuItem});
+            this.otherToolStripMenuItem,
+            this.actionsToolStripMenuItem});
 			this.contextMenuStripTreeView.Name = "contextMenuStripTreeView";
 			this.contextMenuStripTreeView.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-			this.contextMenuStripTreeView.Size = new System.Drawing.Size(153, 136);
+			this.contextMenuStripTreeView.Size = new System.Drawing.Size(153, 158);
 			// 
 			// itemsToolStripMenuItem
 			// 
@@ -97,27 +102,27 @@
             this.materialItemToolStripMenuItem,
             this.liquidItemToolStripMenuItem});
 			this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
-			this.itemsToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+			this.itemsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
 			this.itemsToolStripMenuItem.Text = "Items";
 			// 
 			// itemToolStripMenuItem
 			// 
 			this.itemToolStripMenuItem.Name = "itemToolStripMenuItem";
-			this.itemToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+			this.itemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.itemToolStripMenuItem.Text = "Item";
 			this.itemToolStripMenuItem.Click += new System.EventHandler(this.itemToolStripMenuItem_Click);
 			// 
 			// materialItemToolStripMenuItem
 			// 
 			this.materialItemToolStripMenuItem.Name = "materialItemToolStripMenuItem";
-			this.materialItemToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+			this.materialItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.materialItemToolStripMenuItem.Text = "Material Item";
 			this.materialItemToolStripMenuItem.Click += new System.EventHandler(this.materialItemToolStripMenuItem_Click);
 			// 
 			// liquidItemToolStripMenuItem
 			// 
 			this.liquidItemToolStripMenuItem.Name = "liquidItemToolStripMenuItem";
-			this.liquidItemToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+			this.liquidItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.liquidItemToolStripMenuItem.Text = "Liquid Item";
 			this.liquidItemToolStripMenuItem.Click += new System.EventHandler(this.liquidItemToolStripMenuItem_Click);
 			// 
@@ -129,7 +134,7 @@
             this.gunToolStripMenuItem,
             this.thrownToolStripMenuItem});
 			this.weaponsToolStripMenuItem.Name = "weaponsToolStripMenuItem";
-			this.weaponsToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+			this.weaponsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
 			this.weaponsToolStripMenuItem.Text = "Weapons";
 			// 
 			// swordToolStripMenuItem
@@ -167,7 +172,7 @@
             this.beamaxeToolStripMenuItem,
             this.harvestingToolStripMenuItem});
 			this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-			this.toolsToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+			this.toolsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
 			this.toolsToolStripMenuItem.Text = "Tools";
 			// 
 			// miningToolStripMenuItem
@@ -199,7 +204,7 @@
             this.legsToolStripMenuItem,
             this.backToolStripMenuItem});
 			this.armorsToolStripMenuItem.Name = "armorsToolStripMenuItem";
-			this.armorsToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+			this.armorsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
 			this.armorsToolStripMenuItem.Text = "Armors";
 			// 
 			// headToolStripMenuItem
@@ -230,6 +235,27 @@
 			this.backToolStripMenuItem.Text = "Back";
 			this.backToolStripMenuItem.Click += new System.EventHandler(this.backToolStripMenuItem_Click);
 			// 
+			// otherToolStripMenuItem
+			// 
+			this.otherToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.consumableToolStripMenuItem,
+            this.liquidToolStripMenuItem});
+			this.otherToolStripMenuItem.Name = "otherToolStripMenuItem";
+			this.otherToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+			this.otherToolStripMenuItem.Text = "Other";
+			// 
+			// consumableToolStripMenuItem
+			// 
+			this.consumableToolStripMenuItem.Name = "consumableToolStripMenuItem";
+			this.consumableToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+			this.consumableToolStripMenuItem.Text = "Consumable";
+			// 
+			// liquidToolStripMenuItem
+			// 
+			this.liquidToolStripMenuItem.Name = "liquidToolStripMenuItem";
+			this.liquidToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+			this.liquidToolStripMenuItem.Text = "Liquid";
+			// 
 			// menuStripMain
 			// 
 			this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -255,14 +281,14 @@
 			// newProjectToolStripMenuItem
 			// 
 			this.newProjectToolStripMenuItem.Name = "newProjectToolStripMenuItem";
-			this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
 			this.newProjectToolStripMenuItem.Text = "New Project";
 			this.newProjectToolStripMenuItem.Click += new System.EventHandler(this.newProjectToolStripMenuItem_Click);
 			// 
 			// loadProjectToolStripMenuItem
 			// 
 			this.loadProjectToolStripMenuItem.Name = "loadProjectToolStripMenuItem";
-			this.loadProjectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.loadProjectToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
 			this.loadProjectToolStripMenuItem.Text = "Load Project";
 			this.loadProjectToolStripMenuItem.Click += new System.EventHandler(this.loadProjectToolStripMenuItem_Click);
 			// 
@@ -273,7 +299,7 @@
             this.fileExplorerToolStripMenuItem,
             this.unpackAssetsToolStripMenuItem});
 			this.starboundToolStripMenuItem.Name = "starboundToolStripMenuItem";
-			this.starboundToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.starboundToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
 			this.starboundToolStripMenuItem.Text = "Starbound";
 			// 
 			// playToolStripMenuItem
@@ -319,26 +345,34 @@
 			this.splitterTreeView.TabIndex = 2;
 			this.splitterTreeView.TabStop = false;
 			// 
-			// otherToolStripMenuItem
+			// actionsToolStripMenuItem
 			// 
-			this.otherToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.consumableToolStripMenuItem,
-            this.liquidToolStripMenuItem});
-			this.otherToolStripMenuItem.Name = "otherToolStripMenuItem";
-			this.otherToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.otherToolStripMenuItem.Text = "Other";
+			this.actionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newFolderToolStripMenuItem,
+            this.renameToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+			this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
+			this.actionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.actionsToolStripMenuItem.Text = "Actions";
 			// 
-			// consumableToolStripMenuItem
+			// newFolderToolStripMenuItem
 			// 
-			this.consumableToolStripMenuItem.Name = "consumableToolStripMenuItem";
-			this.consumableToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.consumableToolStripMenuItem.Text = "Consumable";
+			this.newFolderToolStripMenuItem.Name = "newFolderToolStripMenuItem";
+			this.newFolderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.newFolderToolStripMenuItem.Text = "New Folder";
+			this.newFolderToolStripMenuItem.Click += new System.EventHandler(this.newFolderToolStripMenuItem_Click);
 			// 
-			// liquidToolStripMenuItem
+			// renameToolStripMenuItem
 			// 
-			this.liquidToolStripMenuItem.Name = "liquidToolStripMenuItem";
-			this.liquidToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.liquidToolStripMenuItem.Text = "Liquid";
+			this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
+			this.renameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.renameToolStripMenuItem.Text = "Rename";
+			// 
+			// deleteToolStripMenuItem
+			// 
+			this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+			this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.deleteToolStripMenuItem.Text = "Delete";
 			// 
 			// FormMain
 			// 
@@ -397,5 +431,9 @@
 		private System.Windows.Forms.ToolStripMenuItem otherToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem consumableToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem liquidToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem actionsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem newFolderToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
 	}
 }

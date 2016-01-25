@@ -79,6 +79,7 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Functions\Actions.cs" />
     <Compile Include="Json\JsonWriter.cs" />
     <Compile Include="Functions\Dialogs.cs" />
     <Compile Include="Functions\Processes.cs" />

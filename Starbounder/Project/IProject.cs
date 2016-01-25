@@ -50,16 +50,8 @@ namespace Starbounder.Project
 
 		private static void FreshProject(string path)
 		{
-			CreateFolder(path);
+			Starbounder.Functions.Dialogs.CreateFolder(path);
 			Project.ModInfo.Create(path, new Project.ModInfo().setDefault());
-		}
-
-		private static void CreateFolder(string path)
-		{
-			if (!Directory.Exists(path))
-			{
-				Directory.CreateDirectory(path);
-			}
 		}
 
 		#region TreeView

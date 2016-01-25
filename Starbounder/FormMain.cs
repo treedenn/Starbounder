@@ -189,14 +189,26 @@ namespace Starbounder
 
 
 
+
 		#endregion
 
 		#region Others
 
 		#endregion
+		#region Actions
+		private void newFolderToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			string folderName = Path.GetFileNameWithoutExtension(GetNodePath());
+			string folderPath = (Path.HasExtension(GetNodePath())) ? Path.GetDirectoryName(GetNodePath()) : Path.GetFullPath(GetNodePath());
+
+			Project.IProject.CreateFolder(folderPath + "\\" + folderName);
+
+			RefreshTreeView();
+		}
+		#endregion
 
 		#endregion
 
-		
+
 	}
 }
