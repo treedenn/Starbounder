@@ -50,7 +50,7 @@ namespace Starbounder.Project
 
 		private static void FreshProject(string path)
 		{
-			Starbounder.Functions.Dialogs.CreateFolder(path);
+			Starbounder.Functions.Actions.CreateFolder(path);
 			Project.ModInfo.Create(path, new Project.ModInfo().setDefault());
 		}
 

@@ -17,13 +17,26 @@ namespace Starbounder.Functions
 			}
 		}
 
-		public static void DeleteFile(string path)
+		public static void Delete(string path)
 		{
-
+			if (Path.HasExtension(path))
+			{
+				if (File.Exists(path))
+				{
+					File.Delete(path);
+				}
+			} else
+			{
+				if (Directory.Exists(path))
+				{
+					Directory.Delete(path);
+				}
+			}
 		}
 
 		public static string Rename(string path)
 		{
+			
 
 			return "";
 		}

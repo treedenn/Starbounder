@@ -201,14 +201,25 @@ namespace Starbounder
 			string folderName = Path.GetFileNameWithoutExtension(GetNodePath());
 			string folderPath = (Path.HasExtension(GetNodePath())) ? Path.GetDirectoryName(GetNodePath()) : Path.GetFullPath(GetNodePath());
 
-			Project.IProject.CreateFolder(folderPath + "\\" + folderName);
+			Functions.Actions.CreateFolder(folderPath + "\\" + folderName);
 
 			RefreshTreeView();
 		}
-		#endregion
 
 		#endregion
 
+		#endregion
 
+		private void renameToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			
+		}
+
+		private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Functions.Actions.Delete(GetNodePath());
+
+			RefreshTreeView();
+		}
 	}
 }
