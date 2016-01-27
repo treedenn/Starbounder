@@ -212,7 +212,9 @@ namespace Starbounder
 
 		private void renameToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			
+			Functions.Actions.Rename(GetNodePath());
+
+			RefreshTreeView();
 		}
 
 		private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
