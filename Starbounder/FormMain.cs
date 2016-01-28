@@ -35,8 +35,6 @@ namespace Starbounder
 
 		private void FormMain_Load(object sender, EventArgs e)
 		{
-			
-
 			RefreshTreeView();
 		}
 		private void treeViewFolder_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -53,7 +51,20 @@ namespace Starbounder
 		}
 		private void treeViewFolder_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
 		{
-			MessageBox.Show(treeViewFolder.SelectedNode.Tag.ToString());
+			string extension = (Path.HasExtension(GetNodePath())) ? Path.GetExtension(GetNodePath()) : "";
+
+			if (extension != string.Empty)
+			{
+				switch (extension)
+				{
+					case ".item":
+						MessageBox.Show(".item loaded...");
+						FileLayout.GenerateLayout.GenerateItem(flowLayoutPanelControls);
+						break;
+				}
+			}
+			
+			//MessageBox.Show(treeViewFolder.SelectedNode.Tag.ToString());
 		}
 
 		#region MenuStripMain
@@ -108,17 +119,20 @@ namespace Starbounder
 		#region Item
 		private void itemToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.CreateEverything(GetNodePath(), new FileTypes.Items.ItemItem(), ".item", 16, 16);
+			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Items.ItemItem(), ".item");
+			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
 			RefreshTreeView();
 		}
 		private void materialItemToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Items.ItemMaterial(), ".matitem");
+			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
 			RefreshTreeView();
 		}
 		private void liquidItemToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Items.ItemMaterial(), ".liqitem");
+			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Items.ItemLiquid(), ".liqitem");
+			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
 			RefreshTreeView();
 		}
 		#endregion
@@ -126,24 +140,25 @@ namespace Starbounder
 		private void swordToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Weapons.WeaponSword(), ".sword");
+			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
 			RefreshTreeView();
 		}
-
 		private void staffToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Weapons.WeaponStaff(), ".staff");
+			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
 			RefreshTreeView();
 		}
-
 		private void gunToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Weapons.WeaponGun(), ".gun");
+			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
 			RefreshTreeView();
 		}
-
 		private void thrownToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Weapons.WeaponThrown(), ".thrown");
+			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
 			RefreshTreeView();
 		}
 		#endregion
@@ -151,16 +166,19 @@ namespace Starbounder
 		private void miningToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Tools.ToolMining(), ".miningtool");
+			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
 			RefreshTreeView();
 		}
 		private void beamaxeToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Tools.ToolBeamaxe(), ".beamaxe");
+			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
 			RefreshTreeView();
 		}
 		private void harvestingToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Tools.ToolMining(), ".harvestingtool");
+			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
 			RefreshTreeView();
 		}
 		#endregion
@@ -168,27 +186,27 @@ namespace Starbounder
 		private void headToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Armors.ArmorHead(), ".head");
+			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
 			RefreshTreeView();
 		}
 		private void chestToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Armors.ArmorChest(), ".chest");
+			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
 			RefreshTreeView();
 		}
 		private void legsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Armors.ArmorLegs(), ".legs");
+			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
 			RefreshTreeView();
 		}
 		private void backToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Armors.ArmorBack(), ".back");
+			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
 			RefreshTreeView();
 		}
-
-
-
-
 
 		#endregion
 
@@ -205,23 +223,22 @@ namespace Starbounder
 
 			RefreshTreeView();
 		}
-
-		#endregion
-
-		#endregion
-
 		private void renameToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Functions.Actions.Rename(GetNodePath());
 
 			RefreshTreeView();
 		}
-
 		private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Functions.Actions.Delete(GetNodePath());
 
 			RefreshTreeView();
 		}
+		#endregion
+
+		#endregion
+
+
 	}
 }

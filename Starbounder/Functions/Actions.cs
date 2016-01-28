@@ -36,37 +36,31 @@ namespace Starbounder.Functions
 			}
 		}
 
-		public static string Rename(string path)
+		public static void Rename(string path)
 		{
 			string input = Dialogs.MessageBoxInput("Rename Message Input", "Enter the new name in the textbox for the file or folder.");
 
 			if (Path.HasExtension(path) && input != string.Empty)
 			{
-				return RenameFile(path, input);
+				RenameFile(path, input);
 			}
 			else if (input != string.Empty)
 			{
-				return RenameFolder(path, input);
+				RenameFolder(path, input);
 			}
-
-			return "";
 		}
 
-		public static string RenameFolder(string path, string newName)
+		public static void RenameFolder(string path, string newName)
 		{
 			if (Directory.Exists(path))
 			{
 				string newPath = Path.GetDirectoryName(path) + "\\" + newName;
 
 				Directory.Move(path, newPath);
-
-				return newPath;
 			}
-
-			return "";
 		}
 
-		public static string RenameFile(string path, string newName)
+		public static void RenameFile(string path, string newName)
 		{
 			if (File.Exists(path))
 			{
@@ -74,11 +68,7 @@ namespace Starbounder.Functions
 				string newPath = Path.GetDirectoryName(path) + "\\" + newName + extension;
 
 				File.Move(path, newPath);
-
-				return newPath;
 			}
-
-			return "";
 		}
 	}
 }
