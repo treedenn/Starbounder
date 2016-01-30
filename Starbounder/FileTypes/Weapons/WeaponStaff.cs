@@ -35,6 +35,13 @@ namespace Starbounder.FileTypes.Weapons
 
 		public class Projectile
 		{
+			public Projectile(double speed, int power, List<int> color)
+			{
+				this.speed = speed;
+				this.power = power;
+				this.color = color;
+			}
+
 			public double speed { get; set; }
 			public int power { get; set; }
 			public List<int> color { get; set; }
@@ -42,16 +49,38 @@ namespace Starbounder.FileTypes.Weapons
 
 		public class FireSound
 		{
+			public FireSound(string file)
+			{
+				this.file = file;
+			}
+
 			public string file { get; set; }
 		}
 
 		public class MuzzleEffect
 		{
+			public MuzzleEffect(List<FireSound> fireSound)
+			{
+				this.fireSound = fireSound;
+			}
+
 			public List<FireSound> fireSound { get; set; }
 		}
 
 		public class StaffChargingGlow
 		{
+			public StaffChargingGlow(string file, int chargingFrames, int sparkFrames, int fireFrames, double sparkTime, double loopTime, List<int> offset)
+			{
+				this.file = file;
+				this.chargingFrames = chargingFrames;
+				this.sparkFrames = sparkFrames;
+				this.loopFrames = loopFrames;
+				this.fireFrames = fireFrames;
+				this.sparkTime = sparkTime;
+				this.loopTime = loopTime;
+				this.offset = offset;
+			}
+
 			public string file { get; set; }
 			public int chargingFrames { get; set; }
 			public int sparkFrames { get; set; }
@@ -60,6 +89,36 @@ namespace Starbounder.FileTypes.Weapons
 			public double sparkTime { get; set; }
 			public double loopTime { get; set; }
 			public List<int> offset { get; set; }
+		}
+
+		public WeaponStaff SetDefault()
+		{
+			itemName          = "Unique Name";
+			inventoryIcon     = "inventoryIcon.png";
+			maxStack          = 0;
+			rarity            = "common";
+			description       = "Description of the weapon";
+			shortdescription  = "Name of the weapon";
+			image             = "image.png";
+			handPosition      = new List<double>() { 0, 0 };
+			firePosition      = new List<double>() { 20, 5 };
+			level             = 10;
+			fireTime          = 1.0;
+			windupTime        = 1.0;
+			cooldown          = 1;
+			twoHanded         = true;
+			fireOnRelease     = true;
+			swingStart        = 10;
+			swingFinish       = 0;
+			coolingDownAngle  = 0;
+			projectileType    = "Custom Projectile";
+			projectile        = new Projectile(10, 5, new List<int>() { 255, 255, 255 });
+			muzzleEffect      = new MuzzleEffect(new List<FireSound>() { new FireSound("/sfx/gun/something.ogg")});
+			level1ChargeTime  = 0.5;
+			level2ChargeTime  = 1;
+			staffChargingGlow = new StaffChargingGlow("staffglow.png", 10, 1, 2, 3, 0.25, new List<int>() { 0, 5 });
+
+			return this;
 		}
 	}
 }

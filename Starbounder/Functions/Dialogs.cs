@@ -9,22 +9,25 @@ namespace Starbounder.Functions
 {
 	class Dialogs
 	{
-		public static FolderBrowserDialog FolderBrowserDialog(string title)
+		public static FolderBrowserDialog FolderBrowserDialog(string title, string startPath = "")
 		{
 			using (FolderBrowserDialog dialog = new FolderBrowserDialog())
 			{
 				dialog.Description = title;
+				dialog.RootFolder = Environment.SpecialFolder.Desktop;
 				dialog.ShowDialog();
 
-				return dialog;
+
+				return (dialog.SelectedPath == string.Empty) ? null : dialog;
 			}
 		}
 
-		public static SaveFileDialog SaveFileDialog(string title)
+		public static SaveFileDialog SaveFileDialog(string title, string startPath = "")
 		{
 			using (SaveFileDialog dialog = new SaveFileDialog())
 			{
 				dialog.Title = title;
+				dialog.InitialDirectory = startPath;
 				dialog.ShowDialog();
 
 				return dialog;

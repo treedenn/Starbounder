@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Starbounder.Project;
 
 namespace Starbounder
 {
@@ -23,15 +24,25 @@ namespace Starbounder
 		private void FormConfiguration_Load(object sender, EventArgs e)
 		{
 			Functions.Steam.SearchForStarboundFolder(textBoxConfigSB);
+			radioButtonConfigWin64.Checked = Settings.LoadSystem();
+
+			textBoxConfigWork.Text = Settings.LoadWorkingDirectory();
 		}
 
 		private void buttonConfigContinue_Click(object sender, EventArgs e)
 		{
+			// Save settings
+			Settings.SaveSystem(radioButtonConfigWin64.Checked);
+			Settings.SaveWorkingDirectory(textBoxConfigWork.Text);
+
+			Properties.Settings.Default.Save();
+			Properties.Settings.Default.Upgrade();
+
+			// Open Main form
 			this.Hide();
 			var mf = new FormMain();
 
-			Project.IProject.name = Path.GetFileName(textBoxConfigWork.Text);
-			Project.IProject.path = textBoxConfigWork.Text;
+			IProject project = new IProject(textBoxConfigWork.Text);
 			Project.IProject.sbPath = textBoxConfigSB.Text;
 
 			mf.FormClosed += (s, args) => this.Close();
@@ -55,16 +66,7 @@ namespace Starbounder
 		private void buttonConfigExpand_Click(object sender, EventArgs e)
 		{
 			isExpanded = ( isExpanded ) ? isExpanded = false : isExpanded = true;
-
-			switch (isExpanded)
-			{
-				case true:
-					this.Size = new Size(500, 220);
-					break;
-				case false:
-					this.Size = new Size(500, 170);
-					break;
-			}
+			this.Size = ( isExpanded ) ? new Size(500, 220) : new Size(500, 170);
 		}
 	}
 }

@@ -23,8 +23,32 @@ namespace Starbounder.FileTypes.Weapons
 
 		public class ProjectileConfig
 		{
+			public ProjectileConfig(int speed, int power)
+			{
+				this.speed = speed;
+				this.power = power;
+			}
+
 			public int speed { get; set; }
 			public int power { get; set; }
+		}
+
+		public WeaponThrown SetDefault()
+		{
+			itemName         = "Unique Name";
+			rarity           = "common";
+			inventoryIcon    = "inventoryIcon.png";
+			image            = "image.png";
+			shortdescription = "Description of the weapon.";
+			description      = "Name of the weapon";
+			ammoUsage        = 1;
+			edgeTrigger      = true;
+			windupTime       = 1;
+			cooldown         = 0.25;
+			projectileType   = "Projectile type";
+			projectileConfig = new ProjectileConfig(30, 5);
+
+			return this;
 		}
 	}
 }

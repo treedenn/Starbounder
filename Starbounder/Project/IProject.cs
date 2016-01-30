@@ -11,14 +11,14 @@ namespace Starbounder.Project
 {
 	class IProject
 	{
-		public static string name { get; set; }
-		public static string path { get; set; }
+		public static string projectName { get; set; }
+		public static string projectPath { get; set; }
 		public static string sbPath { get; set; }
 
 		public IProject(string path)
 		{
-			IProject.path = path;
-			name = Path.GetFileName(path);
+			projectPath = path;
+			projectName = Path.GetFileName(path);
 		}
 
 		public static void CreateProject()
@@ -37,8 +37,8 @@ namespace Starbounder.Project
 
 			if (folder.SelectedPath != string.Empty)
 			{
-				path = folder.SelectedPath;
-				name = Path.GetFileName(folder.SelectedPath);
+				projectPath = folder.SelectedPath;
+				projectName = Path.GetFileName(folder.SelectedPath);
 
 				return true;
 			}
@@ -63,9 +63,9 @@ namespace Starbounder.Project
 		{
 			List<TreeNode> nodes = new List<TreeNode>();
 
-			if (Directory.Exists(path))
+			if (Directory.Exists(projectPath))
 			{
-				DirectoryInfo info = new DirectoryInfo(path);
+				DirectoryInfo info = new DirectoryInfo(projectPath);
 
 				if (info.Exists)
 				{

@@ -30,7 +30,25 @@ namespace Starbounder.FileTypes.Tools
 
 		public ToolHarvesting SetDefault()
 		{
-
+			itemName         = "Unique Name";
+			price            = 0;
+			inventoryIcon    = "inventoryIcon.png";
+			maxStack         = 1;
+			rarity           = "common";
+			description      = "Description of the tool.";
+			shortdescription = "Name of the tool";
+			largeImage       = "largeImage.png";
+			image            = "image.png";
+			frames           = 5;
+			animationCycle   = 0.25;
+			tooltipKind      = "tool";
+			handPosition     = new List<int>() { -6, 3 };
+			fireTime         = 0.25;
+			blockRadius      = 5;
+			altBlockRadius   = 1;
+			twoHanded        = true;
+			idleSound        = "/sfx/tools/something_idle.ogg";
+			strikeSounds     = new List<string>() { "/sfx/tools/something_swing.ogg" };
 
 			return this;
 		}

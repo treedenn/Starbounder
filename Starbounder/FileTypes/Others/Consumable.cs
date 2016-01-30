@@ -17,5 +17,21 @@ namespace Starbounder.FileTypes.Others
 		public List<List<string>> effects { get; set; }
 		public List<string> blockingEffects { get; set; }
 		public List<string> learnBlueprintsOnPickup { get; set; }
+
+		public Consumable SetDefault()
+		{
+			itemName                = "Unique Name";
+			rarity                  = "common";
+			price                   = 0;
+			inventoryIcon           = "inventoryIcon.png";
+			description             = "Description of the item";
+			shortdescription        = "Name of the item";
+			effects                 = new List<List<string>>();
+			blockingEffects         = new List<string>();
+			learnBlueprintsOnPickup = new List<string>();
+
+			return this;
+		}
+
 	}
 }

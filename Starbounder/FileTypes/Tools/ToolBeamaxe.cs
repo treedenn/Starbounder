@@ -46,5 +46,49 @@ namespace Starbounder.FileTypes.Tools
 		public double maxBeamTrans { get; set; }
 		public int minBeamLines { get; set; }
 		public int maxBeamLines { get; set; }
+
+		public ToolBeamaxe SetDefault()
+		{
+			itemName                   = "Unique Name";
+			price                      = 0;
+			inventoryIcon              = "inventoryIcon.png";
+			rarity                     = "common";
+			maxStack                   = 1;
+			description                = "Description of the tool.";
+			shortdescription           = "Name of the tool";
+			largeImage                 = "largeImage.png";
+			tooltipKind                = "tool";
+			category                   = "Tool;[R]";
+			fireTime                   = 0.25;
+			blockRadius                = 5;
+			altBlockRadius             = 1;
+			tileDamage                 = 2;
+			harvestLevel               = 5;
+			canCollectLiquid           = true;
+			twoHanded                  = true;
+			strikeSounds               = new List<string>() { "/sfx/tools/atom.ogg", "/sfx/tools/atom2.ogg", "/sfx/tools/atom3.ogg", "/sfx/tools/atom4.ogg", "/sfx/tools/atom5.ogg" };
+			image                      = "image.png";
+			endImages                  = new List<string>() { "humanoid/any/gravgun1.png" };
+			handPosition               = new List<int>() { -2, 0 };
+			firePosition               = new List<int>() { 5, 0 };
+			segmentsPerUnit            = 1;
+			nearControlPointElasticity = 0.1;
+			farControlPointElasticity  = 0.9;
+			nearControlPointDistance   = 0.9;
+			targetSegmentRun           = 1;
+			innerBrightnessScale       = 20;
+			firstStripeThickness       = 0.05;
+			secondStripeThickness      = 0.1;
+			minBeamWidth               = 2;
+			maxBeamWidth               = 4;
+			minBeamJitter              = 0.05;
+			maxBeamJitter              = 0.1;
+			minBeamTrans               = 0.1;
+			maxBeamTrans               = 0.4;
+			minBeamLines               = 3;
+			maxBeamLines               = 5;
+
+			return this;
+		}
 	}
 }
