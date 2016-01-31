@@ -46,5 +46,65 @@ namespace Starbounder.Properties {
                 this["ModDirectory"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Heitx")]
+        public string Author {
+            get {
+                return ((string)(this["Author"]));
+            }
+            set {
+                this["Author"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Beta v. Glad Giraffe")]
+        public string SBVersion {
+            get {
+                return ((string)(this["SBVersion"]));
+            }
+            set {
+                this["SBVersion"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TextEditor {
+            get {
+                return ((string)(this["TextEditor"]));
+            }
+            set {
+                this["TextEditor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ImageEditor {
+            get {
+                return ((string)(this["ImageEditor"]));
+            }
+            set {
+                this["ImageEditor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string StarboundFolder {
+            get {
+                return ((string)(this["StarboundFolder"]));
+            }
+            set {
+                this["StarboundFolder"] = value;
+            }
+        }
     }
 }

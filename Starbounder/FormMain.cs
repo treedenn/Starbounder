@@ -53,16 +53,7 @@ namespace Starbounder
 		{
 			string extension = (Path.HasExtension(GetNodePath())) ? Path.GetExtension(GetNodePath()) : "";
 
-			if (extension != string.Empty)
-			{
-				switch (extension)
-				{
-					case ".item":
-						MessageBox.Show(".item loaded...");
-						FileLayout.GenerateLayout.GenerateItem(flowLayoutPanelControls);
-						break;
-				}
-			}
+			
 			
 			//MessageBox.Show(treeViewFolder.SelectedNode.Tag.ToString());
 		}

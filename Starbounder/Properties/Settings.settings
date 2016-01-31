@@ -8,5 +8,20 @@
     <Setting Name="ModDirectory" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="Author" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Heitx</Value>
+    </Setting>
+    <Setting Name="SBVersion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Beta v. Glad Giraffe</Value>
+    </Setting>
+    <Setting Name="TextEditor" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ImageEditor" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="StarboundFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

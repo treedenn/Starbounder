@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -89,8 +90,6 @@
     <Compile Include="Json\JsonWriter.cs" />
     <Compile Include="Functions\Dialogs.cs" />
     <Compile Include="Functions\Processes.cs" />
-    <Compile Include="FileLayout\GenerateLayout.cs" />
-    <Compile Include="FileLayout\LayoutControls.cs" />
     <Compile Include="Project\ModInfo.cs" />
     <Compile Include="Project\IProject.cs" />
     <Compile Include="Functions\Steam.cs" />

@@ -40,10 +40,16 @@
 			this.labelConfigWork = new System.Windows.Forms.Label();
 			this.buttonConfigContinue = new System.Windows.Forms.Button();
 			this.buttonConfigExpand = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.label2 = new System.Windows.Forms.Label();
+			this.labelConfigSBVersion = new System.Windows.Forms.Label();
+			this.textBoxConfigSBVersion = new System.Windows.Forms.TextBox();
+			this.textBoxConfigAuthor = new System.Windows.Forms.TextBox();
+			this.labelConfigAuthor = new System.Windows.Forms.Label();
+			this.textBoxConfigTextEditor = new System.Windows.Forms.TextBox();
+			this.labelConfigTextEditor = new System.Windows.Forms.Label();
+			this.textBoxConfigImageEditor = new System.Windows.Forms.TextBox();
+			this.labelConfigImageEditor = new System.Windows.Forms.Label();
+			this.button1 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
 			this.panelSystem.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -151,47 +157,111 @@
 			this.buttonConfigExpand.UseVisualStyleBackColor = true;
 			this.buttonConfigExpand.Click += new System.EventHandler(this.buttonConfigExpand_Click);
 			// 
-			// label1
+			// labelConfigSBVersion
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(248, 133);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(97, 13);
-			this.label1.TabIndex = 9;
-			this.label1.Text = "Starbound Version:";
+			this.labelConfigSBVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.labelConfigSBVersion.AutoSize = true;
+			this.labelConfigSBVersion.Location = new System.Drawing.Point(248, 223);
+			this.labelConfigSBVersion.Name = "labelConfigSBVersion";
+			this.labelConfigSBVersion.Size = new System.Drawing.Size(97, 13);
+			this.labelConfigSBVersion.TabIndex = 9;
+			this.labelConfigSBVersion.Text = "Starbound Version:";
 			// 
-			// textBox1
+			// textBoxConfigSBVersion
 			// 
-			this.textBox1.Location = new System.Drawing.Point(251, 149);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(221, 20);
-			this.textBox1.TabIndex = 10;
+			this.textBoxConfigSBVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.textBoxConfigSBVersion.Location = new System.Drawing.Point(251, 239);
+			this.textBoxConfigSBVersion.Name = "textBoxConfigSBVersion";
+			this.textBoxConfigSBVersion.Size = new System.Drawing.Size(221, 20);
+			this.textBoxConfigSBVersion.TabIndex = 10;
 			// 
-			// textBox2
+			// textBoxConfigAuthor
 			// 
-			this.textBox2.Location = new System.Drawing.Point(15, 149);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(221, 20);
-			this.textBox2.TabIndex = 12;
+			this.textBoxConfigAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.textBoxConfigAuthor.Location = new System.Drawing.Point(15, 239);
+			this.textBoxConfigAuthor.Name = "textBoxConfigAuthor";
+			this.textBoxConfigAuthor.Size = new System.Drawing.Size(221, 20);
+			this.textBoxConfigAuthor.TabIndex = 12;
 			// 
-			// label2
+			// labelConfigAuthor
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(12, 133);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(41, 13);
-			this.label2.TabIndex = 11;
-			this.label2.Text = "Author:";
+			this.labelConfigAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.labelConfigAuthor.AutoSize = true;
+			this.labelConfigAuthor.Location = new System.Drawing.Point(12, 223);
+			this.labelConfigAuthor.Name = "labelConfigAuthor";
+			this.labelConfigAuthor.Size = new System.Drawing.Size(41, 13);
+			this.labelConfigAuthor.TabIndex = 11;
+			this.labelConfigAuthor.Text = "Author:";
+			// 
+			// textBoxConfigTextEditor
+			// 
+			this.textBoxConfigTextEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.textBoxConfigTextEditor.Location = new System.Drawing.Point(15, 161);
+			this.textBoxConfigTextEditor.Name = "textBoxConfigTextEditor";
+			this.textBoxConfigTextEditor.Size = new System.Drawing.Size(376, 20);
+			this.textBoxConfigTextEditor.TabIndex = 14;
+			// 
+			// labelConfigTextEditor
+			// 
+			this.labelConfigTextEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.labelConfigTextEditor.AutoSize = true;
+			this.labelConfigTextEditor.Location = new System.Drawing.Point(12, 145);
+			this.labelConfigTextEditor.Name = "labelConfigTextEditor";
+			this.labelConfigTextEditor.Size = new System.Drawing.Size(61, 13);
+			this.labelConfigTextEditor.TabIndex = 13;
+			this.labelConfigTextEditor.Text = "Text Editor:";
+			// 
+			// textBoxConfigImageEditor
+			// 
+			this.textBoxConfigImageEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.textBoxConfigImageEditor.Location = new System.Drawing.Point(15, 200);
+			this.textBoxConfigImageEditor.Name = "textBoxConfigImageEditor";
+			this.textBoxConfigImageEditor.Size = new System.Drawing.Size(376, 20);
+			this.textBoxConfigImageEditor.TabIndex = 16;
+			// 
+			// labelConfigImageEditor
+			// 
+			this.labelConfigImageEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.labelConfigImageEditor.AutoSize = true;
+			this.labelConfigImageEditor.Location = new System.Drawing.Point(12, 184);
+			this.labelConfigImageEditor.Name = "labelConfigImageEditor";
+			this.labelConfigImageEditor.Size = new System.Drawing.Size(69, 13);
+			this.labelConfigImageEditor.TabIndex = 15;
+			this.labelConfigImageEditor.Text = "Image Editor:";
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(397, 200);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 20);
+			this.button1.TabIndex = 18;
+			this.button1.Text = "Browse";
+			this.button1.UseVisualStyleBackColor = true;
+			// 
+			// button2
+			// 
+			this.button2.Location = new System.Drawing.Point(397, 161);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(75, 20);
+			this.button2.TabIndex = 17;
+			this.button2.Text = "Browse";
+			this.button2.UseVisualStyleBackColor = true;
 			// 
 			// FormConfiguration
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(484, 131);
-			this.Controls.Add(this.textBox2);
-			this.Controls.Add(this.label2);
-			this.Controls.Add(this.textBox1);
-			this.Controls.Add(this.label1);
+			this.Controls.Add(this.button1);
+			this.Controls.Add(this.button2);
+			this.Controls.Add(this.textBoxConfigImageEditor);
+			this.Controls.Add(this.labelConfigImageEditor);
+			this.Controls.Add(this.textBoxConfigTextEditor);
+			this.Controls.Add(this.labelConfigTextEditor);
+			this.Controls.Add(this.textBoxConfigAuthor);
+			this.Controls.Add(this.labelConfigAuthor);
+			this.Controls.Add(this.textBoxConfigSBVersion);
+			this.Controls.Add(this.labelConfigSBVersion);
 			this.Controls.Add(this.buttonConfigExpand);
 			this.Controls.Add(this.buttonConfigContinue);
 			this.Controls.Add(this.buttonConfigBrowseWork);
@@ -228,10 +298,16 @@
         private System.Windows.Forms.Label labelConfigWork;
 		private System.Windows.Forms.Button buttonConfigContinue;
 		private System.Windows.Forms.Button buttonConfigExpand;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label labelConfigSBVersion;
+		private System.Windows.Forms.TextBox textBoxConfigSBVersion;
+		private System.Windows.Forms.TextBox textBoxConfigAuthor;
+		private System.Windows.Forms.Label labelConfigAuthor;
+		private System.Windows.Forms.TextBox textBoxConfigTextEditor;
+		private System.Windows.Forms.Label labelConfigTextEditor;
+		private System.Windows.Forms.TextBox textBoxConfigImageEditor;
+		private System.Windows.Forms.Label labelConfigImageEditor;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button button2;
 	}
 }
 

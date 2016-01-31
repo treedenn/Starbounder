@@ -23,10 +23,19 @@ namespace Starbounder
 
 		private void FormConfiguration_Load(object sender, EventArgs e)
 		{
-			Functions.Steam.SearchForStarboundFolder(textBoxConfigSB);
-			radioButtonConfigWin64.Checked = Settings.LoadSystem();
 
-			textBoxConfigWork.Text = Settings.LoadWorkingDirectory();
+			textBoxConfigSB.Text           = Settings.LoadStarboundFolder();
+			radioButtonConfigWin64.Checked = Settings.LoadSystem();
+			textBoxConfigWork.Text         = Settings.LoadWorkingDirectory();
+			textBoxConfigAuthor.Text       = Settings.LoadAuthor();
+			textBoxConfigSBVersion.Text    = Settings.LoadSBVersion();
+			textBoxConfigTextEditor.Text   = Settings.LoadTextEditor();
+			textBoxConfigImageEditor.Text  = Settings.LoadImageEditor();
+
+			if (textBoxConfigSB.Text == "")
+			{
+				Functions.Steam.SearchForStarboundFolder(textBoxConfigSB);
+			}
 		}
 
 		private void buttonConfigContinue_Click(object sender, EventArgs e)
@@ -34,6 +43,11 @@ namespace Starbounder
 			// Save settings
 			Settings.SaveSystem(radioButtonConfigWin64.Checked);
 			Settings.SaveWorkingDirectory(textBoxConfigWork.Text);
+			Settings.SaveStarboundFolder(textBoxConfigSB.Text);
+			Settings.SaveAuthor(textBoxConfigAuthor.Text);
+			Settings.SaveSBVersion(textBoxConfigSBVersion.Text);
+			Settings.SaveTextEditor(textBoxConfigTextEditor.Text);
+			Settings.SaveImageEditor(textBoxConfigImageEditor.Text);
 
 			Properties.Settings.Default.Save();
 			Properties.Settings.Default.Upgrade();
@@ -53,20 +67,20 @@ namespace Starbounder
 		{
 			var folder = Functions.Dialogs.FolderBrowserDialog("Browse Starbound Folder");
 
-			textBoxConfigSB.Text = ( folder.SelectedPath != string.Empty ) ? folder.SelectedPath : textBoxConfigSB.Text;
+			textBoxConfigSB.Text = ( folder != null ) ? folder.SelectedPath : textBoxConfigSB.Text;
 		}
 
 		private void buttonConfigBrowseWork_Click(object sender, EventArgs e)
 		{
-			var folder = Functions.Dialogs.FolderBrowserDialog("Browse Starbound Working Folder");
+			var folder = Functions.Dialogs.FolderBrowserDialog("Select a folder to get the most of out the program.");
 
-			textBoxConfigWork.Text = ( folder.SelectedPath != string.Empty ) ? folder.SelectedPath : textBoxConfigWork.Text;
+			textBoxConfigWork.Text = ( folder != null ) ? folder.SelectedPath : textBoxConfigWork.Text;
 		}
 
 		private void buttonConfigExpand_Click(object sender, EventArgs e)
 		{
 			isExpanded = ( isExpanded ) ? isExpanded = false : isExpanded = true;
-			this.Size = ( isExpanded ) ? new Size(500, 220) : new Size(500, 170);
+			this.Size = ( isExpanded ) ? new Size(500, 310) : new Size(500, 170);
 		}
 	}
 }
