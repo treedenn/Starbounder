@@ -11,7 +11,6 @@ namespace Starbounder.Functions
 {
 	class Processes
 	{
-
 		/// <summary>
 		/// Launches Starbound on either 64/32 bit with opengl or not.
 		/// </summary>
@@ -73,6 +72,36 @@ namespace Starbounder.Functions
 			cmd.WaitForExit();
 
 			return true;
+		}
+
+		public static void OpenFileWithTextEditor(string path)
+		{
+			string te = Starbounder.Project.Settings.LoadTextEditor(); // Text editor
+
+			if (File.Exists(te) && File.Exists(path))
+			{
+				string teName      = Path.GetFileName(te);
+				string teDirectory = Path.GetDirectoryName(te);
+
+				Process.Start(te, path);
+			}
+		}
+
+		public static void OpenFileWithImageEditor(string path)
+		{
+			string ie = Starbounder.Project.Settings.LoadTextEditor(); // Text editor
+
+			if (File.Exists(ie) && File.Exists(path))
+			{
+				string ieName      = Path.GetFileName(ie);
+				string ieDirectory = Path.GetDirectoryName(ie);
+
+				Process process    = new Process();
+				
+				process.StartInfo.FileName         = ieName;
+				process.StartInfo.WorkingDirectory = ieDirectory;
+				process.Start();
+			}
 		}
 	}
 }

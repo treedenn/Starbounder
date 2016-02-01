@@ -48,8 +48,8 @@
 			this.labelConfigTextEditor = new System.Windows.Forms.Label();
 			this.textBoxConfigImageEditor = new System.Windows.Forms.TextBox();
 			this.labelConfigImageEditor = new System.Windows.Forms.Label();
-			this.button1 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
+			this.buttonConfigBrowseImage = new System.Windows.Forms.Button();
+			this.buttonConfigBrowseText = new System.Windows.Forms.Button();
 			this.panelSystem.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -229,31 +229,33 @@
 			this.labelConfigImageEditor.TabIndex = 15;
 			this.labelConfigImageEditor.Text = "Image Editor:";
 			// 
-			// button1
+			// buttonConfigBrowseImage
 			// 
-			this.button1.Location = new System.Drawing.Point(397, 200);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 20);
-			this.button1.TabIndex = 18;
-			this.button1.Text = "Browse";
-			this.button1.UseVisualStyleBackColor = true;
+			this.buttonConfigBrowseImage.Location = new System.Drawing.Point(397, 200);
+			this.buttonConfigBrowseImage.Name = "buttonConfigBrowseImage";
+			this.buttonConfigBrowseImage.Size = new System.Drawing.Size(75, 20);
+			this.buttonConfigBrowseImage.TabIndex = 18;
+			this.buttonConfigBrowseImage.Text = "Browse";
+			this.buttonConfigBrowseImage.UseVisualStyleBackColor = true;
+			this.buttonConfigBrowseImage.Click += new System.EventHandler(this.buttonConfigBrowseImage_Click);
 			// 
-			// button2
+			// buttonConfigBrowseText
 			// 
-			this.button2.Location = new System.Drawing.Point(397, 161);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(75, 20);
-			this.button2.TabIndex = 17;
-			this.button2.Text = "Browse";
-			this.button2.UseVisualStyleBackColor = true;
+			this.buttonConfigBrowseText.Location = new System.Drawing.Point(397, 161);
+			this.buttonConfigBrowseText.Name = "buttonConfigBrowseText";
+			this.buttonConfigBrowseText.Size = new System.Drawing.Size(75, 20);
+			this.buttonConfigBrowseText.TabIndex = 17;
+			this.buttonConfigBrowseText.Text = "Browse";
+			this.buttonConfigBrowseText.UseVisualStyleBackColor = true;
+			this.buttonConfigBrowseText.Click += new System.EventHandler(this.buttonConfigBrowseText_Click);
 			// 
 			// FormConfiguration
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(484, 131);
-			this.Controls.Add(this.button1);
-			this.Controls.Add(this.button2);
+			this.ClientSize = new System.Drawing.Size(484, 280);
+			this.Controls.Add(this.buttonConfigBrowseImage);
+			this.Controls.Add(this.buttonConfigBrowseText);
 			this.Controls.Add(this.textBoxConfigImageEditor);
 			this.Controls.Add(this.labelConfigImageEditor);
 			this.Controls.Add(this.textBoxConfigTextEditor);
@@ -275,6 +277,7 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "FormConfiguration";
+			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Starbounder - Configuration";
 			this.Load += new System.EventHandler(this.FormConfiguration_Load);
@@ -306,8 +309,8 @@
 		private System.Windows.Forms.Label labelConfigTextEditor;
 		private System.Windows.Forms.TextBox textBoxConfigImageEditor;
 		private System.Windows.Forms.Label labelConfigImageEditor;
-		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button buttonConfigBrowseImage;
+		private System.Windows.Forms.Button buttonConfigBrowseText;
 	}
 }
 

@@ -10,12 +10,20 @@ namespace Starbounder.FileTypes
 {
 	class FileTypes
 	{
-		public static void CreateEverything(string path, object obj, string fileExtension, int width, int height)
+		public static string[] supportedTextExtensions = new string[]
 		{
-			CreateJson(path, obj, fileExtension);
-			CreateFrames(path);
-			CreatePNG(path, width, height);
-		}
+			".sword", ".staff", ".gun", ".thrown",
+			".beamaxe", ".harvestingtool", ".miningtool",
+			".head", ".chest", ".legs", ".back",
+			".item", ".matitem", ".liqitem",
+			".consumable",
+			".modinfo", ".frames"
+		};
+
+		public static string[] supportedImageExtensions = new string[]
+		{
+			".png"
+		};
 
 		public static void CreateJson(string path, object obj, string FileExtension)
 		{

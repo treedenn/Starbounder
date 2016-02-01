@@ -79,7 +79,7 @@
 			this.treeViewFolder.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.treeViewFolder.Location = new System.Drawing.Point(0, 24);
 			this.treeViewFolder.Name = "treeViewFolder";
-			this.treeViewFolder.Size = new System.Drawing.Size(484, 437);
+			this.treeViewFolder.Size = new System.Drawing.Size(284, 437);
 			this.treeViewFolder.TabIndex = 0;
 			this.treeViewFolder.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewFolder_NodeMouseClick);
 			this.treeViewFolder.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewFolder_NodeMouseDoubleClick);
@@ -321,7 +321,7 @@
             this.refreshToolStripMenuItem});
 			this.menuStripMain.Location = new System.Drawing.Point(0, 0);
 			this.menuStripMain.Name = "menuStripMain";
-			this.menuStripMain.Size = new System.Drawing.Size(484, 24);
+			this.menuStripMain.Size = new System.Drawing.Size(284, 24);
 			this.menuStripMain.TabIndex = 1;
 			this.menuStripMain.Text = "menuStrip1";
 			// 
@@ -398,12 +398,13 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(484, 461);
+			this.ClientSize = new System.Drawing.Size(284, 461);
 			this.Controls.Add(this.treeViewFolder);
 			this.Controls.Add(this.menuStripMain);
 			this.MainMenuStrip = this.menuStripMain;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "FormMain";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Starbounder - Version 1.0.0";
 			this.Load += new System.EventHandler(this.FormMain_Load);
 			this.contextMenuStripTreeView.ResumeLayout(false);

@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.IO;
+using System.Linq;
+using System.Data;
+using System.Text;
+using System.Drawing;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ComponentModel;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 using Starbounder.FileTypes;
 
 namespace Starbounder
@@ -35,8 +35,12 @@ namespace Starbounder
 
 		private void FormMain_Load(object sender, EventArgs e)
 		{
+			DesktopLocation = new Point(-6, 0);
+			Size = new Size(250, Screen.PrimaryScreen.Bounds.Height);
+
 			RefreshTreeView();
 		}
+
 		private void treeViewFolder_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
 		{
 			if (e.Button == MouseButtons.Right)
@@ -49,13 +53,35 @@ namespace Starbounder
 				}
 			}
 		}
+
 		private void treeViewFolder_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
 		{
-			string extension = (Path.HasExtension(GetNodePath())) ? Path.GetExtension(GetNodePath()) : "";
+			string nodePath = GetNodePath();
 
-			
-			
-			//MessageBox.Show(treeViewFolder.SelectedNode.Tag.ToString());
+			if (Path.HasExtension(nodePath))
+			{
+				string fe    = Path.GetExtension(nodePath); // File Extension
+				string[] ste = FileTypes.FileTypes.supportedTextExtensions; // Supported Text Extensions
+				string[] sie = FileTypes.FileTypes.supportedImageExtensions; // Supported Image Extensions
+
+				foreach (string ext in ste)
+				{
+					if (ext == fe)
+					{
+						Functions.Processes.OpenFileWithTextEditor(nodePath);
+						return;
+					}
+				}
+
+				foreach (string ext in sie)
+				{
+					if (ext == fe)
+					{
+						Functions.Processes.OpenFileWithImageEditor(nodePath);
+						return;
+					}
+				}
+			}
 		}
 
 		#region MenuStripMain
@@ -250,7 +276,6 @@ namespace Starbounder
 		#endregion
 
 		#endregion
-
 		
 	}
 }

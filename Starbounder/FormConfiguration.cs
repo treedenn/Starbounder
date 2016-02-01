@@ -21,6 +21,7 @@ namespace Starbounder
 			InitializeComponent();
 		}
 
+		// Form load
 		private void FormConfiguration_Load(object sender, EventArgs e)
 		{
 
@@ -38,6 +39,14 @@ namespace Starbounder
 			}
 		}
 
+		// Expand
+		private void buttonConfigExpand_Click(object sender, EventArgs e)
+		{
+			isExpanded = ( isExpanded ) ? isExpanded = false : isExpanded = true;
+			this.Size = ( isExpanded ) ? new Size(500, 310) : new Size(500, 170);
+		}
+		
+		// Continue
 		private void buttonConfigContinue_Click(object sender, EventArgs e)
 		{
 			// Save settings
@@ -63,6 +72,8 @@ namespace Starbounder
 			mf.Show();
 		}
 
+		#region Buttons : Browse
+		// Starbound
 		private void buttonConfigBrowseSB_Click(object sender, EventArgs e)
 		{
 			var folder = Functions.Dialogs.FolderBrowserDialog("Browse Starbound Folder");
@@ -70,6 +81,7 @@ namespace Starbounder
 			textBoxConfigSB.Text = ( folder != null ) ? folder.SelectedPath : textBoxConfigSB.Text;
 		}
 
+		// Work Directory
 		private void buttonConfigBrowseWork_Click(object sender, EventArgs e)
 		{
 			var folder = Functions.Dialogs.FolderBrowserDialog("Select a folder to get the most of out the program.");
@@ -77,10 +89,22 @@ namespace Starbounder
 			textBoxConfigWork.Text = ( folder != null ) ? folder.SelectedPath : textBoxConfigWork.Text;
 		}
 
-		private void buttonConfigExpand_Click(object sender, EventArgs e)
+		// Text Editor
+		private void buttonConfigBrowseText_Click(object sender, EventArgs e)
 		{
-			isExpanded = ( isExpanded ) ? isExpanded = false : isExpanded = true;
-			this.Size = ( isExpanded ) ? new Size(500, 310) : new Size(500, 170);
+			var file = Functions.Dialogs.LoadFileDialog("Select the specific text editor's .exe file.", "Executable Files (*.exe)|*.exe");
+
+			textBoxConfigTextEditor.Text = ( file != null ) ? file.FileName : textBoxConfigTextEditor.Text;
 		}
+
+		// Image Editor
+		private void buttonConfigBrowseImage_Click(object sender, EventArgs e)
+		{
+			var file = Functions.Dialogs.LoadFileDialog("Select the specific image editor's .exe file.", "Executable Files (*.exe)|*.exe");
+
+			textBoxConfigImageEditor.Text = ( file != null ) ? file.FileName : textBoxConfigImageEditor.Text;
+		}
+		#endregion
+
 	}
 }

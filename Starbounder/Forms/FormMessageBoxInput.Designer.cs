@@ -48,6 +48,7 @@
 			// buttonMBCancel
 			// 
 			this.buttonMBCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonMBCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.buttonMBCancel.Location = new System.Drawing.Point(297, 41);
 			this.buttonMBCancel.Name = "buttonMBCancel";
 			this.buttonMBCancel.Size = new System.Drawing.Size(75, 23);
@@ -60,7 +61,7 @@
 			// 
 			this.textBoxMBInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBoxMBInput.Location = new System.Drawing.Point(12, 229);
+			this.textBoxMBInput.Location = new System.Drawing.Point(12, 92);
 			this.textBoxMBInput.Name = "textBoxMBInput";
 			this.textBoxMBInput.Size = new System.Drawing.Size(360, 20);
 			this.textBoxMBInput.TabIndex = 0;
@@ -72,7 +73,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.labelMBText.Location = new System.Drawing.Point(12, 12);
 			this.labelMBText.Name = "labelMBText";
-			this.labelMBText.Size = new System.Drawing.Size(279, 214);
+			this.labelMBText.Size = new System.Drawing.Size(279, 77);
 			this.labelMBText.TabIndex = 3;
 			// 
 			// FormMessageBoxInput
@@ -81,7 +82,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.buttonMBCancel;
-			this.ClientSize = new System.Drawing.Size(384, 261);
+			this.ClientSize = new System.Drawing.Size(384, 124);
 			this.Controls.Add(this.labelMBText);
 			this.Controls.Add(this.textBoxMBInput);
 			this.Controls.Add(this.buttonMBCancel);
@@ -90,6 +91,7 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "FormMessageBoxInput";
+			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "FormMessageBoxInput";
 			this.Load += new System.EventHandler(this.FormMessageBoxInput_Load);
