@@ -67,6 +67,7 @@
 			this.playToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.fileExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.unpackAssetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStripTreeView.SuspendLayout();
@@ -75,11 +76,14 @@
 			// 
 			// treeViewFolder
 			// 
-			this.treeViewFolder.BackColor = System.Drawing.SystemColors.Control;
+			this.treeViewFolder.BackColor = System.Drawing.SystemColors.Desktop;
+			this.treeViewFolder.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.treeViewFolder.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.treeViewFolder.ForeColor = System.Drawing.SystemColors.Control;
+			this.treeViewFolder.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
 			this.treeViewFolder.Location = new System.Drawing.Point(0, 24);
 			this.treeViewFolder.Name = "treeViewFolder";
-			this.treeViewFolder.Size = new System.Drawing.Size(284, 437);
+			this.treeViewFolder.Size = new System.Drawing.Size(284, 137);
 			this.treeViewFolder.TabIndex = 0;
 			this.treeViewFolder.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewFolder_NodeMouseClick);
 			this.treeViewFolder.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewFolder_NodeMouseDoubleClick);
@@ -315,6 +319,7 @@
 			// 
 			// menuStripMain
 			// 
+			this.menuStripMain.BackColor = System.Drawing.SystemColors.Desktop;
 			this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.settingsToolStripMenuItem,
@@ -323,14 +328,16 @@
 			this.menuStripMain.Name = "menuStripMain";
 			this.menuStripMain.Size = new System.Drawing.Size(284, 24);
 			this.menuStripMain.TabIndex = 1;
-			this.menuStripMain.Text = "menuStrip1";
+			this.menuStripMain.Text = "menuStrip";
 			// 
 			// fileToolStripMenuItem
 			// 
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newProjectToolStripMenuItem,
             this.loadProjectToolStripMenuItem,
-            this.starboundToolStripMenuItem});
+            this.starboundToolStripMenuItem,
+            this.exitToolStripMenuItem});
+			this.fileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
 			this.fileToolStripMenuItem.Text = "File";
@@ -380,8 +387,15 @@
 			this.unpackAssetsToolStripMenuItem.Text = "Unpack Assets";
 			this.unpackAssetsToolStripMenuItem.Click += new System.EventHandler(this.unpackAssetsToolStripMenuItem_Click);
 			// 
+			// exitToolStripMenuItem
+			// 
+			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			this.exitToolStripMenuItem.Text = "Exit";
+			// 
 			// settingsToolStripMenuItem
 			// 
+			this.settingsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
 			this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
 			this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
 			this.settingsToolStripMenuItem.Text = "Settings";
@@ -389,6 +403,7 @@
 			// 
 			// refreshToolStripMenuItem
 			// 
+			this.refreshToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
 			this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
 			this.refreshToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
 			this.refreshToolStripMenuItem.Text = "Refresh";
@@ -398,13 +413,16 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(284, 461);
+			this.BackColor = System.Drawing.SystemColors.Desktop;
+			this.ClientSize = new System.Drawing.Size(284, 161);
 			this.Controls.Add(this.treeViewFolder);
 			this.Controls.Add(this.menuStripMain);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.MainMenuStrip = this.menuStripMain;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "FormMain";
+			this.Opacity = 0.9D;
 			this.Text = "Starbounder - Version 1.0.0";
 			this.Load += new System.EventHandler(this.FormMain_Load);
 			this.contextMenuStripTreeView.ResumeLayout(false);
@@ -457,5 +475,6 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparatorActions;
 		private System.Windows.Forms.ToolStripMenuItem moveToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem framesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
 	}
 }

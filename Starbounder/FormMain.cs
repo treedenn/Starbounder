@@ -18,13 +18,61 @@ namespace Starbounder
 		public FormMain()
 		{
 			InitializeComponent();
+
+			MainMenuStrip.Renderer = new MyRenderer();
 		}
 
 		#region Functions
+		// Change color of menustrip
+		private class MyRenderer : ToolStripProfessionalRenderer
+		{
+			public MyRenderer() : base(new MyColors()) { }
+		}
+
+		private class MyColors : ProfessionalColorTable
+		{
+			public override Color MenuItemSelected
+			{
+				get { return Color.DarkSlateGray; }
+			}
+			public override Color MenuItemSelectedGradientBegin
+			{
+				get { return Color.Transparent; }
+			}
+			public override Color MenuItemSelectedGradientEnd
+			{
+				get { return Color.Transparent; }
+			}
+			public override Color MenuItemBorder
+			{
+				get { return Color.LightSlateGray; }
+			}
+		}
+
+		private void RecursiveMenuItems(ToolStripMenuItem item)
+		{
+			if (item.HasDropDownItems)
+			{
+				foreach (ToolStripMenuItem cItem in item.DropDownItems)
+				{
+					RecursiveMenuItems(cItem);
+				}
+			}
+
+			SetColorsOnMenuItem(item);
+		}
+
+		private void SetColorsOnMenuItem(ToolStripMenuItem item)
+		{
+			item.BackColor = SystemColors.Desktop;
+			item.ForeColor = SystemColors.Control;
+		}
+
 		private string GetNodePath()
 		{
 			return treeViewFolder.SelectedNode.Tag.ToString();
 		}
+
 		private void RefreshTreeView()
 		{
 			treeViewFolder.Nodes.Clear();
@@ -35,6 +83,11 @@ namespace Starbounder
 
 		private void FormMain_Load(object sender, EventArgs e)
 		{
+			foreach (ToolStripMenuItem item in menuStripMain.Items)
+			{
+				RecursiveMenuItems(item);
+			}
+
 			DesktopLocation = new Point(-6, 0);
 			Size = new Size(250, Screen.PrimaryScreen.Bounds.Height);
 
@@ -276,6 +329,6 @@ namespace Starbounder
 		#endregion
 
 		#endregion
-		
+
 	}
 }
