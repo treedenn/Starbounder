@@ -70,6 +70,7 @@
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
 			this.contextMenuStripTreeView.SuspendLayout();
 			this.menuStripMain.SuspendLayout();
 			this.SuspendLayout();
@@ -115,21 +116,21 @@
 			// itemToolStripMenuItem
 			// 
 			this.itemToolStripMenuItem.Name = "itemToolStripMenuItem";
-			this.itemToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+			this.itemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.itemToolStripMenuItem.Text = "Item";
 			this.itemToolStripMenuItem.Click += new System.EventHandler(this.itemToolStripMenuItem_Click);
 			// 
 			// materialItemToolStripMenuItem
 			// 
 			this.materialItemToolStripMenuItem.Name = "materialItemToolStripMenuItem";
-			this.materialItemToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+			this.materialItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.materialItemToolStripMenuItem.Text = "Material Item";
 			this.materialItemToolStripMenuItem.Click += new System.EventHandler(this.materialItemToolStripMenuItem_Click);
 			// 
 			// liquidItemToolStripMenuItem
 			// 
 			this.liquidItemToolStripMenuItem.Name = "liquidItemToolStripMenuItem";
-			this.liquidItemToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+			this.liquidItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.liquidItemToolStripMenuItem.Text = "Liquid Item";
 			this.liquidItemToolStripMenuItem.Click += new System.EventHandler(this.liquidItemToolStripMenuItem_Click);
 			// 
@@ -275,6 +276,7 @@
 			// 
 			// toolStripSeparatorActions
 			// 
+			this.toolStripSeparatorActions.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.toolStripSeparatorActions.Name = "toolStripSeparatorActions";
 			this.toolStripSeparatorActions.Size = new System.Drawing.Size(120, 6);
 			// 
@@ -336,6 +338,7 @@
             this.newProjectToolStripMenuItem,
             this.loadProjectToolStripMenuItem,
             this.starboundToolStripMenuItem,
+            this.toolStripSeparator,
             this.exitToolStripMenuItem});
 			this.fileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -370,7 +373,7 @@
 			// 
 			this.playToolStripMenuItem.Name = "playToolStripMenuItem";
 			this.playToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-			this.playToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.playToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
 			this.playToolStripMenuItem.Text = "Play";
 			this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
 			// 
@@ -385,7 +388,7 @@
 			// unpackAssetsToolStripMenuItem
 			// 
 			this.unpackAssetsToolStripMenuItem.Name = "unpackAssetsToolStripMenuItem";
-			this.unpackAssetsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+			this.unpackAssetsToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
 			this.unpackAssetsToolStripMenuItem.Text = "Unpack Assets";
 			this.unpackAssetsToolStripMenuItem.Click += new System.EventHandler(this.unpackAssetsToolStripMenuItem_Click);
 			// 
@@ -413,6 +416,11 @@
 			this.refreshToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
 			this.refreshToolStripMenuItem.Text = "Refresh";
 			this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+			// 
+			// toolStripSeparator
+			// 
+			this.toolStripSeparator.Name = "toolStripSeparator";
+			this.toolStripSeparator.Size = new System.Drawing.Size(149, 6);
 			// 
 			// FormMain
 			// 
@@ -481,5 +489,6 @@
 		private System.Windows.Forms.ToolStripMenuItem moveToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem framesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
 	}
 }

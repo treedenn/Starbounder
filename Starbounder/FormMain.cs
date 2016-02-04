@@ -19,47 +19,25 @@ namespace Starbounder
 		{
 			InitializeComponent();
 
-			MainMenuStrip.Renderer = new MyRenderer();
+			MainMenuStrip.Renderer = new Renderer.ToolStrips();
+			contextMenuStripTreeView.Renderer = new Renderer.ToolStrips();
 		}
 
 		#region Functions
-		// Change color of menustrip
-		private class MyRenderer : ToolStripProfessionalRenderer
-		{
-			public MyRenderer() : base(new MyColors()) { }
-		}
-
-		private class MyColors : ProfessionalColorTable
-		{
-			public override Color MenuItemSelected
-			{
-				get { return Color.DarkSlateGray; }
-			}
-			public override Color MenuItemSelectedGradientBegin
-			{
-				get { return Color.Transparent; }
-			}
-			public override Color MenuItemSelectedGradientEnd
-			{
-				get { return Color.Transparent; }
-			}
-			public override Color MenuItemBorder
-			{
-				get { return Color.LightSlateGray; }
-			}
-		}
-
-		private void RecursiveMenuItems(ToolStripMenuItem item)
+		private void RecursiveMenuItems(ToolStripDropDownItem item)
 		{
 			if (item.HasDropDownItems)
 			{
-				foreach (ToolStripMenuItem cItem in item.DropDownItems)
+				foreach (var cItem in item.DropDownItems)
 				{
-					RecursiveMenuItems(cItem);
+					if (cItem is ToolStripMenuItem)
+					{
+						RecursiveMenuItems((ToolStripMenuItem)cItem);
+					}
 				}
 			}
 
-			SetColorsOnMenuItem(item);
+			SetColorsOnMenuItem((ToolStripMenuItem)item);
 		}
 
 		private void SetColorsOnMenuItem(ToolStripMenuItem item)
@@ -83,9 +61,17 @@ namespace Starbounder
 
 		private void FormMain_Load(object sender, EventArgs e)
 		{
-			foreach (ToolStripMenuItem item in menuStripMain.Items)
+			foreach (ToolStripDropDownItem item in menuStripMain.Items)
 			{
 				RecursiveMenuItems(item);
+			}
+
+			foreach (var item in contextMenuStripTreeView.Items)
+			{
+				if (item is ToolStripMenuItem)
+				{
+					RecursiveMenuItems((ToolStripMenuItem)item);
+				}
 			}
 
 			DesktopLocation = new Point(-6, 0);

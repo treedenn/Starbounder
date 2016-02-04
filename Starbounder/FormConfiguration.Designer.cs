@@ -126,7 +126,6 @@
 			this.textBoxConfigWork.Name = "textBoxConfigWork";
 			this.textBoxConfigWork.Size = new System.Drawing.Size(376, 20);
 			this.textBoxConfigWork.TabIndex = 5;
-			this.textBoxConfigWork.Text = "C:\\Users\\Denni\\Desktop\\newMod";
 			// 
 			// labelConfigWork
 			// 
@@ -253,7 +252,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(484, 280);
+			this.ClientSize = new System.Drawing.Size(484, 131);
 			this.Controls.Add(this.buttonConfigBrowseImage);
 			this.Controls.Add(this.buttonConfigBrowseText);
 			this.Controls.Add(this.textBoxConfigImageEditor);
