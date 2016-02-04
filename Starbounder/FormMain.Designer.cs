@@ -345,14 +345,14 @@
 			// newProjectToolStripMenuItem
 			// 
 			this.newProjectToolStripMenuItem.Name = "newProjectToolStripMenuItem";
-			this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.newProjectToolStripMenuItem.Text = "New Project";
 			this.newProjectToolStripMenuItem.Click += new System.EventHandler(this.newProjectToolStripMenuItem_Click);
 			// 
 			// loadProjectToolStripMenuItem
 			// 
 			this.loadProjectToolStripMenuItem.Name = "loadProjectToolStripMenuItem";
-			this.loadProjectToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			this.loadProjectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.loadProjectToolStripMenuItem.Text = "Load Project";
 			this.loadProjectToolStripMenuItem.Click += new System.EventHandler(this.loadProjectToolStripMenuItem_Click);
 			// 
@@ -363,20 +363,22 @@
             this.fileExplorerToolStripMenuItem,
             this.unpackAssetsToolStripMenuItem});
 			this.starboundToolStripMenuItem.Name = "starboundToolStripMenuItem";
-			this.starboundToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			this.starboundToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.starboundToolStripMenuItem.Text = "Starbound";
 			// 
 			// playToolStripMenuItem
 			// 
 			this.playToolStripMenuItem.Name = "playToolStripMenuItem";
-			this.playToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+			this.playToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+			this.playToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.playToolStripMenuItem.Text = "Play";
 			this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
 			// 
 			// fileExplorerToolStripMenuItem
 			// 
 			this.fileExplorerToolStripMenuItem.Name = "fileExplorerToolStripMenuItem";
-			this.fileExplorerToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+			this.fileExplorerToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+			this.fileExplorerToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
 			this.fileExplorerToolStripMenuItem.Text = "File Explorer";
 			this.fileExplorerToolStripMenuItem.Click += new System.EventHandler(this.fileExplorerToolStripMenuItem_Click);
 			// 
@@ -390,8 +392,10 @@
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.exitToolStripMenuItem.Text = "Exit";
+			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
 			// 
 			// settingsToolStripMenuItem
 			// 
@@ -405,6 +409,7 @@
 			// 
 			this.refreshToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
 			this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+			this.refreshToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
 			this.refreshToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
 			this.refreshToolStripMenuItem.Text = "Refresh";
 			this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);

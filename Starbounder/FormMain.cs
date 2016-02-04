@@ -154,6 +154,10 @@ namespace Starbounder
 				treeViewFolder.ExpandAll();
 			}
 		}
+		private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
 		// File -> Starbound
 		private void playToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -330,5 +334,6 @@ namespace Starbounder
 
 		#endregion
 
+		
 	}
 }
