@@ -18,7 +18,7 @@ namespace Starbounder.FileTypes
 			".head", ".chest", ".legs", ".back",
 			".item", ".matitem", ".liqitem",
 			".consumable",
-			".modinfo", ".frames"
+			".modinfo", ".frames", ".structure", ".animation"
 		};
 
 		public static string[] supportedImageExtensions = new string[]
