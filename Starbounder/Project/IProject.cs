@@ -11,14 +11,10 @@ namespace Starbounder.Project
 {
 	class IProject
 	{
-		public static string projectName { get; set; }
-		public static string projectPath { get; set; }
-		public static string sbPath { get; set; }
-
-		public IProject(string path)
+		public static string GetProjectName()
 		{
-			projectPath = path;
-			projectName = Path.GetFileName(path);
+			string projectName = Path.GetDirectoryName(Settings.LoadWorkingDirectory());
+			return projectName;
 		}
 
 		public static void CreateProject()
@@ -28,6 +24,10 @@ namespace Starbounder.Project
 			if (folder.FileName != string.Empty)
 			{
 				FreshProject(folder.FileName);
+
+				Settings.SaveWorkingDirectory(folder.FileName);
+
+				Settings.Save();
 			}
 		}
 
@@ -37,8 +37,8 @@ namespace Starbounder.Project
 
 			if (folder.SelectedPath != string.Empty)
 			{
-				projectPath = folder.SelectedPath;
-				projectName = Path.GetFileName(folder.SelectedPath);
+				Project.Settings.SaveWorkingDirectory(folder.SelectedPath);
+				Settings.Save();
 
 				return true;
 			}
@@ -63,9 +63,9 @@ namespace Starbounder.Project
 		{
 			List<TreeNode> nodes = new List<TreeNode>();
 
-			if (Directory.Exists(projectPath))
+			if (Directory.Exists(Project.Settings.LoadWorkingDirectory()))
 			{
-				DirectoryInfo info = new DirectoryInfo(projectPath);
+				DirectoryInfo info = new DirectoryInfo(Project.Settings.LoadWorkingDirectory());
 
 				if (info.Exists)
 				{

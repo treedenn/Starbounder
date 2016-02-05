@@ -18,7 +18,7 @@ namespace Starbounder.Functions
 		{
 			ProcessStartInfo process = new ProcessStartInfo();
 
-			string fileName = "", filePath = Project.IProject.sbPath;
+			string fileName = "", filePath = Project.Settings.LoadWorkingDirectory();
 
 			filePath += ( Win64 ) ? "\\win64" : "\\win32";
 			fileName = ( OpenGL ) ? "starbound_opengl.exe" : "starbound.exe";
@@ -65,7 +65,7 @@ namespace Starbounder.Functions
 
 			cmd.StartInfo.FileName         = "cmd.exe";
 			cmd.StartInfo.Arguments        = "/c " + unpackerPath + command;
-			cmd.StartInfo.WorkingDirectory = Project.IProject.sbPath;
+			cmd.StartInfo.WorkingDirectory = Project.Settings.LoadWorkingDirectory();
 			cmd.StartInfo.WindowStyle      = ProcessWindowStyle.Hidden;
 
 			cmd.Start();
@@ -89,7 +89,7 @@ namespace Starbounder.Functions
 
 		public static void OpenFileWithImageEditor(string path)
 		{
-			string ie = Starbounder.Project.Settings.LoadTextEditor(); // Text editor
+			string ie = Starbounder.Project.Settings.LoadImageEditor(); // Text editor
 
 			if (File.Exists(ie) && File.Exists(path))
 			{

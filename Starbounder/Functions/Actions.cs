@@ -41,7 +41,7 @@ namespace Starbounder.Functions
 
 		public static void Move(string oldPath)
 		{
-			FolderBrowserDialog folder = Dialogs.FolderBrowserDialog("Select new location for the folder or file.", Starbounder.Project.IProject.projectPath);
+			FolderBrowserDialog folder = Dialogs.FolderBrowserDialog("Select new location for the folder or file.", Project.Settings.LoadWorkingDirectory());
 
 			string newPath = (folder != null) ? folder.SelectedPath : string.Empty;
 			string name = Path.GetFileName(oldPath);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,37 @@ namespace Starbounder.Project
 {
 	class Settings
 	{
+		// Display
+
+		public static Rectangle GetCurrentMonitor(Control ct)
+		{
+			Rectangle bounds = Screen.FromControl(ct).Bounds;
+			return bounds;
+		}
+
+		public static void ChangeLocationRight(Form fm)
+		{
+			Rectangle monitor = GetCurrentMonitor(fm);
+
+			fm.Size = new Size(250, monitor.Height);
+			fm.DesktopLocation = new Point(monitor.Right - fm.Width, 0);
+		}
+
+		public static void ChangeLocationLeft(Form fm)
+		{
+			Rectangle monitor = GetCurrentMonitor(fm);
+
+			fm.Size = new Size(250, monitor.Height);
+			fm.DesktopLocation = new Point(monitor.Left, 0);
+		}
+
 		// SAVE
+
+		public static void Save()
+		{
+			Properties.Settings.Default.Save();
+			Properties.Settings.Default.Upgrade();
+		}
 
 		public static void SaveSystem(bool Win64)
 		{

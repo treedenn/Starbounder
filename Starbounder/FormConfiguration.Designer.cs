@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-			this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
 			this.labelConfigSB = new System.Windows.Forms.Label();
 			this.textBoxConfigSB = new System.Windows.Forms.TextBox();
 			this.panelSystem = new System.Windows.Forms.Panel();
@@ -142,7 +141,7 @@
 			this.buttonConfigContinue.Name = "buttonConfigContinue";
 			this.buttonConfigContinue.Size = new System.Drawing.Size(75, 23);
 			this.buttonConfigContinue.TabIndex = 7;
-			this.buttonConfigContinue.Text = "Continue";
+			this.buttonConfigContinue.Text = "Save";
 			this.buttonConfigContinue.UseVisualStyleBackColor = true;
 			this.buttonConfigContinue.Click += new System.EventHandler(this.buttonConfigContinue_Click);
 			// 
@@ -288,7 +287,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
         private System.Windows.Forms.Label labelConfigSB;
         private System.Windows.Forms.TextBox textBoxConfigSB;
         private System.Windows.Forms.Panel panelSystem;

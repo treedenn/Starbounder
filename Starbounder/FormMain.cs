@@ -10,11 +10,14 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Starbounder.FileTypes;
+using Newtonsoft.Json;
 
 namespace Starbounder
 {
 	public partial class FormMain : Form
 	{
+		private bool posLeft = true;
+
 		public FormMain()
 		{
 			InitializeComponent();
@@ -74,8 +77,8 @@ namespace Starbounder
 				}
 			}
 
-			DesktopLocation = new Point(-6, 0);
-			Size = new Size(250, Screen.PrimaryScreen.Bounds.Height);
+			this.Icon = Properties.Resources.StarbounderIcon;
+			Project.Settings.ChangeLocationLeft(this);
 
 			RefreshTreeView();
 		}
@@ -124,7 +127,7 @@ namespace Starbounder
 		}
 
 		#region MenuStripMain
-		// File
+		// File -> Project
 		private void newProjectToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Project.IProject.CreateProject();
@@ -140,32 +143,57 @@ namespace Starbounder
 				treeViewFolder.ExpandAll();
 			}
 		}
-		private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+		private void fileExplorerToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Application.Exit();
+			Functions.Processes.OpenFolder(Project.Settings.LoadWorkingDirectory());
 		}
 		// File -> Starbound
 		private void playToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Functions.Processes.LaunchStarbound(Properties.Settings.Default.OperationSystem64, true);
 		}
-		private void fileExplorerToolStripMenuItem_Click(object sender, EventArgs e)
+		private void fileExplorerSBToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Functions.Processes.OpenFolder(Project.IProject.sbPath);
+			Functions.Processes.OpenFolder(Project.Settings.LoadStarboundFolder());
 		}
 		private void unpackAssetsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			var cmd = Functions.Processes.UnpackStarbound(Properties.Settings.Default.OperationSystem64);
 			if (cmd) MessageBox.Show("Unpacking Assets might be complete.\nIf the process took less than a second, an error occured.", "Unpacking Assets", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
-		// Settings
-		private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+		// File -> Exit
+		private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
+		// Settings -> Configurations
+		private void configurationToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			this.Hide();
 			var mf = new FormConfiguration();
 
 			mf.FormClosed += (s, args) => this.Close();
 			mf.Show();
+		}
+		// Settings -> Placement
+		private void placementToolStripMenuItemToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			posLeft = ( posLeft ) ? false : true;
+
+			if (posLeft)
+			{
+				Project.Settings.ChangeLocationLeft(this);
+				placementToolStripMenuItem.Text = "Placement: Left";
+			} else
+			{
+				Project.Settings.ChangeLocationRight(this);
+				placementToolStripMenuItem.Text = "Placement: Right";
+			}
+		}
+		// Settings -> Hide
+		private void hideToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			this.WindowState = FormWindowState.Minimized;
 		}
 		// Refresh
 		private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
@@ -176,7 +204,7 @@ namespace Starbounder
 
 		#region ContextMenuStrip
 
-		#region Item
+		#region item
 		private void itemToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Items.ItemItem().SetDefault(), ".item");
@@ -196,7 +224,7 @@ namespace Starbounder
 			RefreshTreeView();
 		}
 		#endregion
-		#region Weapon
+		#region weapon
 		private void swordToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Weapons.WeaponSword().SetDefault(), ".sword");
@@ -222,7 +250,7 @@ namespace Starbounder
 			RefreshTreeView();
 		}
 		#endregion
-		#region Tool
+		#region tool
 		private void miningToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Tools.ToolMining().SetDefault(), ".miningtool");
@@ -242,7 +270,7 @@ namespace Starbounder
 			RefreshTreeView();
 		}
 		#endregion
-		#region Armor
+		#region armor
 		private void headToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Armors.ArmorHead().SetDefault(), ".head");
@@ -270,7 +298,7 @@ namespace Starbounder
 
 		#endregion
 
-		#region Others
+		#region others
 		private void consumableToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 
@@ -285,7 +313,7 @@ namespace Starbounder
 			RefreshTreeView();
 		}
 		#endregion
-		#region Actions
+		#region actions
 		private void newFolderToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			string folderName = Path.GetFileNameWithoutExtension(GetNodePath());
@@ -316,10 +344,16 @@ namespace Starbounder
 
 
 
-		#endregion
+
+
+
+
+
+
+
 
 		#endregion
 
-		
+		#endregion
 	}
 }

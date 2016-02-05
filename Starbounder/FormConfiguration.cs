@@ -58,15 +58,11 @@ namespace Starbounder
 			Settings.SaveTextEditor(textBoxConfigTextEditor.Text);
 			Settings.SaveImageEditor(textBoxConfigImageEditor.Text);
 
-			Properties.Settings.Default.Save();
-			Properties.Settings.Default.Upgrade();
+			Settings.Save();
 
 			// Open Main form
 			this.Hide();
 			var mf = new FormMain();
-
-			IProject project = new IProject(textBoxConfigWork.Text);
-			Project.IProject.sbPath = textBoxConfigSB.Text;
 
 			mf.FormClosed += (s, args) => this.Close();
 			mf.Show();

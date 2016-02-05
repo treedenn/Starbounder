@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Drawing;
+using Newtonsoft.Json;
 
 namespace Starbounder.FileTypes
 {
@@ -24,6 +25,8 @@ namespace Starbounder.FileTypes
 		{
 			".png"
 		};
+		
+		// Create
 
 		public static void CreateJson(string path, object obj, string FileExtension)
 		{
@@ -31,6 +34,14 @@ namespace Starbounder.FileTypes
 			string fileName = Path.GetFileNameWithoutExtension(path);
 
 			Json.JsonWriter.GenerateJson(folderPath, fileName, FileExtension, obj);
+		}
+
+		public static void CreateJson(string path, object obj, string FileExtension, JsonSerializerSettings jsonSetting)
+		{
+			string folderPath = (Path.HasExtension(path)) ? Path.GetDirectoryName(path) : Path.GetFullPath(path);
+			string fileName = Path.GetFileNameWithoutExtension(path);
+
+			Json.JsonWriter.GenerateJson(folderPath, fileName, FileExtension, obj, jsonSetting);
 		}
 
 		public static void CreateFrames(string path)
