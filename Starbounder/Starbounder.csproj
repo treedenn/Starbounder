@@ -96,10 +96,12 @@
     <Compile Include="Json\JsonWriter.cs" />
     <Compile Include="Functions\Dialogs.cs" />
     <Compile Include="Functions\Processes.cs" />
+    <Compile Include="Structure\Placement.cs" />
     <Compile Include="Project\ModInfo.cs" />
     <Compile Include="Project\IProject.cs" />
     <Compile Include="Functions\Steam.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Structure\Resize.cs" />
     <Compile Include="Project\Settings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Renderer\ToolStrips.cs" />
@@ -139,6 +141,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\StarbounderIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StarbounderIconPNG.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

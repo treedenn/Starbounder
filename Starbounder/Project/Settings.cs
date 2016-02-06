@@ -9,31 +9,7 @@ using System.Windows.Forms;
 namespace Starbounder.Project
 {
 	class Settings
-	{
-		// Display
-
-		public static Rectangle GetCurrentMonitor(Control ct)
-		{
-			Rectangle bounds = Screen.FromControl(ct).Bounds;
-			return bounds;
-		}
-
-		public static void ChangeLocationRight(Form fm)
-		{
-			Rectangle monitor = GetCurrentMonitor(fm);
-
-			fm.Size = new Size(250, monitor.Height);
-			fm.DesktopLocation = new Point(monitor.Right - fm.Width, 0);
-		}
-
-		public static void ChangeLocationLeft(Form fm)
-		{
-			Rectangle monitor = GetCurrentMonitor(fm);
-
-			fm.Size = new Size(250, monitor.Height);
-			fm.DesktopLocation = new Point(monitor.Left, 0);
-		}
-
+	{	
 		// SAVE
 
 		public static void Save()
@@ -77,6 +53,11 @@ namespace Starbounder.Project
 			Properties.Settings.Default.StarboundFolder = path;
 		}
 
+		public static void SaveAssetsFolder(string path)
+		{
+			Properties.Settings.Default.AssetsFolder = path;
+		}
+
 		// LOAD
 
 		public static bool LoadSystem()
@@ -112,6 +93,11 @@ namespace Starbounder.Project
 		public static string LoadStarboundFolder()
 		{
 			return Properties.Settings.Default.StarboundFolder;
+		}
+
+		public static string LoadAssetsFolder(string path)
+		{
+			return Properties.Settings.Default.AssetsFolder;
 		}
 	}
 }

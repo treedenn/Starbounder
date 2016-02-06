@@ -106,5 +106,17 @@ namespace Starbounder.Properties {
                 this["StarboundFolder"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string AssetsFolder {
+            get {
+                return ((string)(this["AssetsFolder"]));
+            }
+            set {
+                this["AssetsFolder"] = value;
+            }
+        }
     }
 }

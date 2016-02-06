@@ -76,8 +76,14 @@
 			this.placementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.hideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.treeViewAssets = new System.Windows.Forms.TreeView();
+			this.panelBorder = new System.Windows.Forms.Panel();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.labelFormTitle = new System.Windows.Forms.Label();
 			this.contextMenuStripTreeView.SuspendLayout();
 			this.menuStripMain.SuspendLayout();
+			this.panelBorder.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// treeViewFolder
@@ -87,9 +93,9 @@
 			this.treeViewFolder.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.treeViewFolder.ForeColor = System.Drawing.SystemColors.Control;
 			this.treeViewFolder.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-			this.treeViewFolder.Location = new System.Drawing.Point(0, 24);
+			this.treeViewFolder.Location = new System.Drawing.Point(0, 72);
 			this.treeViewFolder.Name = "treeViewFolder";
-			this.treeViewFolder.Size = new System.Drawing.Size(284, 137);
+			this.treeViewFolder.Size = new System.Drawing.Size(150, 451);
 			this.treeViewFolder.TabIndex = 0;
 			this.treeViewFolder.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewFolder_NodeMouseClick);
 			this.treeViewFolder.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewFolder_NodeMouseDoubleClick);
@@ -331,9 +337,10 @@
             this.fileToolStripMenuItem,
             this.settingsToolStripMenuItem,
             this.refreshToolStripMenuItem});
-			this.menuStripMain.Location = new System.Drawing.Point(0, 0);
+			this.menuStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+			this.menuStripMain.Location = new System.Drawing.Point(0, 30);
 			this.menuStripMain.Name = "menuStripMain";
-			this.menuStripMain.Size = new System.Drawing.Size(284, 24);
+			this.menuStripMain.Size = new System.Drawing.Size(150, 42);
 			this.menuStripMain.TabIndex = 1;
 			this.menuStripMain.Text = "menuStrip";
 			// 
@@ -346,7 +353,7 @@
             this.exitToolStripMenuItem});
 			this.fileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 19);
 			this.fileToolStripMenuItem.Text = "File";
 			// 
 			// projectToolStripMenuItem
@@ -356,7 +363,7 @@
             this.loadProjectToolStripMenuItem,
             this.fileExplorerToolStripMenuItem});
 			this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
-			this.projectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.projectToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
 			this.projectToolStripMenuItem.Text = "Project";
 			// 
 			// newProjectToolStripMenuItem
@@ -378,7 +385,7 @@
 			// fileExplorerToolStripMenuItem
 			// 
 			this.fileExplorerToolStripMenuItem.Name = "fileExplorerToolStripMenuItem";
-			this.fileExplorerToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			this.fileExplorerToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
 			this.fileExplorerToolStripMenuItem.Text = "File Explorer";
 			this.fileExplorerToolStripMenuItem.Click += new System.EventHandler(this.fileExplorerToolStripMenuItem_Click);
 			// 
@@ -389,28 +396,28 @@
             this.fileExplorerSBToolStripMenuItem,
             this.unpackAssetsToolStripMenuItem});
 			this.starboundToolStripMenuItem.Name = "starboundToolStripMenuItem";
-			this.starboundToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.starboundToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
 			this.starboundToolStripMenuItem.Text = "Starbound";
 			// 
 			// playToolStripMenuItem
 			// 
 			this.playToolStripMenuItem.Name = "playToolStripMenuItem";
 			this.playToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
-			this.playToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.playToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
 			this.playToolStripMenuItem.Text = "Play";
 			this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
 			// 
 			// fileExplorerSBToolStripMenuItem
 			// 
 			this.fileExplorerSBToolStripMenuItem.Name = "fileExplorerSBToolStripMenuItem";
-			this.fileExplorerSBToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.fileExplorerSBToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
 			this.fileExplorerSBToolStripMenuItem.Text = "File Explorer";
 			this.fileExplorerSBToolStripMenuItem.Click += new System.EventHandler(this.fileExplorerSBToolStripMenuItem_Click);
 			// 
 			// unpackAssetsToolStripMenuItem
 			// 
 			this.unpackAssetsToolStripMenuItem.Name = "unpackAssetsToolStripMenuItem";
-			this.unpackAssetsToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+			this.unpackAssetsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
 			this.unpackAssetsToolStripMenuItem.Text = "Unpack Assets";
 			this.unpackAssetsToolStripMenuItem.Click += new System.EventHandler(this.unpackAssetsToolStripMenuItem_Click);
 			// 
@@ -435,13 +442,13 @@
             this.hideToolStripMenuItem});
 			this.settingsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
 			this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-			this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+			this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 19);
 			this.settingsToolStripMenuItem.Text = "Options";
 			// 
 			// configurationToolStripMenuItem
 			// 
 			this.configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
-			this.configurationToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+			this.configurationToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
 			this.configurationToolStripMenuItem.Text = "Configurations";
 			this.configurationToolStripMenuItem.Click += new System.EventHandler(this.configurationToolStripMenuItem_Click);
 			// 
@@ -456,7 +463,7 @@
 			// 
 			this.hideToolStripMenuItem.Name = "hideToolStripMenuItem";
 			this.hideToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.H)));
-			this.hideToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+			this.hideToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
 			this.hideToolStripMenuItem.Text = "Hide";
 			this.hideToolStripMenuItem.Click += new System.EventHandler(this.hideToolStripMenuItem_Click);
 			// 
@@ -465,29 +472,85 @@
 			this.refreshToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
 			this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
 			this.refreshToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-			this.refreshToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+			this.refreshToolStripMenuItem.Size = new System.Drawing.Size(58, 19);
 			this.refreshToolStripMenuItem.Text = "Refresh";
 			this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+			// 
+			// treeViewAssets
+			// 
+			this.treeViewAssets.BackColor = System.Drawing.SystemColors.Desktop;
+			this.treeViewAssets.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.treeViewAssets.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.treeViewAssets.ForeColor = System.Drawing.SystemColors.Control;
+			this.treeViewAssets.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+			this.treeViewAssets.Location = new System.Drawing.Point(0, 303);
+			this.treeViewAssets.Name = "treeViewAssets";
+			this.treeViewAssets.Size = new System.Drawing.Size(150, 220);
+			this.treeViewAssets.TabIndex = 2;
+			// 
+			// panelBorder
+			// 
+			this.panelBorder.Controls.Add(this.labelFormTitle);
+			this.panelBorder.Controls.Add(this.pictureBox1);
+			this.panelBorder.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panelBorder.Location = new System.Drawing.Point(0, 0);
+			this.panelBorder.Name = "panelBorder";
+			this.panelBorder.Size = new System.Drawing.Size(150, 30);
+			this.panelBorder.TabIndex = 3;
+			this.panelBorder.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelBorder_MouseDown);
+			this.panelBorder.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelBorder_MouseMove);
+			this.panelBorder.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelBorder_MouseUp);
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.BackgroundImage = global::Starbounder.Properties.Resources.StarbounderIconPNG;
+			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+			this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+			this.pictureBox1.TabIndex = 0;
+			this.pictureBox1.TabStop = false;
+			// 
+			// labelFormTitle
+			// 
+			this.labelFormTitle.AutoSize = true;
+			this.labelFormTitle.BackColor = System.Drawing.Color.Transparent;
+			this.labelFormTitle.Font = new System.Drawing.Font("Rockwell Nova", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelFormTitle.ForeColor = System.Drawing.SystemColors.Control;
+			this.labelFormTitle.Location = new System.Drawing.Point(36, 6);
+			this.labelFormTitle.Name = "labelFormTitle";
+			this.labelFormTitle.Size = new System.Drawing.Size(89, 18);
+			this.labelFormTitle.TabIndex = 1;
+			this.labelFormTitle.Text = "Starbounder";
+			this.labelFormTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// FormMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Desktop;
-			this.ClientSize = new System.Drawing.Size(284, 161);
+			this.ClientSize = new System.Drawing.Size(150, 523);
+			this.Controls.Add(this.treeViewAssets);
 			this.Controls.Add(this.treeViewFolder);
 			this.Controls.Add(this.menuStripMain);
+			this.Controls.Add(this.panelBorder);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.MainMenuStrip = this.menuStripMain;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
+			this.MinimumSize = new System.Drawing.Size(150, 0);
 			this.Name = "FormMain";
 			this.Opacity = 0.9D;
+			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
 			this.Text = "Starbounder - Version 1.0.0";
 			this.Load += new System.EventHandler(this.FormMain_Load);
 			this.contextMenuStripTreeView.ResumeLayout(false);
 			this.menuStripMain.ResumeLayout(false);
 			this.menuStripMain.PerformLayout();
+			this.panelBorder.ResumeLayout(false);
+			this.panelBorder.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -535,7 +598,6 @@
 		private System.Windows.Forms.ToolStripMenuItem framesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem newProjectToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem loadProjectToolStripMenuItem;
@@ -543,5 +605,9 @@
 		private System.Windows.Forms.ToolStripMenuItem configurationToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem placementToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem hideToolStripMenuItem;
+		private System.Windows.Forms.TreeView treeViewAssets;
+		private System.Windows.Forms.Panel panelBorder;
+		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.Label labelFormTitle;
 	}
 }

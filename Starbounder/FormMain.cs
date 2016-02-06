@@ -17,6 +17,9 @@ namespace Starbounder
 	public partial class FormMain : Form
 	{
 		private bool posLeft = true;
+		private bool toggleMove = false;
+		private int mouseX;
+		private int mouseY;
 
 		public FormMain()
 		{
@@ -78,7 +81,7 @@ namespace Starbounder
 			}
 
 			this.Icon = Properties.Resources.StarbounderIcon;
-			Project.Settings.ChangeLocationLeft(this);
+			Structure.Placement.SetFormToLeftEdge(this);
 
 			RefreshTreeView();
 		}
@@ -170,11 +173,11 @@ namespace Starbounder
 
 			if (posLeft)
 			{
-				Project.Settings.ChangeLocationLeft(this);
+				Structure.Placement.SetFormToLeftEdge(this);
 				placementToolStripMenuItem.Text = "Placement: Left";
 			} else
 			{
-				Project.Settings.ChangeLocationRight(this);
+				Structure.Placement.SetFormToRightEdge(this);
 				placementToolStripMenuItem.Text = "Placement: Right";
 			}
 		}
@@ -343,5 +346,33 @@ namespace Starbounder
 		#endregion
 
 		#endregion
+
+		#region panelBorder
+		private void panelBorder_MouseDown(object sender, MouseEventArgs e)
+		{
+			if (!toggleMove)
+			{
+				mouseX = MousePosition.X - this.DesktopLocation.X;
+				mouseY = MousePosition.Y - this.DesktopLocation.Y;
+			}
+
+			toggleMove = true;
+		}
+
+		private void panelBorder_MouseMove(object sender, MouseEventArgs e)
+		{
+			if (toggleMove)
+			{
+				this.SetDesktopLocation(MousePosition.X - mouseX, MousePosition.Y - mouseY);
+			}
+		}
+
+		private void panelBorder_MouseUp(object sender, MouseEventArgs e)
+		{
+			toggleMove = false;
+			Structure.Placement.SnapToEdge(this);
+		}
+		#endregion
+
 	}
 }
