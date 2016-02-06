@@ -103,25 +103,13 @@ namespace Starbounder
 			if (Path.HasExtension(nodePath))
 			{
 				string fe    = Path.GetExtension(nodePath); // File Extension
-				string[] ste = FileTypes.FileTypes.supportedTextExtensions; // Supported Text Extensions
-				string[] sie = FileTypes.FileTypes.supportedImageExtensions; // Supported Image Extensions
-
-				foreach (string ext in ste)
+				
+				if (fe == ".png" || fe == ".PNG")
 				{
-					if (ext == fe)
-					{
-						Functions.Processes.OpenFileWithTextEditor(nodePath);
-						return;
-					}
-				}
-
-				foreach (string ext in sie)
+					Functions.Processes.OpenFileWithImageEditor(nodePath);
+				} else
 				{
-					if (ext == fe)
-					{
-						Functions.Processes.OpenFileWithImageEditor(nodePath);
-						return;
-					}
+					Functions.Processes.OpenFileWithTextEditor(nodePath);
 				}
 			}
 		}

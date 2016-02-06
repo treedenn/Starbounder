@@ -80,9 +80,6 @@ namespace Starbounder.Functions
 
 			if (File.Exists(te) && File.Exists(path))
 			{
-				string teName      = Path.GetFileName(te);
-				string teDirectory = Path.GetDirectoryName(te);
-
 				Process.Start(te, path);
 			}
 		}
@@ -93,14 +90,7 @@ namespace Starbounder.Functions
 
 			if (File.Exists(ie) && File.Exists(path))
 			{
-				string ieName      = Path.GetFileName(ie);
-				string ieDirectory = Path.GetDirectoryName(ie);
-
-				Process process    = new Process();
-				
-				process.StartInfo.FileName         = ieName;
-				process.StartInfo.WorkingDirectory = ieDirectory;
-				process.Start();
+				Process.Start(ie, path);
 			}
 		}
 	}

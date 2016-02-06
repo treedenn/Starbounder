@@ -11,21 +11,6 @@ namespace Starbounder.FileTypes
 {
 	class FileTypes
 	{
-		public static string[] supportedTextExtensions = new string[]
-		{
-			".sword", ".staff", ".gun", ".thrown",
-			".beamaxe", ".harvestingtool", ".miningtool",
-			".head", ".chest", ".legs", ".back",
-			".item", ".matitem", ".liqitem",
-			".consumable",
-			".modinfo", ".frames", ".structure", ".animation"
-		};
-
-		public static string[] supportedImageExtensions = new string[]
-		{
-			".png"
-		};
-		
 		// Create
 
 		public static void CreateJson(string path, object obj, string FileExtension)
