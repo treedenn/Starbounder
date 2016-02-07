@@ -69,6 +69,7 @@
 			this.playToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.fileExplorerSBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.unpackAssetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.openGLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,6 +79,12 @@
 			this.treeViewAssets = new System.Windows.Forms.TreeView();
 			this.panelBorder = new System.Windows.Forms.Panel();
 			this.splitContainerFolders = new System.Windows.Forms.SplitContainer();
+			this.websitesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.modsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.modsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.nexusmodsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.starboundModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.starboundForumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStripTreeView.SuspendLayout();
 			this.menuStripMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainerFolders)).BeginInit();
@@ -95,7 +102,7 @@
 			this.treeViewFolder.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
 			this.treeViewFolder.Location = new System.Drawing.Point(0, 0);
 			this.treeViewFolder.Name = "treeViewFolder";
-			this.treeViewFolder.Size = new System.Drawing.Size(250, 120);
+			this.treeViewFolder.Size = new System.Drawing.Size(250, 124);
 			this.treeViewFolder.TabIndex = 0;
 			this.treeViewFolder.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewFolder_NodeMouseClick);
 			this.treeViewFolder.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewFolder_NodeMouseDoubleClick);
@@ -336,11 +343,12 @@
 			this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.settingsToolStripMenuItem,
-            this.refreshToolStripMenuItem});
+            this.refreshToolStripMenuItem,
+            this.websitesToolStripMenuItem});
 			this.menuStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
 			this.menuStripMain.Location = new System.Drawing.Point(0, 30);
 			this.menuStripMain.Name = "menuStripMain";
-			this.menuStripMain.Size = new System.Drawing.Size(250, 42);
+			this.menuStripMain.Size = new System.Drawing.Size(250, 23);
 			this.menuStripMain.TabIndex = 1;
 			this.menuStripMain.Text = "menuStrip";
 			// 
@@ -363,7 +371,7 @@
             this.loadProjectToolStripMenuItem,
             this.fileExplorerToolStripMenuItem});
 			this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
-			this.projectToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.projectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.projectToolStripMenuItem.Text = "Project";
 			// 
 			// newProjectToolStripMenuItem
@@ -394,9 +402,10 @@
 			this.starboundToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.playToolStripMenuItem,
             this.fileExplorerSBToolStripMenuItem,
-            this.unpackAssetsToolStripMenuItem});
+            this.unpackAssetsToolStripMenuItem,
+            this.openGLToolStripMenuItem});
 			this.starboundToolStripMenuItem.Name = "starboundToolStripMenuItem";
-			this.starboundToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.starboundToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.starboundToolStripMenuItem.Text = "Starbound";
 			// 
 			// playToolStripMenuItem
@@ -421,16 +430,25 @@
 			this.unpackAssetsToolStripMenuItem.Text = "Unpack Assets";
 			this.unpackAssetsToolStripMenuItem.Click += new System.EventHandler(this.unpackAssetsToolStripMenuItem_Click);
 			// 
+			// openGLToolStripMenuItem
+			// 
+			this.openGLToolStripMenuItem.Checked = true;
+			this.openGLToolStripMenuItem.CheckOnClick = true;
+			this.openGLToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.openGLToolStripMenuItem.Name = "openGLToolStripMenuItem";
+			this.openGLToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+			this.openGLToolStripMenuItem.Text = "OpenGL";
+			// 
 			// toolStripSeparator
 			// 
 			this.toolStripSeparator.Name = "toolStripSeparator";
-			this.toolStripSeparator.Size = new System.Drawing.Size(131, 6);
+			this.toolStripSeparator.Size = new System.Drawing.Size(149, 6);
 			// 
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
 			this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.exitToolStripMenuItem.Text = "Exit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
 			// 
@@ -477,7 +495,7 @@
 			this.treeViewAssets.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
 			this.treeViewAssets.Location = new System.Drawing.Point(0, 0);
 			this.treeViewAssets.Name = "treeViewAssets";
-			this.treeViewAssets.Size = new System.Drawing.Size(250, 411);
+			this.treeViewAssets.Size = new System.Drawing.Size(250, 426);
 			this.treeViewAssets.TabIndex = 2;
 			this.treeViewAssets.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewAssets_NodeMouseClick);
 			this.treeViewAssets.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewAssets_NodeMouseDoubleClick);
@@ -500,7 +518,7 @@
 			this.splitContainerFolders.BackColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.splitContainerFolders.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.splitContainerFolders.ForeColor = System.Drawing.SystemColors.Control;
-			this.splitContainerFolders.Location = new System.Drawing.Point(0, 72);
+			this.splitContainerFolders.Location = new System.Drawing.Point(0, 53);
 			this.splitContainerFolders.Name = "splitContainerFolders";
 			this.splitContainerFolders.Orientation = System.Windows.Forms.Orientation.Horizontal;
 			// 
@@ -513,9 +531,57 @@
 			// 
 			this.splitContainerFolders.Panel2.Controls.Add(this.treeViewAssets);
 			this.splitContainerFolders.Panel2MinSize = 50;
-			this.splitContainerFolders.Size = new System.Drawing.Size(250, 535);
-			this.splitContainerFolders.SplitterDistance = 120;
+			this.splitContainerFolders.Size = new System.Drawing.Size(250, 554);
+			this.splitContainerFolders.SplitterDistance = 124;
 			this.splitContainerFolders.TabIndex = 4;
+			// 
+			// websitesToolStripMenuItem
+			// 
+			this.websitesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modsToolStripMenuItem,
+            this.modsToolStripMenuItem1});
+			this.websitesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
+			this.websitesToolStripMenuItem.Name = "websitesToolStripMenuItem";
+			this.websitesToolStripMenuItem.Size = new System.Drawing.Size(66, 19);
+			this.websitesToolStripMenuItem.Text = "Websites";
+			// 
+			// modsToolStripMenuItem
+			// 
+			this.modsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.starboundForumToolStripMenuItem});
+			this.modsToolStripMenuItem.Name = "modsToolStripMenuItem";
+			this.modsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.modsToolStripMenuItem.Text = "Guides";
+			// 
+			// modsToolStripMenuItem1
+			// 
+			this.modsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.starboundModsToolStripMenuItem,
+            this.nexusmodsToolStripMenuItem});
+			this.modsToolStripMenuItem1.Name = "modsToolStripMenuItem1";
+			this.modsToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+			this.modsToolStripMenuItem1.Text = "Mods";
+			// 
+			// nexusmodsToolStripMenuItem
+			// 
+			this.nexusmodsToolStripMenuItem.Name = "nexusmodsToolStripMenuItem";
+			this.nexusmodsToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+			this.nexusmodsToolStripMenuItem.Text = "Nexusmods";
+			this.nexusmodsToolStripMenuItem.Click += new System.EventHandler(this.nexusmodsToolStripMenuItem_Click);
+			// 
+			// starboundModsToolStripMenuItem
+			// 
+			this.starboundModsToolStripMenuItem.Name = "starboundModsToolStripMenuItem";
+			this.starboundModsToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+			this.starboundModsToolStripMenuItem.Text = "Starbound - Mods";
+			this.starboundModsToolStripMenuItem.Click += new System.EventHandler(this.starboundModsToolStripMenuItem_Click);
+			// 
+			// starboundForumToolStripMenuItem
+			// 
+			this.starboundForumToolStripMenuItem.Name = "starboundForumToolStripMenuItem";
+			this.starboundForumToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+			this.starboundForumToolStripMenuItem.Text = "Starbound - Forum";
+			this.starboundForumToolStripMenuItem.Click += new System.EventHandler(this.starboundForumToolStripMenuItem_Click);
 			// 
 			// FormMain
 			// 
@@ -599,5 +665,12 @@
 		private System.Windows.Forms.TreeView treeViewAssets;
 		private System.Windows.Forms.Panel panelBorder;
 		private System.Windows.Forms.SplitContainer splitContainerFolders;
+		private System.Windows.Forms.ToolStripMenuItem openGLToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem websitesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem modsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem modsToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem nexusmodsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem starboundForumToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem starboundModsToolStripMenuItem;
 	}
 }

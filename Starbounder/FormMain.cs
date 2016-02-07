@@ -194,7 +194,7 @@ namespace Starbounder
 		// File -> Starbound
 		private void playToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Functions.Processes.LaunchStarbound(Properties.Settings.Default.OperationSystem64, true);
+			Functions.Processes.LaunchStarbound(Properties.Settings.Default.OperationSystem64, openGLToolStripMenuItem.Checked);
 		}
 		private void fileExplorerSBToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -419,8 +419,30 @@ namespace Starbounder
 		}
 
 
+
 		#endregion
 
+		#region Websites
+		// Guides -> Starbound - Forum
+		private void starboundForumToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Functions.Processes.OpenWebsite("http://community.playstarbound.com/threads/modding-guides.34001/");
+		}
+
+		// Mods -> Starbound - Mods
+		private void starboundModsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Functions.Processes.OpenWebsite("http://community.playstarbound.com/resources/");
+		}
+
+		// Mods -> Nexusmods
+		private void nexusmodsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Functions.Processes.OpenWebsite("http://www.nexusmods.com/starbound/mods/categories/?");
+		}
 		
+		#endregion
+
+
 	}
 }

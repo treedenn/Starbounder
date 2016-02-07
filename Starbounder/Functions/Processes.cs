@@ -16,17 +16,17 @@ namespace Starbounder.Functions
 		/// </summary>
 		public static void LaunchStarbound(bool Win64, bool OpenGL)
 		{
-			ProcessStartInfo process = new ProcessStartInfo();
+			ProcessStartInfo startInfo = new ProcessStartInfo();
 
-			string fileName = "", filePath = Project.Settings.LoadWorkingDirectory();
+			string fileName, filePath = Project.Settings.LoadStarboundFolder();
 
 			filePath += ( Win64 ) ? "\\win64" : "\\win32";
 			fileName = ( OpenGL ) ? "starbound_opengl.exe" : "starbound.exe";
 
-			process.FileName = fileName;
-			process.WorkingDirectory = filePath;
+			startInfo.FileName = fileName;
+			startInfo.WorkingDirectory = filePath;
 
-			Process.Start(process);
+			Process.Start(startInfo);
 		}
 
 		/// <summary>
@@ -115,6 +115,11 @@ namespace Starbounder.Functions
 
 				Process.Start(startInfo);
 			}
+		}
+
+		public static void OpenWebsite(string url)
+		{
+			Process.Start(url);
 		}
 	}
 }
