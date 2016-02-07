@@ -16,7 +16,7 @@ namespace Starbounder
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormConfiguration());
+            Application.Run(new FormMain());
         }
     }
 }

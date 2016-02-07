@@ -24,6 +24,7 @@ namespace Starbounder
 		// Form load
 		private void FormConfiguration_Load(object sender, EventArgs e)
 		{
+			this.Icon = Properties.Resources.StarbounderIcon;
 
 			textBoxConfigSB.Text           = Settings.LoadStarboundFolder();
 			radioButtonConfigWin64.Checked = Settings.LoadSystem();
@@ -32,6 +33,7 @@ namespace Starbounder
 			textBoxConfigSBVersion.Text    = Settings.LoadSBVersion();
 			textBoxConfigTextEditor.Text   = Settings.LoadTextEditor();
 			textBoxConfigImageEditor.Text  = Settings.LoadImageEditor();
+			textBoxConfigAssets.Text       = Settings.LoadAssetsFolder();
 
 			if (textBoxConfigSB.Text == "")
 			{
@@ -43,7 +45,7 @@ namespace Starbounder
 		private void buttonConfigExpand_Click(object sender, EventArgs e)
 		{
 			isExpanded = ( isExpanded ) ? isExpanded = false : isExpanded = true;
-			this.Size = ( isExpanded ) ? new Size(500, 310) : new Size(500, 170);
+			this.Size = ( isExpanded ) ? new Size(500, 350) : new Size(500, 200);
 		}
 		
 		// Continue
@@ -57,6 +59,7 @@ namespace Starbounder
 			Settings.SaveSBVersion(textBoxConfigSBVersion.Text);
 			Settings.SaveTextEditor(textBoxConfigTextEditor.Text);
 			Settings.SaveImageEditor(textBoxConfigImageEditor.Text);
+			Settings.SaveAssetsFolder(textBoxConfigAssets.Text);
 
 			Settings.Save();
 
@@ -69,7 +72,6 @@ namespace Starbounder
 		}
 
 		#region Buttons : Browse
-		// Starbound
 		private void buttonConfigBrowseSB_Click(object sender, EventArgs e)
 		{
 			var folder = Functions.Dialogs.FolderBrowserDialog("Browse Starbound Folder");
@@ -77,15 +79,13 @@ namespace Starbounder
 			textBoxConfigSB.Text = ( folder != null ) ? folder.SelectedPath : textBoxConfigSB.Text;
 		}
 
-		// Work Directory
 		private void buttonConfigBrowseWork_Click(object sender, EventArgs e)
 		{
-			var folder = Functions.Dialogs.FolderBrowserDialog("Select a folder to get the most of out the program.");
+			var folder = Functions.Dialogs.FolderBrowserDialog("Select your mod folder.");
 
 			textBoxConfigWork.Text = ( folder != null ) ? folder.SelectedPath : textBoxConfigWork.Text;
 		}
 
-		// Text Editor
 		private void buttonConfigBrowseText_Click(object sender, EventArgs e)
 		{
 			var file = Functions.Dialogs.LoadFileDialog("Select the specific text editor's .exe file.", "Executable Files (*.exe)|*.exe");
@@ -93,14 +93,21 @@ namespace Starbounder
 			textBoxConfigTextEditor.Text = ( file != null ) ? file.FileName : textBoxConfigTextEditor.Text;
 		}
 
-		// Image Editor
 		private void buttonConfigBrowseImage_Click(object sender, EventArgs e)
 		{
 			var file = Functions.Dialogs.LoadFileDialog("Select the specific image editor's .exe file.", "Executable Files (*.exe)|*.exe");
 
 			textBoxConfigImageEditor.Text = ( file != null ) ? file.FileName : textBoxConfigImageEditor.Text;
 		}
+
+		private void buttonConfigBrowseAssets_Click(object sender, EventArgs e)
+		{
+			var folder = Functions.Dialogs.FolderBrowserDialog("Select where all the assets are.");
+
+			textBoxConfigAssets.Text = ( folder != null ) ? folder.SelectedPath : textBoxConfigAssets.Text;
+		}
 		#endregion
+
 
 	}
 }

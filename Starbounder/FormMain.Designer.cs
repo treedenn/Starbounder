@@ -73,17 +73,17 @@
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.placementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.hideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.treeViewAssets = new System.Windows.Forms.TreeView();
 			this.panelBorder = new System.Windows.Forms.Panel();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.labelFormTitle = new System.Windows.Forms.Label();
+			this.splitContainerFolders = new System.Windows.Forms.SplitContainer();
 			this.contextMenuStripTreeView.SuspendLayout();
 			this.menuStripMain.SuspendLayout();
-			this.panelBorder.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainerFolders)).BeginInit();
+			this.splitContainerFolders.Panel1.SuspendLayout();
+			this.splitContainerFolders.Panel2.SuspendLayout();
+			this.splitContainerFolders.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// treeViewFolder
@@ -93,9 +93,9 @@
 			this.treeViewFolder.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.treeViewFolder.ForeColor = System.Drawing.SystemColors.Control;
 			this.treeViewFolder.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-			this.treeViewFolder.Location = new System.Drawing.Point(0, 72);
+			this.treeViewFolder.Location = new System.Drawing.Point(0, 0);
 			this.treeViewFolder.Name = "treeViewFolder";
-			this.treeViewFolder.Size = new System.Drawing.Size(150, 451);
+			this.treeViewFolder.Size = new System.Drawing.Size(250, 120);
 			this.treeViewFolder.TabIndex = 0;
 			this.treeViewFolder.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewFolder_NodeMouseClick);
 			this.treeViewFolder.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewFolder_NodeMouseDoubleClick);
@@ -340,7 +340,7 @@
 			this.menuStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
 			this.menuStripMain.Location = new System.Drawing.Point(0, 30);
 			this.menuStripMain.Name = "menuStripMain";
-			this.menuStripMain.Size = new System.Drawing.Size(150, 42);
+			this.menuStripMain.Size = new System.Drawing.Size(250, 42);
 			this.menuStripMain.TabIndex = 1;
 			this.menuStripMain.Text = "menuStrip";
 			// 
@@ -438,7 +438,6 @@
 			// 
 			this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.configurationToolStripMenuItem,
-            this.placementToolStripMenuItem,
             this.hideToolStripMenuItem});
 			this.settingsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
 			this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
@@ -448,22 +447,15 @@
 			// configurationToolStripMenuItem
 			// 
 			this.configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
-			this.configurationToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+			this.configurationToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
 			this.configurationToolStripMenuItem.Text = "Configurations";
 			this.configurationToolStripMenuItem.Click += new System.EventHandler(this.configurationToolStripMenuItem_Click);
-			// 
-			// placementToolStripMenuItem
-			// 
-			this.placementToolStripMenuItem.Name = "placementToolStripMenuItem";
-			this.placementToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-			this.placementToolStripMenuItem.Text = "Placement: Left";
-			this.placementToolStripMenuItem.Click += new System.EventHandler(this.placementToolStripMenuItemToolStripMenuItem_Click);
 			// 
 			// hideToolStripMenuItem
 			// 
 			this.hideToolStripMenuItem.Name = "hideToolStripMenuItem";
 			this.hideToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.H)));
-			this.hideToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+			this.hideToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
 			this.hideToolStripMenuItem.Text = "Hide";
 			this.hideToolStripMenuItem.Click += new System.EventHandler(this.hideToolStripMenuItem_Click);
 			// 
@@ -480,59 +472,56 @@
 			// 
 			this.treeViewAssets.BackColor = System.Drawing.SystemColors.Desktop;
 			this.treeViewAssets.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.treeViewAssets.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.treeViewAssets.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.treeViewAssets.ForeColor = System.Drawing.SystemColors.Control;
 			this.treeViewAssets.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-			this.treeViewAssets.Location = new System.Drawing.Point(0, 303);
+			this.treeViewAssets.Location = new System.Drawing.Point(0, 0);
 			this.treeViewAssets.Name = "treeViewAssets";
-			this.treeViewAssets.Size = new System.Drawing.Size(150, 220);
+			this.treeViewAssets.Size = new System.Drawing.Size(250, 411);
 			this.treeViewAssets.TabIndex = 2;
 			// 
 			// panelBorder
 			// 
-			this.panelBorder.Controls.Add(this.labelFormTitle);
-			this.panelBorder.Controls.Add(this.pictureBox1);
 			this.panelBorder.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panelBorder.Location = new System.Drawing.Point(0, 0);
 			this.panelBorder.Name = "panelBorder";
-			this.panelBorder.Size = new System.Drawing.Size(150, 30);
+			this.panelBorder.Size = new System.Drawing.Size(250, 30);
 			this.panelBorder.TabIndex = 3;
+			this.panelBorder.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBorder_Paint);
 			this.panelBorder.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelBorder_MouseDown);
+			this.panelBorder.MouseLeave += new System.EventHandler(this.panelBorder_MouseLeave);
 			this.panelBorder.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelBorder_MouseMove);
 			this.panelBorder.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelBorder_MouseUp);
 			// 
-			// pictureBox1
+			// splitContainerFolders
 			// 
-			this.pictureBox1.BackgroundImage = global::Starbounder.Properties.Resources.StarbounderIconPNG;
-			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-			this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(30, 30);
-			this.pictureBox1.TabIndex = 0;
-			this.pictureBox1.TabStop = false;
+			this.splitContainerFolders.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+			this.splitContainerFolders.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.splitContainerFolders.ForeColor = System.Drawing.SystemColors.Control;
+			this.splitContainerFolders.Location = new System.Drawing.Point(0, 72);
+			this.splitContainerFolders.Name = "splitContainerFolders";
+			this.splitContainerFolders.Orientation = System.Windows.Forms.Orientation.Horizontal;
 			// 
-			// labelFormTitle
+			// splitContainerFolders.Panel1
 			// 
-			this.labelFormTitle.AutoSize = true;
-			this.labelFormTitle.BackColor = System.Drawing.Color.Transparent;
-			this.labelFormTitle.Font = new System.Drawing.Font("Rockwell Nova", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelFormTitle.ForeColor = System.Drawing.SystemColors.Control;
-			this.labelFormTitle.Location = new System.Drawing.Point(36, 6);
-			this.labelFormTitle.Name = "labelFormTitle";
-			this.labelFormTitle.Size = new System.Drawing.Size(89, 18);
-			this.labelFormTitle.TabIndex = 1;
-			this.labelFormTitle.Text = "Starbounder";
-			this.labelFormTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.splitContainerFolders.Panel1.Controls.Add(this.treeViewFolder);
+			this.splitContainerFolders.Panel1MinSize = 50;
+			// 
+			// splitContainerFolders.Panel2
+			// 
+			this.splitContainerFolders.Panel2.Controls.Add(this.treeViewAssets);
+			this.splitContainerFolders.Panel2MinSize = 50;
+			this.splitContainerFolders.Size = new System.Drawing.Size(250, 535);
+			this.splitContainerFolders.SplitterDistance = 120;
+			this.splitContainerFolders.TabIndex = 4;
 			// 
 			// FormMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Desktop;
-			this.ClientSize = new System.Drawing.Size(150, 523);
-			this.Controls.Add(this.treeViewAssets);
-			this.Controls.Add(this.treeViewFolder);
+			this.ClientSize = new System.Drawing.Size(250, 607);
+			this.Controls.Add(this.splitContainerFolders);
 			this.Controls.Add(this.menuStripMain);
 			this.Controls.Add(this.panelBorder);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -548,9 +537,10 @@
 			this.contextMenuStripTreeView.ResumeLayout(false);
 			this.menuStripMain.ResumeLayout(false);
 			this.menuStripMain.PerformLayout();
-			this.panelBorder.ResumeLayout(false);
-			this.panelBorder.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.splitContainerFolders.Panel1.ResumeLayout(false);
+			this.splitContainerFolders.Panel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.splitContainerFolders)).EndInit();
+			this.splitContainerFolders.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -603,11 +593,9 @@
 		private System.Windows.Forms.ToolStripMenuItem loadProjectToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem fileExplorerToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem configurationToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem placementToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem hideToolStripMenuItem;
 		private System.Windows.Forms.TreeView treeViewAssets;
 		private System.Windows.Forms.Panel panelBorder;
-		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.Label labelFormTitle;
+		private System.Windows.Forms.SplitContainer splitContainerFolders;
 	}
 }

@@ -46,6 +46,21 @@ namespace Starbounder.Project
 			return false;
 		}
 
+		public static bool LoadAssets()
+		{
+			var folder = Functions.Dialogs.FolderBrowserDialog("Load Assets Folder");
+
+			if (folder.SelectedPath != string.Empty)
+			{
+				Project.Settings.SaveAssetsFolder(folder.SelectedPath);
+				Settings.Save();
+
+				return true;
+			}
+
+			return false;
+		}
+
 		// Child functions
 
 		private static void FreshProject(string path)
@@ -59,13 +74,13 @@ namespace Starbounder.Project
 		/// Populates the treeview with the folderpath.
 		/// </summary>
 		/// <returns></returns>
-		public static TreeNode[] TreeViewPopulate()
+		public static TreeNode[] TreeViewPopulate(string path)
 		{
 			List<TreeNode> nodes = new List<TreeNode>();
 
-			if (Directory.Exists(Project.Settings.LoadWorkingDirectory()))
+			if (Directory.Exists(path))
 			{
-				DirectoryInfo info = new DirectoryInfo(Project.Settings.LoadWorkingDirectory());
+				DirectoryInfo info = new DirectoryInfo(path);
 
 				if (info.Exists)
 				{

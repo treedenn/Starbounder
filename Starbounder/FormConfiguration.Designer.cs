@@ -49,6 +49,9 @@
 			this.labelConfigImageEditor = new System.Windows.Forms.Label();
 			this.buttonConfigBrowseImage = new System.Windows.Forms.Button();
 			this.buttonConfigBrowseText = new System.Windows.Forms.Button();
+			this.buttonConfigBrowseAssets = new System.Windows.Forms.Button();
+			this.textBoxConfigAssets = new System.Windows.Forms.TextBox();
+			this.labelConfigAssets = new System.Windows.Forms.Label();
 			this.panelSystem.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -72,7 +75,7 @@
 			// 
 			this.panelSystem.Controls.Add(this.radioButtonConfigWin32);
 			this.panelSystem.Controls.Add(this.radioButtonConfigWin64);
-			this.panelSystem.Location = new System.Drawing.Point(209, 96);
+			this.panelSystem.Location = new System.Drawing.Point(209, 129);
 			this.panelSystem.Name = "panelSystem";
 			this.panelSystem.Size = new System.Drawing.Size(182, 23);
 			this.panelSystem.TabIndex = 2;
@@ -137,7 +140,7 @@
 			// 
 			// buttonConfigContinue
 			// 
-			this.buttonConfigContinue.Location = new System.Drawing.Point(397, 96);
+			this.buttonConfigContinue.Location = new System.Drawing.Point(397, 129);
 			this.buttonConfigContinue.Name = "buttonConfigContinue";
 			this.buttonConfigContinue.Size = new System.Drawing.Size(75, 23);
 			this.buttonConfigContinue.TabIndex = 7;
@@ -147,7 +150,7 @@
 			// 
 			// buttonConfigExpand
 			// 
-			this.buttonConfigExpand.Location = new System.Drawing.Point(15, 96);
+			this.buttonConfigExpand.Location = new System.Drawing.Point(15, 129);
 			this.buttonConfigExpand.Name = "buttonConfigExpand";
 			this.buttonConfigExpand.Size = new System.Drawing.Size(23, 23);
 			this.buttonConfigExpand.TabIndex = 8;
@@ -159,7 +162,7 @@
 			// 
 			this.labelConfigSBVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.labelConfigSBVersion.AutoSize = true;
-			this.labelConfigSBVersion.Location = new System.Drawing.Point(248, 223);
+			this.labelConfigSBVersion.Location = new System.Drawing.Point(248, 256);
 			this.labelConfigSBVersion.Name = "labelConfigSBVersion";
 			this.labelConfigSBVersion.Size = new System.Drawing.Size(97, 13);
 			this.labelConfigSBVersion.TabIndex = 9;
@@ -168,7 +171,7 @@
 			// textBoxConfigSBVersion
 			// 
 			this.textBoxConfigSBVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBoxConfigSBVersion.Location = new System.Drawing.Point(251, 239);
+			this.textBoxConfigSBVersion.Location = new System.Drawing.Point(251, 272);
 			this.textBoxConfigSBVersion.Name = "textBoxConfigSBVersion";
 			this.textBoxConfigSBVersion.Size = new System.Drawing.Size(221, 20);
 			this.textBoxConfigSBVersion.TabIndex = 10;
@@ -176,7 +179,7 @@
 			// textBoxConfigAuthor
 			// 
 			this.textBoxConfigAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBoxConfigAuthor.Location = new System.Drawing.Point(15, 239);
+			this.textBoxConfigAuthor.Location = new System.Drawing.Point(15, 272);
 			this.textBoxConfigAuthor.Name = "textBoxConfigAuthor";
 			this.textBoxConfigAuthor.Size = new System.Drawing.Size(221, 20);
 			this.textBoxConfigAuthor.TabIndex = 12;
@@ -185,7 +188,7 @@
 			// 
 			this.labelConfigAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.labelConfigAuthor.AutoSize = true;
-			this.labelConfigAuthor.Location = new System.Drawing.Point(12, 223);
+			this.labelConfigAuthor.Location = new System.Drawing.Point(12, 256);
 			this.labelConfigAuthor.Name = "labelConfigAuthor";
 			this.labelConfigAuthor.Size = new System.Drawing.Size(41, 13);
 			this.labelConfigAuthor.TabIndex = 11;
@@ -194,7 +197,7 @@
 			// textBoxConfigTextEditor
 			// 
 			this.textBoxConfigTextEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBoxConfigTextEditor.Location = new System.Drawing.Point(15, 161);
+			this.textBoxConfigTextEditor.Location = new System.Drawing.Point(15, 194);
 			this.textBoxConfigTextEditor.Name = "textBoxConfigTextEditor";
 			this.textBoxConfigTextEditor.Size = new System.Drawing.Size(376, 20);
 			this.textBoxConfigTextEditor.TabIndex = 14;
@@ -203,7 +206,7 @@
 			// 
 			this.labelConfigTextEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.labelConfigTextEditor.AutoSize = true;
-			this.labelConfigTextEditor.Location = new System.Drawing.Point(12, 145);
+			this.labelConfigTextEditor.Location = new System.Drawing.Point(12, 178);
 			this.labelConfigTextEditor.Name = "labelConfigTextEditor";
 			this.labelConfigTextEditor.Size = new System.Drawing.Size(61, 13);
 			this.labelConfigTextEditor.TabIndex = 13;
@@ -212,7 +215,7 @@
 			// textBoxConfigImageEditor
 			// 
 			this.textBoxConfigImageEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBoxConfigImageEditor.Location = new System.Drawing.Point(15, 200);
+			this.textBoxConfigImageEditor.Location = new System.Drawing.Point(15, 233);
 			this.textBoxConfigImageEditor.Name = "textBoxConfigImageEditor";
 			this.textBoxConfigImageEditor.Size = new System.Drawing.Size(376, 20);
 			this.textBoxConfigImageEditor.TabIndex = 16;
@@ -221,7 +224,7 @@
 			// 
 			this.labelConfigImageEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.labelConfigImageEditor.AutoSize = true;
-			this.labelConfigImageEditor.Location = new System.Drawing.Point(12, 184);
+			this.labelConfigImageEditor.Location = new System.Drawing.Point(12, 217);
 			this.labelConfigImageEditor.Name = "labelConfigImageEditor";
 			this.labelConfigImageEditor.Size = new System.Drawing.Size(69, 13);
 			this.labelConfigImageEditor.TabIndex = 15;
@@ -229,7 +232,7 @@
 			// 
 			// buttonConfigBrowseImage
 			// 
-			this.buttonConfigBrowseImage.Location = new System.Drawing.Point(397, 200);
+			this.buttonConfigBrowseImage.Location = new System.Drawing.Point(397, 233);
 			this.buttonConfigBrowseImage.Name = "buttonConfigBrowseImage";
 			this.buttonConfigBrowseImage.Size = new System.Drawing.Size(75, 20);
 			this.buttonConfigBrowseImage.TabIndex = 18;
@@ -239,7 +242,7 @@
 			// 
 			// buttonConfigBrowseText
 			// 
-			this.buttonConfigBrowseText.Location = new System.Drawing.Point(397, 161);
+			this.buttonConfigBrowseText.Location = new System.Drawing.Point(397, 194);
 			this.buttonConfigBrowseText.Name = "buttonConfigBrowseText";
 			this.buttonConfigBrowseText.Size = new System.Drawing.Size(75, 20);
 			this.buttonConfigBrowseText.TabIndex = 17;
@@ -247,11 +250,40 @@
 			this.buttonConfigBrowseText.UseVisualStyleBackColor = true;
 			this.buttonConfigBrowseText.Click += new System.EventHandler(this.buttonConfigBrowseText_Click);
 			// 
+			// buttonConfigBrowseAssets
+			// 
+			this.buttonConfigBrowseAssets.Location = new System.Drawing.Point(397, 103);
+			this.buttonConfigBrowseAssets.Name = "buttonConfigBrowseAssets";
+			this.buttonConfigBrowseAssets.Size = new System.Drawing.Size(75, 20);
+			this.buttonConfigBrowseAssets.TabIndex = 21;
+			this.buttonConfigBrowseAssets.Text = "Browse";
+			this.buttonConfigBrowseAssets.UseVisualStyleBackColor = true;
+			this.buttonConfigBrowseAssets.Click += new System.EventHandler(this.buttonConfigBrowseAssets_Click);
+			// 
+			// textBoxConfigAssets
+			// 
+			this.textBoxConfigAssets.Location = new System.Drawing.Point(15, 103);
+			this.textBoxConfigAssets.Name = "textBoxConfigAssets";
+			this.textBoxConfigAssets.Size = new System.Drawing.Size(376, 20);
+			this.textBoxConfigAssets.TabIndex = 20;
+			// 
+			// labelConfigAssets
+			// 
+			this.labelConfigAssets.AutoSize = true;
+			this.labelConfigAssets.Location = new System.Drawing.Point(12, 87);
+			this.labelConfigAssets.Name = "labelConfigAssets";
+			this.labelConfigAssets.Size = new System.Drawing.Size(95, 13);
+			this.labelConfigAssets.TabIndex = 19;
+			this.labelConfigAssets.Text = "Working Directory:";
+			// 
 			// FormConfiguration
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(484, 131);
+			this.ClientSize = new System.Drawing.Size(484, 161);
+			this.Controls.Add(this.buttonConfigBrowseAssets);
+			this.Controls.Add(this.textBoxConfigAssets);
+			this.Controls.Add(this.labelConfigAssets);
 			this.Controls.Add(this.buttonConfigBrowseImage);
 			this.Controls.Add(this.buttonConfigBrowseText);
 			this.Controls.Add(this.textBoxConfigImageEditor);
@@ -308,6 +340,9 @@
 		private System.Windows.Forms.Label labelConfigImageEditor;
 		private System.Windows.Forms.Button buttonConfigBrowseImage;
 		private System.Windows.Forms.Button buttonConfigBrowseText;
+		private System.Windows.Forms.Button buttonConfigBrowseAssets;
+		private System.Windows.Forms.TextBox textBoxConfigAssets;
+		private System.Windows.Forms.Label labelConfigAssets;
 	}
 }
 

@@ -46,14 +46,26 @@ namespace Starbounder.Functions
 		/// </summary>
 		public static bool UnpackStarbound(bool Win64)
 		{
-			string unpackerPath = ( Win64 ) ? "win64\\asset_unpacker.exe" : "win32\\asset_unpacker.exe";
 			string appPath      = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-			string folderName   = "\\assets unpacked";
-			string command      = " \"assets\\packed.pak\" " + $"\"{appPath}" + folderName +"\"";
+			string system       = ( Win64 ) ? "win64" : "win32";
+			string programEXE   = "asset_unpacker.exe";
 
-			if (Directory.Exists(appPath + folderName))
+			string assetsFolder = "assets unpacked";
+			string assetsPath   = appPath + "\\" + assetsFolder;
+
+			string unpackerPath = system + "\\" + programEXE;
+			string command      = " \"assets\\packed.pak\" " + "\"" + assetsPath +"\"";
+
+			var result = Functions.Dialogs.ShowMessage("Unpack Starbound Assets", "This process might take a while and uses a lot of space (~500 MB)\nDo you want to continue?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+			if (result == DialogResult.No)
 			{
-				var result = Functions.Dialogs.ShowMessage("Folder already exist.", "Do you wanna replace folder?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+				return false;
+			}
+
+			if (Directory.Exists(assetsPath))
+			{
+				result = Functions.Dialogs.ShowMessage("Folder already exist.", "Do you want to continue?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
 				if (result == DialogResult.No)
 				{
@@ -62,14 +74,15 @@ namespace Starbounder.Functions
 			}
 
 			Process cmd = new Process();
-
 			cmd.StartInfo.FileName         = "cmd.exe";
 			cmd.StartInfo.Arguments        = "/c " + unpackerPath + command;
-			cmd.StartInfo.WorkingDirectory = Project.Settings.LoadWorkingDirectory();
+			cmd.StartInfo.WorkingDirectory = Project.Settings.LoadStarboundFolder();
 			cmd.StartInfo.WindowStyle      = ProcessWindowStyle.Hidden;
 
 			cmd.Start();
 			cmd.WaitForExit();
+
+			Project.Settings.SaveAssetsFolder(assetsPath);
 
 			return true;
 		}

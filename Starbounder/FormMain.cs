@@ -10,14 +10,15 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Starbounder.FileTypes;
+using Starbounder.Structure;
 using Newtonsoft.Json;
 
 namespace Starbounder
 {
 	public partial class FormMain : Form
 	{
-		private bool posLeft = true;
-		private bool toggleMove = false;
+		private bool toggleMove = false; // Mouse has toggle move form
+
 		private int mouseX;
 		private int mouseY;
 
@@ -27,6 +28,9 @@ namespace Starbounder
 
 			MainMenuStrip.Renderer = new Renderer.ToolStrips();
 			contextMenuStripTreeView.Renderer = new Renderer.ToolStrips();
+
+			//this.DoubleBuffered = true;
+			this.SetStyle(ControlStyles.ResizeRedraw, true);
 		}
 
 		#region Functions
@@ -57,11 +61,16 @@ namespace Starbounder
 			return treeViewFolder.SelectedNode.Tag.ToString();
 		}
 
-		private void RefreshTreeView()
+		private void RefreshWorkTreeView()
 		{
 			treeViewFolder.Nodes.Clear();
-			treeViewFolder.Nodes.AddRange(Project.IProject.TreeViewPopulate());
+			treeViewFolder.Nodes.AddRange(Project.IProject.TreeViewPopulate(Project.Settings.LoadWorkingDirectory()));
 			treeViewFolder.ExpandAll();
+		}
+		private void RefreshAssetsTreeView()
+		{
+			treeViewAssets.Nodes.Clear();
+			treeViewAssets.Nodes.AddRange(Project.IProject.TreeViewPopulate(Project.Settings.LoadAssetsFolder()));
 		}
 		#endregion
 
@@ -83,7 +92,17 @@ namespace Starbounder
 			this.Icon = Properties.Resources.StarbounderIcon;
 			Structure.Placement.SetFormToLeftEdge(this);
 
-			RefreshTreeView();
+			RefreshAssetsTreeView();
+			RefreshWorkTreeView();
+		}
+
+		private void panelBorder_Paint(object sender, PaintEventArgs e)
+		{
+			Rectangle iRect = new Rectangle(0, 0, panelBorder.Height, panelBorder.Height);
+			Font fnt = new Font("Century Gothic", 12, FontStyle.Regular);
+
+			e.Graphics.DrawImage(Properties.Resources.StarbounderIconPNG, iRect);
+			e.Graphics.DrawString("Starbounder", fnt, SystemBrushes.Control, iRect.Width, iRect.Height / 2 - fnt.Height / 2);
 		}
 
 		private void treeViewFolder_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -127,7 +146,7 @@ namespace Starbounder
 		{
 			if (Project.IProject.LoadProject())
 			{
-				var nodes = Project.IProject.TreeViewPopulate();
+				var nodes = Project.IProject.TreeViewPopulate(Project.Settings.LoadWorkingDirectory());
 
 				treeViewFolder.Nodes.Clear();
 				treeViewFolder.Nodes.AddRange(nodes);
@@ -150,7 +169,9 @@ namespace Starbounder
 		private void unpackAssetsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			var cmd = Functions.Processes.UnpackStarbound(Properties.Settings.Default.OperationSystem64);
-			if (cmd) MessageBox.Show("Unpacking Assets might be complete.\nIf the process took less than a second, an error occured.", "Unpacking Assets", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			if (cmd) MessageBox.Show("Unpacking Assets is complete.\nIf the process took less than a second, an error occured.", "Unpacking Assets", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+			RefreshAssetsTreeView();
 		}
 		// File -> Exit
 		private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -166,21 +187,6 @@ namespace Starbounder
 			mf.FormClosed += (s, args) => this.Close();
 			mf.Show();
 		}
-		// Settings -> Placement
-		private void placementToolStripMenuItemToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			posLeft = ( posLeft ) ? false : true;
-
-			if (posLeft)
-			{
-				Structure.Placement.SetFormToLeftEdge(this);
-				placementToolStripMenuItem.Text = "Placement: Left";
-			} else
-			{
-				Structure.Placement.SetFormToRightEdge(this);
-				placementToolStripMenuItem.Text = "Placement: Right";
-			}
-		}
 		// Settings -> Hide
 		private void hideToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -189,7 +195,7 @@ namespace Starbounder
 		// Refresh
 		private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 		#endregion
 
@@ -200,19 +206,19 @@ namespace Starbounder
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Items.ItemItem().SetDefault(), ".item");
 			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 		private void materialItemToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Items.ItemMaterial().SetDefault(), ".matitem");
 			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 		private void liquidItemToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Items.ItemLiquid().SetDefault(), ".liqitem");
 			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 		#endregion
 		#region weapon
@@ -220,25 +226,25 @@ namespace Starbounder
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Weapons.WeaponSword().SetDefault(), ".sword");
 			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 		private void staffToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Weapons.WeaponStaff().SetDefault(), ".staff");
 			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 		private void gunToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Weapons.WeaponGun().SetDefault(), ".gun");
 			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 		private void thrownToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Weapons.WeaponThrown(), ".thrown");
 			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 		#endregion
 		#region tool
@@ -246,19 +252,19 @@ namespace Starbounder
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Tools.ToolMining().SetDefault(), ".miningtool");
 			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 		private void beamaxeToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Tools.ToolBeamaxe().SetDefault(), ".beamaxe");
 			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 		private void harvestingToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Tools.ToolMining().SetDefault(), ".harvestingtool");
 			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 		#endregion
 		#region armor
@@ -266,25 +272,25 @@ namespace Starbounder
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Armors.ArmorHead().SetDefault(), ".head");
 			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 		private void chestToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Armors.ArmorChest().SetDefault(), ".chest");
 			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 		private void legsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Armors.ArmorLegs().SetDefault(), ".legs");
 			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 		private void backToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Armors.ArmorBack(), ".back");
 			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 
 		#endregion
@@ -301,7 +307,7 @@ namespace Starbounder
 		private void framesToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FileTypes.FileTypes.CreateFrames(GetNodePath());
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 		#endregion
 		#region actions
@@ -312,25 +318,25 @@ namespace Starbounder
 
 			Functions.Actions.CreateFolder(folderPath + "\\" + folderName);
 
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 		private void renameToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Functions.Actions.Rename(GetNodePath());
 
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 		private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Functions.Actions.Delete(GetNodePath());
 
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 		private void moveToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Functions.Actions.Move(GetNodePath());
 
-			RefreshTreeView();
+			RefreshWorkTreeView();
 		}
 
 
@@ -347,16 +353,16 @@ namespace Starbounder
 
 		#endregion
 
-		#region panelBorder
+		#region Move & Resize
 		private void panelBorder_MouseDown(object sender, MouseEventArgs e)
 		{
 			if (!toggleMove)
 			{
 				mouseX = MousePosition.X - this.DesktopLocation.X;
 				mouseY = MousePosition.Y - this.DesktopLocation.Y;
-			}
 
-			toggleMove = true;
+				toggleMove = true;
+			}
 		}
 
 		private void panelBorder_MouseMove(object sender, MouseEventArgs e)
@@ -372,7 +378,14 @@ namespace Starbounder
 			toggleMove = false;
 			Structure.Placement.SnapToEdge(this);
 		}
+
+		private void panelBorder_MouseLeave(object sender, EventArgs e)
+		{
+			toggleMove = false;
+		}
+
 		#endregion
+
 
 	}
 }

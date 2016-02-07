@@ -95,7 +95,7 @@ namespace Starbounder.Project
 			return Properties.Settings.Default.StarboundFolder;
 		}
 
-		public static string LoadAssetsFolder(string path)
+		public static string LoadAssetsFolder()
 		{
 			return Properties.Settings.Default.AssetsFolder;
 		}

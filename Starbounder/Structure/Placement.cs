@@ -61,7 +61,7 @@ namespace Starbounder.Structure
 			Rectangle monitor = GetCurrentMonitor(fm);
 
 			fm.SetDesktopLocation(monitor.Right - fm.Width, 0);
-			fm.Size = new Size(250, monitor.Bottom - fm.Location.Y);
+			fm.Size = new Size(fm.Size.Width, monitor.Bottom - fm.Location.Y);
 		}
 
 		public static void SetFormToLeftEdge(Form fm)
@@ -69,7 +69,7 @@ namespace Starbounder.Structure
 			Rectangle monitor = GetCurrentMonitor(fm);
 
 			fm.SetDesktopLocation(monitor.Left, 0);
-			fm.Size = new Size(250, monitor.Bottom - fm.Location.Y);
+			fm.Size = new Size(fm.Width, monitor.Bottom - fm.Location.Y);
 		}
 	}
 }
