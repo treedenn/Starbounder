@@ -113,7 +113,6 @@ namespace Starbounder.Project
 
 			foreach (var folder in info.GetDirectories())
 			{
-				directoryNode.Tag = folder.FullName;
 				directoryNode.Nodes.Add(CreateDirectoryNodes(folder));
 			}
 

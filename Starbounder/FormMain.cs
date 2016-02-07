@@ -56,9 +56,14 @@ namespace Starbounder
 			item.ForeColor = SystemColors.Control;
 		}
 
-		private string GetNodePath()
+		private string GetNodeFolderPath()
 		{
 			return treeViewFolder.SelectedNode.Tag.ToString();
+		}
+
+		private string GetNodeAssetsPath()
+		{
+			return treeViewAssets.SelectedNode.Tag.ToString();
 		}
 
 		private void RefreshWorkTreeView()
@@ -109,22 +114,19 @@ namespace Starbounder
 		{
 			if (e.Button == MouseButtons.Right)
 			{
-				TreeNode path = treeViewFolder.SelectedNode = treeViewFolder.GetNodeAt(e.X, e.Y);
+				treeViewFolder.SelectedNode = treeViewFolder.GetNodeAt(e.X, e.Y);
 
-				if (path != null)
-				{
-					contextMenuStripTreeView.Show(treeViewFolder, e.X, e.Y);
-				}
+				contextMenuStripTreeView.Show(treeViewFolder, e.X, e.Y);
 			}
 		}
 
 		private void treeViewFolder_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
 		{
-			string nodePath = GetNodePath();
+			string nodePath = GetNodeFolderPath();
 
 			if (Path.HasExtension(nodePath))
 			{
-				string fe    = Path.GetExtension(nodePath); // File Extension
+				string fe = Path.GetExtension(nodePath); // File Extension
 				
 				if (fe == ".png" || fe == ".PNG")
 				{
@@ -132,6 +134,38 @@ namespace Starbounder
 				} else
 				{
 					Functions.Processes.OpenFileWithTextEditor(nodePath);
+				}
+			}
+		}
+
+		private void treeViewAssets_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+		{
+			if (e.Button == MouseButtons.Right)
+			{
+				treeViewAssets.SelectedNode = treeViewAssets.GetNodeAt(e.X, e.Y);
+
+				Functions.Processes.OpenFolder(GetNodeAssetsPath());
+			}
+		}
+
+		private void treeViewAssets_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+		{
+			if (e.Button == MouseButtons.Left)
+			{
+				string nodePath = GetNodeAssetsPath();
+
+				if (Path.HasExtension(nodePath))
+				{
+					string fe    = Path.GetExtension(nodePath); // File Extension
+
+					if (fe == ".png" || fe == ".PNG")
+					{
+						Functions.Processes.OpenFileWithImageEditor(nodePath);
+					}
+					else
+					{
+						Functions.Processes.OpenFileWithTextEditor(nodePath);
+					}
 				}
 			}
 		}
@@ -204,92 +238,92 @@ namespace Starbounder
 		#region item
 		private void itemToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Items.ItemItem().SetDefault(), ".item");
-			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
+			FileTypes.FileTypes.CreateJson(GetNodeFolderPath(), new FileTypes.Items.ItemItem().SetDefault(), ".item");
+			FileTypes.FileTypes.CreatePNG(GetNodeFolderPath(), 16, 16);
 			RefreshWorkTreeView();
 		}
 		private void materialItemToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Items.ItemMaterial().SetDefault(), ".matitem");
-			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
+			FileTypes.FileTypes.CreateJson(GetNodeFolderPath(), new FileTypes.Items.ItemMaterial().SetDefault(), ".matitem");
+			FileTypes.FileTypes.CreatePNG(GetNodeFolderPath(), 16, 16);
 			RefreshWorkTreeView();
 		}
 		private void liquidItemToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Items.ItemLiquid().SetDefault(), ".liqitem");
-			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
+			FileTypes.FileTypes.CreateJson(GetNodeFolderPath(), new FileTypes.Items.ItemLiquid().SetDefault(), ".liqitem");
+			FileTypes.FileTypes.CreatePNG(GetNodeFolderPath(), 16, 16);
 			RefreshWorkTreeView();
 		}
 		#endregion
 		#region weapon
 		private void swordToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Weapons.WeaponSword().SetDefault(), ".sword");
-			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
+			FileTypes.FileTypes.CreateJson(GetNodeFolderPath(), new FileTypes.Weapons.WeaponSword().SetDefault(), ".sword");
+			FileTypes.FileTypes.CreatePNG(GetNodeFolderPath(), 16, 16);
 			RefreshWorkTreeView();
 		}
 		private void staffToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Weapons.WeaponStaff().SetDefault(), ".staff");
-			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
+			FileTypes.FileTypes.CreateJson(GetNodeFolderPath(), new FileTypes.Weapons.WeaponStaff().SetDefault(), ".staff");
+			FileTypes.FileTypes.CreatePNG(GetNodeFolderPath(), 16, 16);
 			RefreshWorkTreeView();
 		}
 		private void gunToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Weapons.WeaponGun().SetDefault(), ".gun");
-			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
+			FileTypes.FileTypes.CreateJson(GetNodeFolderPath(), new FileTypes.Weapons.WeaponGun().SetDefault(), ".gun");
+			FileTypes.FileTypes.CreatePNG(GetNodeFolderPath(), 16, 16);
 			RefreshWorkTreeView();
 		}
 		private void thrownToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Weapons.WeaponThrown(), ".thrown");
-			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
+			FileTypes.FileTypes.CreateJson(GetNodeFolderPath(), new FileTypes.Weapons.WeaponThrown(), ".thrown");
+			FileTypes.FileTypes.CreatePNG(GetNodeFolderPath(), 16, 16);
 			RefreshWorkTreeView();
 		}
 		#endregion
 		#region tool
 		private void miningToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Tools.ToolMining().SetDefault(), ".miningtool");
-			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
+			FileTypes.FileTypes.CreateJson(GetNodeFolderPath(), new FileTypes.Tools.ToolMining().SetDefault(), ".miningtool");
+			FileTypes.FileTypes.CreatePNG(GetNodeFolderPath(), 16, 16);
 			RefreshWorkTreeView();
 		}
 		private void beamaxeToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Tools.ToolBeamaxe().SetDefault(), ".beamaxe");
-			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
+			FileTypes.FileTypes.CreateJson(GetNodeFolderPath(), new FileTypes.Tools.ToolBeamaxe().SetDefault(), ".beamaxe");
+			FileTypes.FileTypes.CreatePNG(GetNodeFolderPath(), 16, 16);
 			RefreshWorkTreeView();
 		}
 		private void harvestingToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Tools.ToolMining().SetDefault(), ".harvestingtool");
-			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
+			FileTypes.FileTypes.CreateJson(GetNodeFolderPath(), new FileTypes.Tools.ToolMining().SetDefault(), ".harvestingtool");
+			FileTypes.FileTypes.CreatePNG(GetNodeFolderPath(), 16, 16);
 			RefreshWorkTreeView();
 		}
 		#endregion
 		#region armor
 		private void headToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Armors.ArmorHead().SetDefault(), ".head");
-			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
+			FileTypes.FileTypes.CreateJson(GetNodeFolderPath(), new FileTypes.Armors.ArmorHead().SetDefault(), ".head");
+			FileTypes.FileTypes.CreatePNG(GetNodeFolderPath(), 16, 16);
 			RefreshWorkTreeView();
 		}
 		private void chestToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Armors.ArmorChest().SetDefault(), ".chest");
-			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
+			FileTypes.FileTypes.CreateJson(GetNodeFolderPath(), new FileTypes.Armors.ArmorChest().SetDefault(), ".chest");
+			FileTypes.FileTypes.CreatePNG(GetNodeFolderPath(), 16, 16);
 			RefreshWorkTreeView();
 		}
 		private void legsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Armors.ArmorLegs().SetDefault(), ".legs");
-			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
+			FileTypes.FileTypes.CreateJson(GetNodeFolderPath(), new FileTypes.Armors.ArmorLegs().SetDefault(), ".legs");
+			FileTypes.FileTypes.CreatePNG(GetNodeFolderPath(), 16, 16);
 			RefreshWorkTreeView();
 		}
 		private void backToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.CreateJson(GetNodePath(), new FileTypes.Armors.ArmorBack(), ".back");
-			FileTypes.FileTypes.CreatePNG(GetNodePath(), 16, 16);
+			FileTypes.FileTypes.CreateJson(GetNodeFolderPath(), new FileTypes.Armors.ArmorBack(), ".back");
+			FileTypes.FileTypes.CreatePNG(GetNodeFolderPath(), 16, 16);
 			RefreshWorkTreeView();
 		}
 
@@ -306,15 +340,15 @@ namespace Starbounder
 		}
 		private void framesToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FileTypes.FileTypes.CreateFrames(GetNodePath());
+			FileTypes.FileTypes.CreateFrames(GetNodeFolderPath());
 			RefreshWorkTreeView();
 		}
 		#endregion
 		#region actions
 		private void newFolderToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			string folderName = Path.GetFileNameWithoutExtension(GetNodePath());
-			string folderPath = (Path.HasExtension(GetNodePath())) ? Path.GetDirectoryName(GetNodePath()) : Path.GetFullPath(GetNodePath());
+			string folderName = Path.GetFileNameWithoutExtension(GetNodeFolderPath());
+			string folderPath = (Path.HasExtension(GetNodeFolderPath())) ? Path.GetDirectoryName(GetNodeFolderPath()) : Path.GetFullPath(GetNodeFolderPath());
 
 			Functions.Actions.CreateFolder(folderPath + "\\" + folderName);
 
@@ -322,19 +356,19 @@ namespace Starbounder
 		}
 		private void renameToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Functions.Actions.Rename(GetNodePath());
+			Functions.Actions.Rename(GetNodeFolderPath());
 
 			RefreshWorkTreeView();
 		}
 		private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Functions.Actions.Delete(GetNodePath());
+			Functions.Actions.Delete(GetNodeFolderPath());
 
 			RefreshWorkTreeView();
 		}
 		private void moveToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Functions.Actions.Move(GetNodePath());
+			Functions.Actions.Move(GetNodeFolderPath());
 
 			RefreshWorkTreeView();
 		}
@@ -384,8 +418,9 @@ namespace Starbounder
 			toggleMove = false;
 		}
 
+
 		#endregion
 
-
+		
 	}
 }

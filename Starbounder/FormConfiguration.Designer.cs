@@ -272,9 +272,9 @@
 			this.labelConfigAssets.AutoSize = true;
 			this.labelConfigAssets.Location = new System.Drawing.Point(12, 87);
 			this.labelConfigAssets.Name = "labelConfigAssets";
-			this.labelConfigAssets.Size = new System.Drawing.Size(95, 13);
+			this.labelConfigAssets.Size = new System.Drawing.Size(86, 13);
 			this.labelConfigAssets.TabIndex = 19;
-			this.labelConfigAssets.Text = "Working Directory:";
+			this.labelConfigAssets.Text = "Assets Directory:";
 			// 
 			// FormConfiguration
 			// 

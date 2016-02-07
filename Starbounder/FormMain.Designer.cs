@@ -479,6 +479,8 @@
 			this.treeViewAssets.Name = "treeViewAssets";
 			this.treeViewAssets.Size = new System.Drawing.Size(250, 411);
 			this.treeViewAssets.TabIndex = 2;
+			this.treeViewAssets.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewAssets_NodeMouseClick);
+			this.treeViewAssets.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewAssets_NodeMouseDoubleClick);
 			// 
 			// panelBorder
 			// 

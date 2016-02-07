@@ -87,23 +87,33 @@ namespace Starbounder.Functions
 			return true;
 		}
 
-		public static void OpenFileWithTextEditor(string path)
+		public static void OpenFileWithTextEditor(string filePath)
 		{
 			string te = Starbounder.Project.Settings.LoadTextEditor(); // Text editor
 
-			if (File.Exists(te) && File.Exists(path))
+			if (File.Exists(te) && File.Exists(filePath))
 			{
-				Process.Start(te, path);
+				ProcessStartInfo startInfo = new ProcessStartInfo();
+
+				startInfo.FileName = te;
+				startInfo.Arguments = "\"" + filePath + "\"";
+
+				Process.Start(startInfo);
 			}
 		}
 
-		public static void OpenFileWithImageEditor(string path)
+		public static void OpenFileWithImageEditor(string filePath)
 		{
 			string ie = Starbounder.Project.Settings.LoadImageEditor(); // Text editor
 
-			if (File.Exists(ie) && File.Exists(path))
+			if (File.Exists(ie) && File.Exists(filePath))
 			{
-				Process.Start(ie, path);
+				ProcessStartInfo startInfo = new ProcessStartInfo();
+
+				startInfo.FileName = ie;
+				startInfo.Arguments = "\"" + filePath + "\"";
+
+				Process.Start(startInfo);
 			}
 		}
 	}
