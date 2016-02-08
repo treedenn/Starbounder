@@ -17,6 +17,8 @@ namespace Starbounder
 {
 	public partial class FormMain : Form
 	{
+		private ReSize resizeForm;
+
 		private bool toggleMove = false; // Mouse has toggle move form
 
 		private int mouseX;
@@ -30,7 +32,7 @@ namespace Starbounder
 			contextMenuStripTreeView.Renderer = new Renderer.ToolStrips();
 
 			//this.DoubleBuffered = true;
-			this.SetStyle(ControlStyles.ResizeRedraw, true);
+			//this.SetStyle(ControlStyles.ResizeRedraw, true);
 		}
 
 		#region Functions
@@ -94,8 +96,10 @@ namespace Starbounder
 				}
 			}
 
+			resizeForm = new ReSize(this);
+
 			this.Icon = Properties.Resources.StarbounderIcon;
-			Structure.Placement.SetFormToLeftEdge(this);
+			Structure.Placement.SetFormToRightEdge(this);
 
 			RefreshAssetsTreeView();
 			RefreshWorkTreeView();
@@ -421,6 +425,8 @@ namespace Starbounder
 		#region Move & Resize
 		private void panelBorder_MouseDown(object sender, MouseEventArgs e)
 		{
+			resizeForm.EnableResize();
+
 			if (!toggleMove)
 			{
 				mouseX = MousePosition.X - this.DesktopLocation.X;
@@ -432,7 +438,32 @@ namespace Starbounder
 
 		private void panelBorder_MouseMove(object sender, MouseEventArgs e)
 		{
-			if (toggleMove)
+			// if resizing is enable, check either toleft or toright
+			if (resizeForm.IsResizing)
+			{
+				if (resizeForm.ResizingLeft)
+				{
+					resizeForm.ToLeft(System.Windows.Forms.Cursor.Position);
+				} else
+				{
+					resizeForm.ToRight(System.Windows.Forms.Cursor.Position);
+				}
+			} else
+			{
+				this.Cursor = Cursors.Default;
+			}
+
+			// Change cursor depending on mouse is right or left side of the panel
+			if (resizeForm.IsLeft(MousePosition))
+			{
+				this.Cursor = resizeForm.Cursor;
+			}
+			else if (resizeForm.IsRight(MousePosition))
+			{
+				this.Cursor = resizeForm.Cursor;
+			}
+
+			if (toggleMove && !resizeForm.IsResizing)
 			{
 				this.SetDesktopLocation(MousePosition.X - mouseX, MousePosition.Y - mouseY);
 			}
@@ -440,16 +471,17 @@ namespace Starbounder
 
 		private void panelBorder_MouseUp(object sender, MouseEventArgs e)
 		{
+			resizeForm.DisableResize();
+
 			toggleMove = false;
-			Structure.Placement.SnapToEdge(this);
+			Placement.SnapToEdge(this);
 		}
 
 		private void panelBorder_MouseLeave(object sender, EventArgs e)
 		{
-			toggleMove = false;
+			resizeForm.DisableResize();
+			this.Cursor = Cursors.Default;
 		}
-
-
 
 		#endregion
 
@@ -473,8 +505,7 @@ namespace Starbounder
 		}
 
 
-		#endregion
-		
 
+		#endregion
 	}
 }

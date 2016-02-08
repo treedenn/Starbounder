@@ -102,7 +102,7 @@
 			this.treeViewFolder.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
 			this.treeViewFolder.Location = new System.Drawing.Point(0, 0);
 			this.treeViewFolder.Name = "treeViewFolder";
-			this.treeViewFolder.Size = new System.Drawing.Size(250, 120);
+			this.treeViewFolder.Size = new System.Drawing.Size(250, 124);
 			this.treeViewFolder.TabIndex = 0;
 			this.treeViewFolder.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewFolder_NodeMouseClick);
 			this.treeViewFolder.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewFolder_NodeMouseDoubleClick);
@@ -348,7 +348,7 @@
 			this.menuStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
 			this.menuStripMain.Location = new System.Drawing.Point(0, 30);
 			this.menuStripMain.Name = "menuStripMain";
-			this.menuStripMain.Size = new System.Drawing.Size(250, 42);
+			this.menuStripMain.Size = new System.Drawing.Size(250, 23);
 			this.menuStripMain.TabIndex = 1;
 			this.menuStripMain.Text = "menuStrip";
 			// 
@@ -543,7 +543,7 @@
 			this.treeViewAssets.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
 			this.treeViewAssets.Location = new System.Drawing.Point(0, 0);
 			this.treeViewAssets.Name = "treeViewAssets";
-			this.treeViewAssets.Size = new System.Drawing.Size(250, 411);
+			this.treeViewAssets.Size = new System.Drawing.Size(250, 426);
 			this.treeViewAssets.TabIndex = 2;
 			this.treeViewAssets.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewAssets_NodeMouseClick);
 			this.treeViewAssets.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewAssets_NodeMouseDoubleClick);
@@ -566,7 +566,7 @@
 			this.splitContainerFolders.BackColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.splitContainerFolders.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.splitContainerFolders.ForeColor = System.Drawing.SystemColors.Control;
-			this.splitContainerFolders.Location = new System.Drawing.Point(0, 72);
+			this.splitContainerFolders.Location = new System.Drawing.Point(0, 53);
 			this.splitContainerFolders.Name = "splitContainerFolders";
 			this.splitContainerFolders.Orientation = System.Windows.Forms.Orientation.Horizontal;
 			// 
@@ -579,8 +579,8 @@
 			// 
 			this.splitContainerFolders.Panel2.Controls.Add(this.treeViewAssets);
 			this.splitContainerFolders.Panel2MinSize = 50;
-			this.splitContainerFolders.Size = new System.Drawing.Size(250, 535);
-			this.splitContainerFolders.SplitterDistance = 120;
+			this.splitContainerFolders.Size = new System.Drawing.Size(250, 554);
+			this.splitContainerFolders.SplitterDistance = 124;
 			this.splitContainerFolders.TabIndex = 4;
 			this.splitContainerFolders.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.splitContainerFolders_MouseDoubleClick);
 			// 

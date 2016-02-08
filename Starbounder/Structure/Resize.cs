@@ -12,58 +12,69 @@ namespace Starbounder.Structure
 	{
 		// Was only an experiment to see, if I could resize the form... Resize is right <-- direction was painful.
 
-		/*
 		private const int Border = 10;
 
-		public static bool IsResizing { get; set; }  = false;
+		private Form fm;
 
-		public static Cursor Cursor = Cursors.SizeWE;
-		
-		public static bool IsLeft(Form fm, Point MousePosition)
+		public bool IsResizing { get; set; }       = false;
+		public bool ResizingLeft { get; set; }     = false;
+
+		public Cursor Cursor { get; } = Cursors.SizeWE;
+
+		public ReSize(Form fm)
 		{
-			if (MousePosition.X < fm.Left + Border) 
+			this.fm = fm;
+		}
+
+		public void EnableResize()
+		{
+			if (fm.Cursor == Cursor)
 			{
+				IsResizing = true;
+			}
+		}
+
+		public void DisableResize()
+		{
+			IsResizing = false;
+		}
+
+		public bool IsLeft(Point MousePosition)
+		{
+			if (MousePosition.X < fm.Left + Border)
+			{
+				ResizingLeft = true;
 				return true;
 			}
 
 			return false;
 		}
 
-		public static bool IsRight(Form fm, Point MousePosition)
+		public bool IsRight(Point MousePosition)
 		{
 			if (MousePosition.X > fm.Right - Border)
 			{
+				ResizingLeft = false;
 				return true;
 			}
 
 			return false;
 		}
 
-		public static void ToLeft(Form fm, Point MousePosition, int startLocationX)
+		public void ToLeft(Point MousePosition)
 		{
-			var screen = Placement.GetLocationWithinScreen(fm);
+			var monitor = Placement.GetCurrentMonitor(fm);
 
-			if (screen != null)
-			{
-				var currScreen = Placement.GetCurrentMonitor(fm);
-
-				fm.Left = MousePosition.X;
-
-				int newWidth = (startLocationX - fm.Left) + (currScreen.Width - screen.Value.X);
-
-				fm.Width = newWidth;
-
-				Placement.SetFormToRightEdge(fm);
-				
-			}
+			fm.Width = monitor.Width - MousePosition.X;
+			Placement.SetFormToRightEdge(fm);
 		}
 
-		public static void ToRight(Form fm, Point MousePosition, int startLocationX)
+		public void ToRight(Point MousePosition)
 		{
-			fm.Width = MousePosition.X - fm.Left;
+			fm.Width = MousePosition.X;
+			Placement.SetFormToLeftEdge(fm);
 		}
-		*/
-		
+
 
 	}
 }
