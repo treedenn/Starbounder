@@ -14,18 +14,25 @@ namespace Starbounder
 {
 	public partial class FormConfiguration : Form
 	{
-		private bool isExpanded = false;
+		public bool ApplySettings = false;
+		private List<Tuple<string, Panel>> configMenu;
 
 		public FormConfiguration()
 		{
 			InitializeComponent();
 		}
 
+		private void ResetPanels()
+		{
+			foreach (var option in configMenu)
+			{
+				option.Item2.Visible = false;
+			}
+		}
+
 		// Form load
 		private void FormConfiguration_Load(object sender, EventArgs e)
 		{
-			this.Icon = Properties.Resources.StarbounderIcon;
-
 			textBoxConfigSB.Text           = Settings.LoadStarboundFolder();
 			radioButtonConfigWin64.Checked = Settings.LoadSystem();
 			textBoxConfigWork.Text         = Settings.LoadWorkingDirectory();
@@ -39,13 +46,23 @@ namespace Starbounder
 			{
 				Functions.Steam.SearchForStarboundFolder(textBoxConfigSB);
 			}
-		}
 
-		// Expand
-		private void buttonConfigExpand_Click(object sender, EventArgs e)
-		{
-			isExpanded = ( isExpanded ) ? isExpanded = false : isExpanded = true;
-			this.Size = ( isExpanded ) ? new Size(500, 350) : new Size(500, 200);
+			configMenu = new List<Tuple<string, Panel>>()
+			{
+				new Tuple<string, Panel>("Directories", panelConfigDirectories),
+				new Tuple<string, Panel>("Editors", panelConfigEditors),
+				new Tuple<string, Panel>("JSON", panelConfigDefaultJSON),
+			};
+
+			foreach (var option in configMenu)
+			{
+				treeViewConfigMenu.Nodes.Add(option.Item1);
+
+				option.Item2.Visible = false;
+			}
+
+			panelConfigDirectories.Visible = true;
+
 		}
 		
 		// Continue
@@ -63,12 +80,9 @@ namespace Starbounder
 
 			Settings.Save();
 
-			// Open Main form
-			this.Hide();
-			var mf = new FormMain();
+			ApplySettings = true;
 
-			mf.FormClosed += (s, args) => this.Close();
-			mf.Show();
+			this.Close();
 		}
 
 		#region Buttons : Browse
@@ -106,8 +120,28 @@ namespace Starbounder
 
 			textBoxConfigAssets.Text = ( folder != null ) ? folder.SelectedPath : textBoxConfigAssets.Text;
 		}
+
 		#endregion
 
+		private void treeViewConfigMenu_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+		{
+			treeViewConfigMenu.SelectedNode = treeViewConfigMenu.GetNodeAt(e.X, e.Y);
 
+			foreach (var option in configMenu)
+			{
+				if (treeViewConfigMenu.SelectedNode.Text == option.Item1)
+				{
+					ResetPanels();
+
+					option.Item2.Visible = true;
+				}
+				
+			}
+		}
+
+		private void buttonConfigClose_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
 	}
 }

@@ -10,6 +10,8 @@ namespace Starbounder.Structure
 {
 	class Placement
 	{
+		public static bool LeftSide = false;
+
 		public static Rectangle GetCurrentMonitor(Control ct)
 		{
 			Rectangle bounds = Screen.FromControl(ct).Bounds;
@@ -62,6 +64,8 @@ namespace Starbounder.Structure
 
 			fm.SetDesktopLocation(monitor.Right - fm.Width, 0);
 			fm.Size = new Size(fm.Size.Width, monitor.Bottom - fm.Location.Y);
+
+			LeftSide = false;
 		}
 
 		public static void SetFormToLeftEdge(Form fm)
@@ -70,6 +74,8 @@ namespace Starbounder.Structure
 
 			fm.SetDesktopLocation(monitor.Left, 0);
 			fm.Size = new Size(fm.Width, monitor.Bottom - fm.Location.Y);
+
+			LeftSide = true;
 		}
 	}
 }

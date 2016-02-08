@@ -122,18 +122,22 @@ namespace Starbounder
 
 		private void treeViewFolder_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
 		{
-			string nodePath = GetNodeFolderPath();
-
-			if (Path.HasExtension(nodePath))
+			if (treeViewFolder.SelectedNode != null)
 			{
-				string fe = Path.GetExtension(nodePath); // File Extension
-				
-				if (fe == ".png" || fe == ".PNG")
+				string nodePath = GetNodeFolderPath();
+
+				if (Path.HasExtension(nodePath))
 				{
-					Functions.Processes.OpenFileWithImageEditor(nodePath);
-				} else
-				{
-					Functions.Processes.OpenFileWithTextEditor(nodePath);
+					string fe = Path.GetExtension(nodePath); // File Extension
+
+					if (fe == ".png")
+					{
+						Functions.Processes.OpenFileWithImageEditor(nodePath);
+					}
+					else
+					{
+						Functions.Processes.OpenFileWithTextEditor(nodePath);
+					}
 				}
 			}
 		}
@@ -147,26 +151,45 @@ namespace Starbounder
 				Functions.Processes.OpenFolder(GetNodeAssetsPath());
 			}
 		}
-
+		 
 		private void treeViewAssets_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
 		{
-			if (e.Button == MouseButtons.Left)
+			if (treeViewAssets.SelectedNode != null)
 			{
-				string nodePath = GetNodeAssetsPath();
-
-				if (Path.HasExtension(nodePath))
+				if (e.Button == MouseButtons.Left)
 				{
-					string fe    = Path.GetExtension(nodePath); // File Extension
+					string nodePath = GetNodeAssetsPath();
 
-					if (fe == ".png" || fe == ".PNG")
+					if (Path.HasExtension(nodePath))
 					{
-						Functions.Processes.OpenFileWithImageEditor(nodePath);
-					}
-					else
-					{
-						Functions.Processes.OpenFileWithTextEditor(nodePath);
+						string fe    = Path.GetExtension(nodePath); // File Extension
+
+						if (fe == ".png")
+						{
+							Functions.Processes.OpenFileWithImageEditor(nodePath);
+						}
+						else
+						{
+							Functions.Processes.OpenFileWithTextEditor(nodePath);
+						}
 					}
 				}
+			}
+		}
+
+		private void splitContainerFolders_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			var scf = splitContainerFolders;
+
+			if (scf.Orientation == Orientation.Horizontal)
+			{
+				scf.Orientation = Orientation.Vertical;
+				scf.SplitterDistance = scf.Width * 1 / 2;
+			}
+			else
+			{
+				scf.Orientation = Orientation.Horizontal;
+				scf.SplitterDistance = scf.Height * 1 / 4;
 			}
 		}
 
@@ -215,11 +238,19 @@ namespace Starbounder
 		// Settings -> Configurations
 		private void configurationToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			this.Hide();
 			var mf = new FormConfiguration();
 
-			mf.FormClosed += (s, args) => this.Close();
-			mf.Show();
+			//mf.FormClosed += (s, args) => this.Close();
+			//mf.FormClosed += (s, args) => { RefreshWorkTreeView(); RefreshAssetsTreeView(); };
+
+			mf.Icon = this.Icon;
+			mf.ShowDialog(this);
+
+			if (mf.ApplySettings)
+			{
+				RefreshAssetsTreeView();
+				RefreshWorkTreeView();
+			}
 		}
 		// Settings -> Hide
 		private void hideToolStripMenuItem_Click(object sender, EventArgs e)
@@ -440,9 +471,10 @@ namespace Starbounder
 		{
 			Functions.Processes.OpenWebsite("http://www.nexusmods.com/starbound/mods/categories/?");
 		}
-		
-		#endregion
 
+
+		#endregion
+		
 
 	}
 }
