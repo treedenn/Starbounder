@@ -598,7 +598,7 @@
 			this.MainMenuStrip = this.menuStripMain;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(150, 0);
+			this.MinimumSize = new System.Drawing.Size(175, 0);
 			this.Name = "FormMain";
 			this.Opacity = 0.9D;
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;

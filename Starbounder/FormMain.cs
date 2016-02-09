@@ -111,7 +111,7 @@ namespace Starbounder
 			Font fnt = new Font("Century Gothic", 12, FontStyle.Regular);
 
 			e.Graphics.DrawImage(Properties.Resources.StarbounderIconPNG, iRect);
-			e.Graphics.DrawString("Starbounder", fnt, SystemBrushes.Control, iRect.Width, iRect.Height / 2 - fnt.Height / 2);
+			e.Graphics.DrawString("Starbounder v1.0", fnt, SystemBrushes.Control, iRect.Width, iRect.Height / 2 - fnt.Height / 2);
 		}
 
 		private void treeViewFolder_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
