@@ -556,6 +556,7 @@
 			this.panelBorder.Size = new System.Drawing.Size(250, 30);
 			this.panelBorder.TabIndex = 3;
 			this.panelBorder.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBorder_Paint);
+			this.panelBorder.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panelBorder_MouseDoubleClick);
 			this.panelBorder.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelBorder_MouseDown);
 			this.panelBorder.MouseLeave += new System.EventHandler(this.panelBorder_MouseLeave);
 			this.panelBorder.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelBorder_MouseMove);

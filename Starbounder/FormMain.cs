@@ -31,8 +31,8 @@ namespace Starbounder
 			MainMenuStrip.Renderer = new Renderer.ToolStrips();
 			contextMenuStripTreeView.Renderer = new Renderer.ToolStrips();
 
-			//this.DoubleBuffered = true;
-			//this.SetStyle(ControlStyles.ResizeRedraw, true);
+			this.DoubleBuffered = true;
+			this.SetStyle(ControlStyles.ResizeRedraw, true);
 		}
 
 		#region Functions
@@ -423,6 +423,12 @@ namespace Starbounder
 		#endregion
 
 		#region Move & Resize
+		private void panelBorder_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			var monitor = Screen.FromControl(this);
+			this.DesktopBounds = monitor.Bounds;
+		}
+
 		private void panelBorder_MouseDown(object sender, MouseEventArgs e)
 		{
 			resizeForm.EnableResize();
@@ -441,13 +447,20 @@ namespace Starbounder
 			// if resizing is enable, check either toleft or toright
 			if (resizeForm.IsResizing)
 			{
-				if (resizeForm.ResizingLeft)
+				var cursorPosition = Placement.GetCursorWithinScreen(MousePosition);
+
+				if (cursorPosition != null)
 				{
-					resizeForm.ToLeft(System.Windows.Forms.Cursor.Position);
-				} else
-				{
-					resizeForm.ToRight(System.Windows.Forms.Cursor.Position);
+					if (resizeForm.ResizingLeft)
+					{
+						resizeForm.ToLeft(cursorPosition.Value);
+					}
+					else
+					{
+						resizeForm.ToRight(cursorPosition.Value);
+					}
 				}
+				
 			} else
 			{
 				this.Cursor = Cursors.Default;
@@ -507,5 +520,7 @@ namespace Starbounder
 
 
 		#endregion
+
+		
 	}
 }

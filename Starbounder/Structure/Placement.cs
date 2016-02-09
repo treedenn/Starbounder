@@ -32,6 +32,20 @@ namespace Starbounder.Structure
 			return null;
 		}
 
+		public static Point? GetCursorWithinScreen(Point MousePosition)
+		{
+			foreach (Screen screen in Screen.AllScreens)
+			{
+				if (screen.Bounds.Contains(MousePosition))
+				{
+					return new Point(MousePosition.X - screen.Bounds.Left,
+						MousePosition.Y - screen.Bounds.Top);
+				}
+			}
+
+			return null;
+		}
+
 		public static void SnapToEdge(Form fm)
 		{
 			var formLocation = GetLocationWithinScreen(fm);
@@ -47,13 +61,16 @@ namespace Starbounder.Structure
 				int monCenterX = monitor.Width / 2;
 				int formDeskX = formLocation.Value.X + fm.Width / 2;
 
-				if (formDeskX <= monCenterX)
+				if (fm.WindowState == FormWindowState.Normal)
 				{
-					SetFormToLeftEdge(fm);
-				}
-				else
-				{
-					SetFormToRightEdge(fm);
+					if (formDeskX <= monCenterX)
+					{
+						SetFormToLeftEdge(fm);
+					}
+					else
+					{
+						SetFormToRightEdge(fm);
+					}
 				}
 			}
 		}
