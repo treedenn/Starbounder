@@ -53,6 +53,8 @@
 			this.consumableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.liquidToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.framesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.animationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.templatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparatorActions = new System.Windows.Forms.ToolStripSeparator();
 			this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.newFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,6 +87,7 @@
 			this.treeViewAssets = new System.Windows.Forms.TreeView();
 			this.panelBorder = new System.Windows.Forms.Panel();
 			this.splitContainerFolders = new System.Windows.Forms.SplitContainer();
+			this.imagePNGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStripTreeView.SuspendLayout();
 			this.menuStripMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainerFolders)).BeginInit();
@@ -102,7 +105,7 @@
 			this.treeViewFolder.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
 			this.treeViewFolder.Location = new System.Drawing.Point(0, 0);
 			this.treeViewFolder.Name = "treeViewFolder";
-			this.treeViewFolder.Size = new System.Drawing.Size(250, 124);
+			this.treeViewFolder.Size = new System.Drawing.Size(250, 121);
 			this.treeViewFolder.TabIndex = 0;
 			this.treeViewFolder.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewFolder_NodeMouseClick);
 			this.treeViewFolder.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewFolder_NodeMouseDoubleClick);
@@ -115,11 +118,12 @@
             this.toolsToolStripMenuItem,
             this.armorsToolStripMenuItem,
             this.otherToolStripMenuItem,
+            this.templatesToolStripMenuItem,
             this.toolStripSeparatorActions,
             this.actionsToolStripMenuItem});
 			this.contextMenuStripTreeView.Name = "contextMenuStripTreeView";
 			this.contextMenuStripTreeView.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-			this.contextMenuStripTreeView.Size = new System.Drawing.Size(124, 142);
+			this.contextMenuStripTreeView.Size = new System.Drawing.Size(153, 186);
 			// 
 			// itemsToolStripMenuItem
 			// 
@@ -128,7 +132,7 @@
             this.materialItemToolStripMenuItem,
             this.liquidItemToolStripMenuItem});
 			this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
-			this.itemsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+			this.itemsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.itemsToolStripMenuItem.Text = "Items";
 			// 
 			// itemToolStripMenuItem
@@ -160,7 +164,7 @@
             this.gunToolStripMenuItem,
             this.thrownToolStripMenuItem});
 			this.weaponsToolStripMenuItem.Name = "weaponsToolStripMenuItem";
-			this.weaponsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+			this.weaponsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.weaponsToolStripMenuItem.Text = "Weapons";
 			// 
 			// swordToolStripMenuItem
@@ -198,7 +202,7 @@
             this.beamaxeToolStripMenuItem,
             this.harvestingToolStripMenuItem});
 			this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-			this.toolsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+			this.toolsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.toolsToolStripMenuItem.Text = "Tools";
 			// 
 			// miningToolStripMenuItem
@@ -230,73 +234,88 @@
             this.legsToolStripMenuItem,
             this.backToolStripMenuItem});
 			this.armorsToolStripMenuItem.Name = "armorsToolStripMenuItem";
-			this.armorsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+			this.armorsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.armorsToolStripMenuItem.Text = "Armors";
 			// 
 			// headToolStripMenuItem
 			// 
 			this.headToolStripMenuItem.Name = "headToolStripMenuItem";
-			this.headToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+			this.headToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.headToolStripMenuItem.Text = "Head";
 			this.headToolStripMenuItem.Click += new System.EventHandler(this.headToolStripMenuItem_Click);
 			// 
 			// chestToolStripMenuItem
 			// 
 			this.chestToolStripMenuItem.Name = "chestToolStripMenuItem";
-			this.chestToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+			this.chestToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.chestToolStripMenuItem.Text = "Chest";
 			this.chestToolStripMenuItem.Click += new System.EventHandler(this.chestToolStripMenuItem_Click);
 			// 
 			// legsToolStripMenuItem
 			// 
 			this.legsToolStripMenuItem.Name = "legsToolStripMenuItem";
-			this.legsToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+			this.legsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.legsToolStripMenuItem.Text = "Legs";
 			this.legsToolStripMenuItem.Click += new System.EventHandler(this.legsToolStripMenuItem_Click);
 			// 
 			// backToolStripMenuItem
 			// 
 			this.backToolStripMenuItem.Name = "backToolStripMenuItem";
-			this.backToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+			this.backToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.backToolStripMenuItem.Text = "Back";
 			this.backToolStripMenuItem.Click += new System.EventHandler(this.backToolStripMenuItem_Click);
 			// 
 			// otherToolStripMenuItem
 			// 
 			this.otherToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.imagePNGToolStripMenuItem,
+            this.framesToolStripMenuItem,
+            this.animationToolStripMenuItem,
             this.consumableToolStripMenuItem,
-            this.liquidToolStripMenuItem,
-            this.framesToolStripMenuItem});
+            this.liquidToolStripMenuItem});
 			this.otherToolStripMenuItem.Name = "otherToolStripMenuItem";
-			this.otherToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+			this.otherToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.otherToolStripMenuItem.Text = "Other";
 			// 
 			// consumableToolStripMenuItem
 			// 
 			this.consumableToolStripMenuItem.Name = "consumableToolStripMenuItem";
-			this.consumableToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+			this.consumableToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.consumableToolStripMenuItem.Text = "Consumable";
 			this.consumableToolStripMenuItem.Click += new System.EventHandler(this.consumableToolStripMenuItem_Click);
 			// 
 			// liquidToolStripMenuItem
 			// 
 			this.liquidToolStripMenuItem.Name = "liquidToolStripMenuItem";
-			this.liquidToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+			this.liquidToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.liquidToolStripMenuItem.Text = "Liquid";
 			this.liquidToolStripMenuItem.Click += new System.EventHandler(this.liquidToolStripMenuItem_Click);
 			// 
 			// framesToolStripMenuItem
 			// 
 			this.framesToolStripMenuItem.Name = "framesToolStripMenuItem";
-			this.framesToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+			this.framesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.framesToolStripMenuItem.Text = "Frames";
 			this.framesToolStripMenuItem.Click += new System.EventHandler(this.framesToolStripMenuItem_Click);
+			// 
+			// animationToolStripMenuItem
+			// 
+			this.animationToolStripMenuItem.Name = "animationToolStripMenuItem";
+			this.animationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.animationToolStripMenuItem.Text = "Animation";
+			this.animationToolStripMenuItem.Click += new System.EventHandler(this.animationToolStripMenuItem_Click);
+			// 
+			// templatesToolStripMenuItem
+			// 
+			this.templatesToolStripMenuItem.Name = "templatesToolStripMenuItem";
+			this.templatesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.templatesToolStripMenuItem.Text = "Templates";
 			// 
 			// toolStripSeparatorActions
 			// 
 			this.toolStripSeparatorActions.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.toolStripSeparatorActions.Name = "toolStripSeparatorActions";
-			this.toolStripSeparatorActions.Size = new System.Drawing.Size(120, 6);
+			this.toolStripSeparatorActions.Size = new System.Drawing.Size(149, 6);
 			// 
 			// actionsToolStripMenuItem
 			// 
@@ -306,34 +325,36 @@
             this.deleteToolStripMenuItem,
             this.moveToolStripMenuItem});
 			this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
-			this.actionsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+			this.actionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.actionsToolStripMenuItem.Text = "Actions";
 			// 
 			// newFolderToolStripMenuItem
 			// 
 			this.newFolderToolStripMenuItem.Name = "newFolderToolStripMenuItem";
-			this.newFolderToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.newFolderToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
 			this.newFolderToolStripMenuItem.Text = "New Folder";
 			this.newFolderToolStripMenuItem.Click += new System.EventHandler(this.newFolderToolStripMenuItem_Click);
 			// 
 			// renameToolStripMenuItem
 			// 
 			this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-			this.renameToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.renameToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+			this.renameToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
 			this.renameToolStripMenuItem.Text = "Rename";
 			this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
 			// 
 			// deleteToolStripMenuItem
 			// 
 			this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-			this.deleteToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.deleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+			this.deleteToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
 			this.deleteToolStripMenuItem.Text = "Delete";
 			this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
 			// 
 			// moveToolStripMenuItem
 			// 
 			this.moveToolStripMenuItem.Name = "moveToolStripMenuItem";
-			this.moveToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.moveToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
 			this.moveToolStripMenuItem.Text = "Move";
 			this.moveToolStripMenuItem.Click += new System.EventHandler(this.moveToolStripMenuItem_Click);
 			// 
@@ -543,7 +564,7 @@
 			this.treeViewAssets.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
 			this.treeViewAssets.Location = new System.Drawing.Point(0, 0);
 			this.treeViewAssets.Name = "treeViewAssets";
-			this.treeViewAssets.Size = new System.Drawing.Size(250, 426);
+			this.treeViewAssets.Size = new System.Drawing.Size(250, 429);
 			this.treeViewAssets.TabIndex = 2;
 			this.treeViewAssets.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewAssets_NodeMouseClick);
 			this.treeViewAssets.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewAssets_NodeMouseDoubleClick);
@@ -581,9 +602,16 @@
 			this.splitContainerFolders.Panel2.Controls.Add(this.treeViewAssets);
 			this.splitContainerFolders.Panel2MinSize = 50;
 			this.splitContainerFolders.Size = new System.Drawing.Size(250, 554);
-			this.splitContainerFolders.SplitterDistance = 124;
+			this.splitContainerFolders.SplitterDistance = 121;
 			this.splitContainerFolders.TabIndex = 4;
 			this.splitContainerFolders.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.splitContainerFolders_MouseDoubleClick);
+			// 
+			// imagePNGToolStripMenuItem
+			// 
+			this.imagePNGToolStripMenuItem.Name = "imagePNGToolStripMenuItem";
+			this.imagePNGToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.imagePNGToolStripMenuItem.Text = "Image (PNG)";
+			this.imagePNGToolStripMenuItem.Click += new System.EventHandler(this.imagePNGToolStripMenuItem_Click);
 			// 
 			// FormMain
 			// 
@@ -674,5 +702,8 @@
 		private System.Windows.Forms.ToolStripMenuItem nexusmodsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem starboundForumToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem starboundModsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem animationToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem templatesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem imagePNGToolStripMenuItem;
 	}
 }

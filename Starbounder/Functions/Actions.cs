@@ -21,20 +21,27 @@ namespace Starbounder.Functions
 		
 		public static void Delete(string path)
 		{
-			if (Path.HasExtension(path))
+			DialogResult dialog = Functions.Dialogs.ShowMessage("You are about to delete a file or folder", "Are you sure you want to delete file/folder?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+			// make sure that the user wants to delete the file/folder.
+
+			if (dialog == DialogResult.Yes)
 			{
-				// Path is a file.
-				if (File.Exists(path))
+				if (Path.HasExtension(path))
 				{
-					File.Delete(path);
+					// Path is a file.
+					if (File.Exists(path))
+					{
+						File.Delete(path);
+					}
 				}
-			}
-			else
-			{
-				// Path is a folder.
-				if (Directory.Exists(path))
+				else
 				{
-					Directory.Delete(path);
+					// Path is a folder.
+					if (Directory.Exists(path))
+					{
+						Directory.Delete(path, true);
+					}
 				}
 			}
 		}
@@ -66,25 +73,28 @@ namespace Starbounder.Functions
 		{
 			string newName = Dialogs.MessageBoxInput("Rename Message Input", "Enter the new name in the textbox for the file or folder.");
 
-			if (Path.HasExtension(path) && newName != string.Empty)
-			{ 
-				// Path is a file.
-				if (File.Exists(path))
-				{
-					string extension = Path.GetExtension(path);
-					string newPath = Path.GetDirectoryName(path) + "\\" + newName + extension;
-
-					File.Move(path, newPath);
-				}
-			}
-			else if (newName != string.Empty)
+			if (newName != "")
 			{
-				// Path is a folder.
-				if (Directory.Exists(path))
+				if (Path.HasExtension(path))
 				{
-					string newPath = Path.GetDirectoryName(path) + "\\" + newName;
+					// Path is a file.
+					if (File.Exists(path))
+					{
+						string extension = Path.GetExtension(path);
+						string newPath = Path.GetDirectoryName(path) + "\\" + newName + extension;
 
-					Directory.Move(path, newPath);
+						File.Move(path, newPath);
+					}
+				}
+				else
+				{
+					// Path is a folder.
+					if (Directory.Exists(path))
+					{
+						string newPath = Path.GetDirectoryName(path) + "\\" + newName;
+
+						Directory.Move(path, newPath);
+					}
 				}
 			}
 		}
