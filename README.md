@@ -21,6 +21,7 @@ navigate around the universe of files and folders in project (mod) directory and
 You can double-click files in your mod folder to open it in either your text editor or image editor depending on the extension. Is it possible to double-click the splitter to change the orientation between mod folder and assets folder. You can right-click your assets folders to open the selected directory. You can move the program to the edges of a monitor by using the panel (where the icon and title) is. The panel is also used for maximize the window (double-click) and to resize (edges).
 
 ## Requirements
-It is only programmed for Windows. Requires .NET Framework 4.6.
+Starbounder is created with C# from Microsoft, so it is only available for Windows users.
+This means, it requires .NET Framework 4.6 to functional. 
 
 ### Thanks for viewing the README.
