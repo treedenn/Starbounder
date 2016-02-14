@@ -3,7 +3,7 @@ Starbounder is an application for a game called STARBOUND by Chucklefish (www.pl
 The application is designed to help the user to create mod or more specifically, 
 navigate around the universe of files and folders in project (mod) directory and asset directory.
 
-### Current Version: 1.0
+### Current Version: 1.1
 
 ## Features
 * Create & Load new projects
